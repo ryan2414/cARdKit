@@ -16,22 +16,42 @@ MonoBehaviour:
   m_GuidHigh: 16325701781717569415
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 4863942855041445339
-      m_GuidHigh: 8339619740923133068
+      m_GuidLow: 5653145675479381346
+      m_GuidHigh: 8583295808315820731
     m_SerializedTextureGuid:
-      m_GuidLow: 8364488673523715352
-      m_GuidHigh: 13921377350285131770
+      m_GuidLow: 3532036143737985226
+      m_GuidHigh: 1116960328382781832
     m_Size: {x: 0.1, y: 0.1}
     m_SpecifySize: 1
-    m_Name: Soonsoon
+    m_Name: Switch
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 4636669316228550884
-      m_GuidHigh: 13054480357077414836
+      m_GuidLow: 4818754552466446287
+      m_GuidHigh: 3680376819092437166
     m_SerializedTextureGuid:
-      m_GuidLow: 15283535065821387064
-      m_GuidHigh: 8646478207864821240
-    m_Size: {x: 0.1, y: 0.1}
+      m_GuidLow: 18430115955151709284
+      m_GuidHigh: 8666632453102810073
+    m_Size: {x: 0.1, y: 0.12511013}
     m_SpecifySize: 1
-    m_Name: Ari
+    m_Name: Battery
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5577561700401695513
+      m_GuidHigh: 4275728842887021959
+    m_SerializedTextureGuid:
+      m_GuidLow: 4351785423749107373
+      m_GuidHigh: 8192413125611981275
+    m_Size: {x: 0.1, y: 0.08931035}
+    m_SpecifySize: 1
+    m_Name: Resistance
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5237939304062678100
+      m_GuidHigh: 12981201998360346029
+    m_SerializedTextureGuid:
+      m_GuidLow: 1924165193686363397
+      m_GuidHigh: 6248490691808405976
+    m_Size: {x: 0.1, y: 0.09540984}
+    m_SpecifySize: 1
+    m_Name: Bulb
     m_Texture: {fileID: 0}
