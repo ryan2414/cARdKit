@@ -16,42 +16,42 @@ MonoBehaviour:
   m_GuidHigh: 16325701781717569415
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 5653145675479381346
-      m_GuidHigh: 8583295808315820731
+      m_GuidLow: 5409689160673407514
+      m_GuidHigh: 3343699478316305042
     m_SerializedTextureGuid:
-      m_GuidLow: 3532036143737985226
-      m_GuidHigh: 1116960328382781832
-    m_Size: {x: 0.1, y: 0.1}
-    m_SpecifySize: 1
-    m_Name: Switch
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4818754552466446287
-      m_GuidHigh: 3680376819092437166
-    m_SerializedTextureGuid:
-      m_GuidLow: 18430115955151709284
-      m_GuidHigh: 8666632453102810073
-    m_Size: {x: 0.1, y: 0.12511013}
-    m_SpecifySize: 1
-    m_Name: Battery
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 5577561700401695513
-      m_GuidHigh: 4275728842887021959
-    m_SerializedTextureGuid:
-      m_GuidLow: 4351785423749107373
-      m_GuidHigh: 8192413125611981275
-    m_Size: {x: 0.1, y: 0.08931035}
+      m_GuidLow: 15313504075296777609
+      m_GuidHigh: 2289367642880016713
+    m_Size: {x: 0.1, y: 0.089003436}
     m_SpecifySize: 1
     m_Name: Resistance
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
-      m_GuidLow: 5237939304062678100
-      m_GuidHigh: 12981201998360346029
+      m_GuidLow: 5368052682003971719
+      m_GuidHigh: 4212338892092048258
     m_SerializedTextureGuid:
-      m_GuidLow: 1924165193686363397
-      m_GuidHigh: 6248490691808405976
-    m_Size: {x: 0.1, y: 0.09540984}
+      m_GuidLow: 18042780261482296454
+      m_GuidHigh: 12799899347169037675
+    m_Size: {x: 0.1, y: 0.10037736}
+    m_SpecifySize: 1
+    m_Name: Switch
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5104196378520721526
+      m_GuidHigh: 7439804625079941804
+    m_SerializedTextureGuid:
+      m_GuidLow: 6725248181776123392
+      m_GuidHigh: 4518356222388340089
+    m_Size: {x: 0.1, y: 0.12456141}
+    m_SpecifySize: 1
+    m_Name: Battery
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5059426794029763831
+      m_GuidHigh: 12240664429704648118
+    m_SerializedTextureGuid:
+      m_GuidLow: 14309084486113698396
+      m_GuidHigh: 44336548439621194
+    m_Size: {x: 0.1, y: 0.0957377}
     m_SpecifySize: 1
     m_Name: Bulb
     m_Texture: {fileID: 0}
