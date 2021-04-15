@@ -23,7 +23,7 @@ MonoBehaviour:
       m_GuidHigh: 2289367642880016713
     m_Size: {x: 0.1, y: 0.089003436}
     m_SpecifySize: 1
-    m_Name: Test
+    m_Name: Resistance
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5368052682003971719
