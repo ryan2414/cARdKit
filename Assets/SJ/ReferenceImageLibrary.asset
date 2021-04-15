@@ -23,7 +23,7 @@ MonoBehaviour:
       m_GuidHigh: 2289367642880016713
     m_Size: {x: 0.1, y: 0.089003436}
     m_SpecifySize: 1
-    m_Name: Resistance
+    m_Name: Test
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5368052682003971719
@@ -43,7 +43,7 @@ MonoBehaviour:
       m_GuidHigh: 4518356222388340089
     m_Size: {x: 0.1, y: 0.12456141}
     m_SpecifySize: 1
-    m_Name: Battery
+    m_Name: Power
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5059426794029763831
@@ -54,4 +54,14 @@ MonoBehaviour:
     m_Size: {x: 0.1, y: 0.0957377}
     m_SpecifySize: 1
     m_Name: Bulb
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5660928842874714843
+      m_GuidHigh: 15202346498151179453
+    m_SerializedTextureGuid:
+      m_GuidLow: 5049942053226133512
+      m_GuidHigh: 3341113930665689546
+    m_Size: {x: 0.1, y: 0.086666666}
+    m_SpecifySize: 1
+    m_Name: Wire
     m_Texture: {fileID: 0}

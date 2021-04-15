@@ -19,9 +19,11 @@ public class ARTrackedImg : MonoBehaviour
     private List<ARTrackedImage> _trackedImg = new List<ARTrackedImage>();
     private List<float> _trackedTimer = new List<float>();
 
+    bool isObject = false;
+
     private void Awake()
     {
-        foreach(GameObject obj in _objectList)
+        foreach (GameObject obj in _objectList)
         {
             string tName = obj.name;
             _prefabDic.Add(tName, obj);
@@ -30,7 +32,7 @@ public class ARTrackedImg : MonoBehaviour
 
     private void Update()
     {
-        if(_trackedImg.Count > 0)
+        if (_trackedImg.Count > 0)
         {
             List<ARTrackedImage> tNumList = new List<ARTrackedImage>();
 
@@ -39,10 +41,10 @@ public class ARTrackedImg : MonoBehaviour
             {
                 //TrackingState.Limited == Some tracking information is available, but it is limited or of poor quality.
                 //trackedImage의 상태가 Limited가 된다면
-                if (_trackedImg[i].trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Limited)
+                if (_trackedImg[i].trackingState == TrackingState.Limited)
                 {
                     //타이머를 돌려서 타이머 만큼의 시간이 되면
-                    if(_trackedTimer[i] > _timer)
+                    if (_trackedTimer[i] > _timer)
                     {
                         //limied된 게임 오브젝트를 setactive(false)로 해준다.
                         string name = _trackedImg[i].referenceImage.name;
@@ -57,7 +59,7 @@ public class ARTrackedImg : MonoBehaviour
                 }
             }
 
-            if(tNumList.Count > 0)
+            if (tNumList.Count > 0)
             {
                 for (var i = 0; i < tNumList.Count; i++)
                 {
@@ -75,13 +77,13 @@ public class ARTrackedImg : MonoBehaviour
     }
     private void OnDisable()
     {
-        trackedImageManager.trackedImagesChanged -= ImageChanged;   
+        trackedImageManager.trackedImagesChanged -= ImageChanged;
     }
     //이미지가 보이는지 안보이는지를 확인하는 함수
     void ImageChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         //카메라에 이미지가 추가 되었을 때
-        foreach(ARTrackedImage trackedImage in eventArgs.added)
+        foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
             if (!_trackedImg.Contains(trackedImage))
             {
@@ -90,7 +92,7 @@ public class ARTrackedImg : MonoBehaviour
             }
         }
         //이미지가 업데이트 되었을 때
-        foreach(ARTrackedImage trackedImage in eventArgs.updated)
+        foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
             if (!_trackedImg.Contains(trackedImage))
             {
@@ -109,9 +111,14 @@ public class ARTrackedImg : MonoBehaviour
     void UpdateImage(ARTrackedImage trackedImage)
     {
         string name = trackedImage.referenceImage.name;
+
         GameObject tObj = _prefabDic[name];
+        //이미지 위치에 위치시키고 싶다.
         tObj.transform.position = trackedImage.transform.position;
         tObj.transform.rotation = trackedImage.transform.rotation;
         tObj.SetActive(true);
+        isObject = true;
+
+
     }
 }
