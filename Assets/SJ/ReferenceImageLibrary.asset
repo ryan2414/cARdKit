@@ -21,7 +21,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 1653992349363102793
       m_GuidHigh: 15330677707709909242
-    m_Size: {x: 0.1, y: 0.090322584}
+    m_Size: {x: 0.076, y: 0.06864516}
     m_SpecifySize: 1
     m_Name: Resistance
     m_Texture: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 131784242792022478
       m_GuidHigh: 2573249429066211720
-    m_Size: {x: 0.1, y: 0.1}
+    m_Size: {x: 0.072, y: 0.072}
     m_SpecifySize: 1
     m_Name: Switch
     m_Texture: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 17322134661441025852
       m_GuidHigh: 6532500176493358619
-    m_Size: {x: 0.1, y: 0.124719106}
+    m_Size: {x: 0.062, y: 0.07732584}
     m_SpecifySize: 1
     m_Name: Power
     m_Texture: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 14755183878949219554
       m_GuidHigh: 1045929779916561339
-    m_Size: {x: 0.1, y: 0.09579832}
+    m_Size: {x: 0.083, y: 0.0795126}
     m_SpecifySize: 1
     m_Name: Bulb
     m_Texture: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 10634164014747794374
       m_GuidHigh: 8468007898004590618
-    m_Size: {x: 0.1, y: 0.0864}
+    m_Size: {x: 0.08, y: 0.06912}
     m_SpecifySize: 1
     m_Name: Wire
     m_Texture: {fileID: 0}
