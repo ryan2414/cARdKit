@@ -26,6 +26,8 @@ public class Node : MonoBehaviour
 
             int layer = 1 << LayerMask.NameToLayer("Node");
             ContactedNodes = Physics.OverlapBox(Checker.transform.position, Checker.transform.lossyScale / 2, Quaternion.identity, layer)
+                                    .Select(obj => obj.gameObject)
+                                    .Where(notThis => notThis != this.gameObject)
                                     .Select(cols => cols.gameObject.GetComponent<Node>())
                                     .ToArray();
 
