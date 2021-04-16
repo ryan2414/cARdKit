@@ -2154,7 +2154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd83d14ec24b5254ebfb02df02944373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 1
   trackedImageManager: {fileID: 1893374818}
   _objectList:
   - {fileID: 8435105972547525749}
@@ -2173,7 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 11400000, guid: 3eba2717112f154468c16019e1402d71, type: 2}
+  m_SerializedLibrary: {fileID: 11400000, guid: 1f8b6a6e48f7bd441bdd0f24a96608f0, type: 2}
   m_MaxNumberOfMovingImages: 5
   m_TrackedImagePrefab: {fileID: 0}
 --- !u!114 &1893374819
