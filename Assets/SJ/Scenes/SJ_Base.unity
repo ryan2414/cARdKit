@@ -2154,7 +2154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd83d14ec24b5254ebfb02df02944373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: 1
   trackedImageManager: {fileID: 1893374818}
   _objectList:
   - {fileID: 8435105972547525749}

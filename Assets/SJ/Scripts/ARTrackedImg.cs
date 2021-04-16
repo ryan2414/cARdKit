@@ -7,8 +7,6 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARTrackedImg : MonoBehaviour
 {
-    public float _timer;
-
     public ARTrackedImageManager trackedImageManager;
 
     //게임 오브젝트를 받아와서 이름과 오브젝트를 저장 하기 위한 변수
@@ -19,7 +17,6 @@ public class ARTrackedImg : MonoBehaviour
     private List<ARTrackedImage> _trackedImg = new List<ARTrackedImage>();
     private List<float> _trackedTimer = new List<float>();
 
-    bool isObject = false;
 
     private void Awake()
     {
@@ -43,22 +40,16 @@ public class ARTrackedImg : MonoBehaviour
                 //trackedImage의 상태가 Limited가 된다면
                 if (_trackedImg[i].trackingState == TrackingState.Limited)
                 {
-                    //타이머를 돌려서 타이머 만큼의 시간이 되면
-                    if (_trackedTimer[i] > _timer)
-                    {
                         //limied된 게임 오브젝트를 setactive(false)로 해준다.
                         string name = _trackedImg[i].referenceImage.name;
-                        GameObject tObj = _prefabDic[name];
-                        tObj.SetActive(false);
-                        tNumList.Add(_trackedImg[i]);//setactive(false)된 게임오브젝트를 _trackedImg, _trackedTimer리스트에서 제거하기 위한 리스트에 저장
-                    }
-                    else
-                    {
-                        _trackedTimer[i] += Time.deltaTime;
-                    }
+                        _prefabDic[name].SetActive(false);
+
+                        //setactive(false)된 게임오브젝트를 _trackedImg, _trackedTimer리스트에서 제거하기 위한 리스트에 저장
+                        tNumList.Add(_trackedImg[i]);
                 }
             }
 
+            //_trackedImg, _trackedTimer리스트에서 오브젝트 제거하기
             if (tNumList.Count > 0)
             {
                 for (var i = 0; i < tNumList.Count; i++)
@@ -79,6 +70,7 @@ public class ARTrackedImg : MonoBehaviour
     {
         trackedImageManager.trackedImagesChanged -= ImageChanged;
     }
+
     //이미지가 보이는지 안보이는지를 확인하는 함수
     void ImageChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
@@ -99,26 +91,26 @@ public class ARTrackedImg : MonoBehaviour
                 _trackedImg.Add(trackedImage);
                 _trackedTimer.Add(0);
             }
-            else
+            
+            if (trackedImage.trackingState == TrackingState.Tracking)
             {
-                int num = _trackedImg.IndexOf(trackedImage);
-                _trackedTimer[num] = 0;
+                UpdateImage(trackedImage);
             }
-            UpdateImage(trackedImage);
         }
+
     }
 
     void UpdateImage(ARTrackedImage trackedImage)
     {
         string name = trackedImage.referenceImage.name;
 
+        //게임오브젝트의 정보를 가지고 와서
         GameObject tObj = _prefabDic[name];
+       
         //이미지 위치에 위치시키고 싶다.
         tObj.transform.position = trackedImage.transform.position;
         tObj.transform.rotation = trackedImage.transform.rotation;
         tObj.SetActive(true);
-        isObject = true;
-
 
     }
 }
