@@ -5,6 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/SJ/Scenes/1SJ_StartScene.unity
     guid: bf936a44669c62747a3386f85ec69547
@@ -15,8 +16,14 @@ EditorBuildSettings:
     path: Assets/SJ/Scenes/3SJ_Story1-1.unity
     guid: 5b9999fd8ef55b449b34889335b039c5
   - enabled: 1
+=======
+  - enabled: 0
+>>>>>>> JI
     path: Assets/SJ/Scenes/9SJ_ARScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/JI/9SJ_ARScene.unity
+    guid: 0e35988c549db85489285c9ee1804476
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 352331fdbbe5cef49bbab283ae36b0cd, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 46e29cae46a3e5e45af2e6ceaf351a1e, type: 2}

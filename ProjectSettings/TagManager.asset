@@ -9,6 +9,7 @@ TagManager:
   - Power
   - PlusNode
   - Switch
+  - Bulb
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Node
   - Switch
-  - 
+  - Bulb
   - 
   - 
   - 
