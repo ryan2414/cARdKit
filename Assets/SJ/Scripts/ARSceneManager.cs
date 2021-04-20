@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ARSceneManager : MonoBehaviour
 {
+    public GameObject OptionPanel;
+
     //도움말 열기
     public Button upHelp;
     //도움말 닫기
@@ -20,6 +23,7 @@ public class ARSceneManager : MonoBehaviour
     {
         downHelp.gameObject.SetActive(false);
         upHelp.gameObject.SetActive(true);
+        OptionPanel.SetActive(false);
     }
     private void Update()
     {
@@ -28,7 +32,7 @@ public class ARSceneManager : MonoBehaviour
     }
 
 
-
+    #region 하단 UI
     public void OnClickUP()
     {
         StartCoroutine("MoveUp");
@@ -69,5 +73,24 @@ public class ARSceneManager : MonoBehaviour
 
         upHelp.gameObject.SetActive(true);
         downHelp.gameObject.SetActive(false);
+    }
+    #endregion
+
+    public void OnClickOption()
+    {
+        OptionPanel.SetActive(true);
+    }
+    public void OnClickX()
+    {
+        OptionPanel.SetActive(false);
+    }
+    public void OnClickToWorld()
+    {
+        SceneManager.LoadScene("2SJ_WorldMap");
+    }
+
+    public void OnClickQuit()
+    {
+        Application.Quit();
     }
 }

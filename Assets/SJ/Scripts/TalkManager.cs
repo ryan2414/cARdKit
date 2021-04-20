@@ -11,21 +11,19 @@ public class TalkManager : MonoBehaviour
     List<string> names = new List<string>();
     List<string> scripts = new List<string>();
 
-    
+
     int textCount = 0;              //순서대로 출력을 하기 위한 카운트
+    int maxTextCount;
 
     char[] scriptsCharArr;          //scripts를 문자로 받기 위한 함수
     string printWord;               //scriptsCharArr를 쌓아가기 위해 만든 문자열
 
     bool isPrinting = false;        //글자를 프린트 중이다
     bool isSentenseSkip = false;    //문장을 스킵하기 위한 bool 값
+    bool isCanTouch = false;
 
     // Start is called before the first frame update
     void Start()
-    {
-        LogUpdate();
-    }
-    void LogUpdate()
     {
         //Table의 정보 name과 script를 List로 저장한다.
         for (int i = 0; i < Table.instance.textLength; i++)
@@ -33,13 +31,17 @@ public class TalkManager : MonoBehaviour
             names.Add(Table.instance.GetTableName(i));
             scripts.Add(Table.instance.GetTableScript(i));
         }
+        maxTextCount = Table.instance.textLength;
     }
-
     // Update is called once per frame
     void Update()
     {
-        
-        
+        //텍스트 카운트랑 대화집의 길이가 같아지면 
+        if (textCount >= maxTextCount)
+        {
+            //씬매니져의 OnNextScene 함수를 실행한다.
+            gameObject.GetComponent<Scenemanager_Story>().OnNextScene();
+        }
     }
 
     public void OnClickNext()
@@ -50,27 +52,29 @@ public class TalkManager : MonoBehaviour
             return;
         }
 
-        //만약 문자열이 출력 중일때  한번 더 누르면 
-        if (isPrinting)
+        if (!isCanTouch)
         {
-            //모든 문장을 한번에 출력
-            isSentenseSkip = true;
+            //만약 문자열이 출력 중일때  한번 더 누르면 
+            if (isPrinting)
+            {
+                //모든 문장을 한번에 출력
+                isSentenseSkip = true;
 
-            return;
+                return;
+            }
+
+            //scripts를 char로 변환
+            scriptsCharArr = scripts[textCount].ToCharArray();
+
+            StopCoroutine("IEPrintWord");
+            StartCoroutine("IEPrintWord");
         }
-
-        //scripts를 char로 변환
-        scriptsCharArr = scripts[textCount].ToCharArray();
-
-        StopCoroutine("IEPrintWord");
-        StartCoroutine("IEPrintWord");
     }
 
     IEnumerator IEPrintWord()
     {
         isPrinting = true;
 
-        
         int printWordCount = 0;             //글자가 다 출력이 되면 textCount를 올리기 위한 변수 
 
         for (int i = 0; i < scripts[textCount].Length && !isSentenseSkip; i++)
@@ -89,7 +93,7 @@ public class TalkManager : MonoBehaviour
             printWordCount = scripts[textCount].Length;
         }
 
-        printWord = "";
+        printWord = ""; //printWord 변수 초기화
 
         textScript.text = scripts[textCount];
         textName.text = names[textCount];
@@ -100,8 +104,19 @@ public class TalkManager : MonoBehaviour
         {
             textCount++;
         }
+
         isPrinting = false;
         isSentenseSkip = false;
     }
 
+    //스킵버튼을 누르면 대화 스크립트가 맨 끝으로 이동한다.
+    //AR 씬으로 화면이 자동으로 전환이 된다.
+    public void OnClickSkip()
+    {
+        StopCoroutine("IEPrintWord");
+        isCanTouch = true;
+        textName.text = names[maxTextCount - 1];
+        textScript.text = scripts[maxTextCount - 1];
+        textCount = maxTextCount;
+    }
 }
