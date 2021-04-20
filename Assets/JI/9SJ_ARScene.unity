@@ -837,6 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b758e9a2a4452d43a2a5b7fdac8006a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OptionPanel: {fileID: 0}
   upHelp: {fileID: 330821500}
   downHelp: {fileID: 688065969}
   helpPanel: {fileID: 46653069}
@@ -2812,25 +2813,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4642293867213733712, guid: da534d098326b9e4495242e8b8c08d35, type: 3}
   m_PrefabInstance: {fileID: 1996028910}
   m_PrefabAsset: {fileID: 0}
---- !u!1183024399 &1996028913
-LookAtConstraint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1996028912}
-  m_Enabled: 1
-  m_Weight: 1
-  m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: 0, y: 0, z: 0}
-  m_Roll: 0
-  m_WorldUpObject: {fileID: 0}
-  m_UseUpObject: 0
-  m_IsContraintActive: 1
-  m_IsLocked: 1
-  m_Sources:
-  - sourceTransform: {fileID: 0}
-    weight: 1
 --- !u!1 &2042019941
 GameObject:
   m_ObjectHideFlags: 0

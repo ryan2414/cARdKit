@@ -9,7 +9,7 @@ TagManager:
   - Power
   - PlusNode
   - Switch
-  - Bulb
+  - Resistance
   layers:
   - Default
   - TransparentFX
@@ -20,7 +20,7 @@ TagManager:
   - Node
   - Switch
   - Bulb
-  - 
+  - Power
   - 
   - 
   - 
