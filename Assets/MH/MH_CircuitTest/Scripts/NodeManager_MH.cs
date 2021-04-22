@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,4 +19,31 @@ public class NodeManager_MH : MonoBehaviour
             nodes[i].CallNodeManager(this);
         }
     }
+
+    private void Update()
+    {
+        NodeColorChange();
+    }
+
+    void NodeColorChange()
+    {
+        if (!gameObject.CompareTag("Power"))
+        {
+            if (isPartReady)
+            {
+                foreach (MeshRenderer mr in nodes.Select(m => m.GetComponent<MeshRenderer>()))
+                {
+                    mr.material.color = new Color(0.9811321f, 0.4674262f, 0.9589713f);
+                }
+            }
+            else
+            {
+                foreach (MeshRenderer mr in nodes.Select(m => m.GetComponent<MeshRenderer>()))
+                {
+                    mr.material.color = Color.white;
+                }
+            }
+        }
+    }
+
 }

@@ -22,6 +22,7 @@ public class Wire_MH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        NodeCheck();
         MergeContactNode();
 
         NodeInteraction();
@@ -29,6 +30,18 @@ public class Wire_MH : MonoBehaviour
         ContactNodeTagShare();
     }
 
+    public void NodeCheck()
+    {
+        if (node1.isConnected && node1.isGrounded && node1.isPowerSupplied
+            && node2.isConnected && node2.isGrounded && node2.isPowerSupplied)
+        {
+            nodeManager.isPartReady = true;
+        }
+        else
+        {
+            nodeManager.isPartReady = false;
+        }
+    }
 
     private void NodeInteraction()
     {

@@ -37,6 +37,8 @@ public class Switch_MH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        NodeCheck();
+
         if (isOn)
         {
             MergeContactNode();
@@ -59,6 +61,19 @@ public class Switch_MH : MonoBehaviour
                 switch_Main.transform.position = position_off.position;
                 print("Switch Off");
             }
+        }
+    }
+
+    public void NodeCheck()
+    {
+        if (node1.isConnected && node1.isGrounded && node1.isPowerSupplied
+            && node2.isConnected && node2.isGrounded && node2.isPowerSupplied)
+        {
+            nodeManager.isPartReady = true;
+        }
+        else
+        {
+            nodeManager.isPartReady = false;
         }
     }
 
