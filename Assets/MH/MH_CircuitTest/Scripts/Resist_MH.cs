@@ -7,8 +7,11 @@ public class Resist_MH : MonoBehaviour
 {
     public bool isParallel;
 
-    public float resistance;
+    public float maxIntensity;
+    public float R;
     public float fixedResistance;
+
+    public float V_fixed;
 
     NodeManager_MH nodeManager;
     Node_MH node1;
@@ -47,4 +50,25 @@ public class Resist_MH : MonoBehaviour
             }
         }
     }
+
+    public void SetFixedVoltage()
+    {
+        if (CircuitManager_MH.instance.I_Total != 0)
+        {
+            V_fixed = CircuitManager_MH.instance.I_Total * R;
+        }
+        else
+        {
+            V_fixed = 0;
+        }
+    }
+
+    public float LightIntensity()
+    {
+        // Intensity  = (MaxIntensity x V_fixed) / (maxVoltage)
+        float intensity = (maxIntensity * V_fixed) / (5);
+
+        return intensity;
+    }
+
 }

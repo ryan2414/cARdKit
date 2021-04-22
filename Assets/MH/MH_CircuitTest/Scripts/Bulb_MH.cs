@@ -17,7 +17,7 @@ public class Bulb_MH : MonoBehaviour
     {
         nodeManager = GetComponent<NodeManager_MH>();
         resist = GetComponent<Resist_MH>();
-        resist.resistance = resistanceValue;
+        resist.R = resistanceValue;
         node1 = nodeManager.nodes[0];
         node2 = nodeManager.nodes[1];
 
@@ -116,17 +116,22 @@ public class Bulb_MH : MonoBehaviour
         if (CircuitManager_MH.instance.isCircuitActivated)
         {
             bulbLight.SetActive(true);
+            resist.SetFixedVoltage();
+
+            //bulbLight.GetComponent<Light>().intensity = resist.LightIntensity();
+            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, resist.LightIntensity(), 0.05f);
         }
         else
         {
-            bulbLight.SetActive(false);
+            resist.SetFixedVoltage();
+            //bulbLight.GetComponent<Light>().intensity = 0;
+            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, 0, 0.05f);
+            if (bulbLight.GetComponent<Light>().intensity < 0.2f)
+            {
+                bulbLight.GetComponent<Light>().intensity = 0;
+                bulbLight.SetActive(false);
+            }
         }
-
-    }
-
-    void TransNodeType()
-    {
-
     }
 
 }
