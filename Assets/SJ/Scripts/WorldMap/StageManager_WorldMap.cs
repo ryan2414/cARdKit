@@ -18,6 +18,8 @@ public class StageManager_WorldMap : MonoBehaviour
     }
     //스테이지 버튼 정보를 가지고 온다
     public List<Button> btnStage = new List<Button>();
+    int stageTotalNumber;
+
     private void Start()
     {
         //1-1을 제외한 나머지 스테이지 버튼을 끈다
@@ -26,21 +28,32 @@ public class StageManager_WorldMap : MonoBehaviour
             btnStage[i].interactable = false;
         }
 
-        
-
     }
 
     private void Update()
     {
-        if (FlagManager.instance.clearFlags[0] == true)
-        {
-            btnStage[0].gameObject.GetComponent<Image>().color = Color.yellow;
-        }
+        ButtonColorChange();
     }
 
-    //1-1을 클리어 하면 1-1의 버튼 색을 변경해 주고 싶다.
     public void ButtonColorChange()
     {
+        //1-1을 클리어 하면 1-1의 버튼 색을 변경해 주고 싶다.
+        //1-2스테이지의 버튼을 누를 수 있도록 활성화 한다.
+        //if (FlagManager.instance.clearFlags[0] == true)
+        //{
+        //    btnStage[0].gameObject.GetComponent<Image>().color = Color.yellow;
+        //    btnStage[1].interactable = true;
+        //}
+
+        //인덱스 값을 받아서
+        //그 스테이지의 버튼을 활성화 해주고
+        int clearStage = FlagManager.instance.stageCount;
+
+        if (FlagManager.instance.clearBool[clearStage] == true)
+        {
+            btnStage[clearStage].gameObject.GetComponent<Image>().color = Color.yellow;
+            btnStage[clearStage + 1].interactable = true;
+        }
 
     }
 

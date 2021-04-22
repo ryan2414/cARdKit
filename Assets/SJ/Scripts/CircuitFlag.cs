@@ -21,10 +21,13 @@ public class CircuitFlag : MonoBehaviour
             Invoke("UIActive", 3f);
         }
     }
-
+    //스테이지 변수
+    public int stageNumber;
+    
     void UIActive()
     {
         UI_clearPanel.SetActive(true);
-        FlagManager.instance.clearFlags[0] = true ;
+        FlagManager.instance.stageCount = stageNumber - 1;
+        FlagManager.instance.clearBool[FlagManager.instance.stageCount] = true ;
     }
 }

@@ -11,16 +11,17 @@ public class FlagManager : MonoBehaviour
         
     }
 
-    public List<bool> clearFlags = new List<bool>();
-    
+    public List<bool> clearBool = new List<bool>();
+    public int stageCount = 0;
 
     private void Start()
     {
-        //int count = StageManager_WorldMap.instance.btnStage.Count;
         DontDestroyOnLoad(gameObject);
+
+        //0~4스테이지의 클리어 여부를 파악하는 flag
         for (int i = 0; i < 5; i++)
         {
-            clearFlags.Add(false);
+            clearBool.Add(false);
         }
     }
 }
