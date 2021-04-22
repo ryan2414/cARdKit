@@ -93,4 +93,14 @@ public class ARSceneManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OnClickNextStage()
+    {
+        //SceneManager.LoadScene("");
+    }
+
+    public void OnClickRestart()
+    {
+        SceneManager.LoadScene("9SJ_ARScene");
+    }
 }

@@ -32,6 +32,7 @@ public class TalkManager : MonoBehaviour
             scripts.Add(Table.instance.GetTableScript(i));
         }
         maxTextCount = Table.instance.textLength;
+        OnClickNext();
     }
     // Update is called once per frame
     void Update()
