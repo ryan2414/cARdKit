@@ -11,7 +11,7 @@ public class NodeManager_MH : MonoBehaviour
 
     public Node_MH[] nodes;
 
-    private void OnEnable()
+    private void Awake()
     {
         nodes = GetComponentsInChildren<Node_MH>();
         for (int i = 0; i <nodes.Length; i++)

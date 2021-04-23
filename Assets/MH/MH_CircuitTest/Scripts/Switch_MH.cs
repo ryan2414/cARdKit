@@ -37,8 +37,6 @@ public class Switch_MH : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NodeCheck();
-
         if (isOn)
         {
             MergeContactNode();
@@ -62,6 +60,7 @@ public class Switch_MH : MonoBehaviour
                 print("Switch Off");
             }
         }
+        NodeCheck();
     }
 
     public void NodeCheck()
