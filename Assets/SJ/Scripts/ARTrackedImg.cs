@@ -40,12 +40,12 @@ public class ARTrackedImg : MonoBehaviour
                 //trackedImage의 상태가 Limited가 된다면
                 if (_trackedImg[i].trackingState == TrackingState.Limited)
                 {
-                        //limied된 게임 오브젝트를 setactive(false)로 해준다.
-                        string name = _trackedImg[i].referenceImage.name;
-                        _prefabDic[name].SetActive(false);
+                    //limied된 게임 오브젝트를 setactive(false)로 해준다.
+                    string name = _trackedImg[i].referenceImage.name;
+                    _prefabDic[name].SetActive(false);
 
-                        //setactive(false)된 게임오브젝트를 _trackedImg, _trackedTimer리스트에서 제거하기 위한 리스트에 저장
-                        tNumList.Add(_trackedImg[i]);
+                    //setactive(false)된 게임오브젝트를 _trackedImg, _trackedTimer리스트에서 제거하기 위한 리스트에 저장
+                    tNumList.Add(_trackedImg[i]);
                 }
             }
 
@@ -91,7 +91,7 @@ public class ARTrackedImg : MonoBehaviour
                 _trackedImg.Add(trackedImage);
                 _trackedTimer.Add(0);
             }
-            
+
             if (trackedImage.trackingState == TrackingState.Tracking)
             {
                 UpdateImage(trackedImage);
@@ -106,11 +106,11 @@ public class ARTrackedImg : MonoBehaviour
 
         //게임오브젝트의 정보를 가지고 와서
         GameObject tObj = _prefabDic[name];
-       
+
         //이미지 위치에 위치시키고 싶다.
         tObj.transform.position = trackedImage.transform.position;
         tObj.transform.rotation = trackedImage.transform.rotation;
         tObj.SetActive(true);
-
     }
+    
 }
