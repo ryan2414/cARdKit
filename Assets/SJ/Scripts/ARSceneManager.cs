@@ -6,13 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class ARSceneManager : MonoBehaviour
 {
-    public GameObject OptionPanel;
+    public GameObject UI_optionPanel;
+    public GameObject UI_helpPanel;
+    public GameObject UI_clearPanel;
 
     //도움말 열기
-    public Button upHelp;
+    public Button Btn_upHelp;
     //도움말 닫기
-    public Button downHelp;
-    public GameObject helpPanel;
+    public Button Btn_downHelp;
+
+    public Button Btn_clear;
+
     //helpPanel의 위치정보
     Vector3 startPosition = new Vector3(0, -250, 0);
 
@@ -21,9 +25,11 @@ public class ARSceneManager : MonoBehaviour
 
     private void Start()
     {
-        downHelp.gameObject.SetActive(false);
-        upHelp.gameObject.SetActive(true);
-        OptionPanel.SetActive(false);
+        Btn_downHelp.gameObject.SetActive(false);
+        Btn_upHelp.gameObject.SetActive(true);
+        Btn_clear.gameObject.SetActive(false);
+        UI_optionPanel.SetActive(false);
+        UI_clearPanel.SetActive(false);
     }
     private void Update()
     {
@@ -41,17 +47,17 @@ public class ARSceneManager : MonoBehaviour
     IEnumerator MoveUp()
     {
         //HelpPanel이 아래에서 위로 나타나게 하고 싶다.
-        upHelp.gameObject.SetActive(false);
-        downHelp.gameObject.SetActive(true);
+        Btn_upHelp.gameObject.SetActive(false);
+        Btn_downHelp.gameObject.SetActive(true);
 
-        helpPanel.transform.localPosition = startPosition;
+        UI_helpPanel.transform.localPosition = startPosition;
 
-        Vector3 vector3Y = helpPanel.transform.localPosition;
+        Vector3 vector3Y = UI_helpPanel.transform.localPosition;
 
         while (vector3Y.y < 5)
         {
             vector3Y.y += deltaSpeed;
-            helpPanel.transform.localPosition = vector3Y;
+            UI_helpPanel.transform.localPosition = vector3Y;
             yield return null;
         }
 
@@ -63,26 +69,26 @@ public class ARSceneManager : MonoBehaviour
     }
     IEnumerator MoveDown()
     {
-        Vector3 vector3Y = helpPanel.transform.localPosition;
+        Vector3 vector3Y = UI_helpPanel.transform.localPosition;
         while (vector3Y.y > -250)
         {
             vector3Y.y -= deltaSpeed;
-            helpPanel.transform.localPosition = vector3Y;
+            UI_helpPanel.transform.localPosition = vector3Y;
             yield return null;
         }
 
-        upHelp.gameObject.SetActive(true);
-        downHelp.gameObject.SetActive(false);
+        Btn_upHelp.gameObject.SetActive(true);
+        Btn_downHelp.gameObject.SetActive(false);
     }
     #endregion
 
     public void OnClickOption()
     {
-        OptionPanel.SetActive(true);
+        UI_optionPanel.SetActive(true);
     }
     public void OnClickX()
     {
-        OptionPanel.SetActive(false);
+        UI_optionPanel.SetActive(false);
     }
     public void OnClickToWorld()
     {
@@ -102,5 +108,15 @@ public class ARSceneManager : MonoBehaviour
     public void OnClickRestart()
     {
         SceneManager.LoadScene("9SJ_ARScene");
+    }
+
+    public void OnClickClear()
+    {
+        UI_clearPanel.SetActive(true);
+    }
+
+    public void OnClickToGame()
+    {
+        UI_clearPanel.SetActive(false);
     }
 }
