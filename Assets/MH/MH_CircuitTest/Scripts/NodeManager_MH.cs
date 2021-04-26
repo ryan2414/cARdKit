@@ -22,7 +22,7 @@ public class NodeManager_MH : MonoBehaviour
 
     private void Update()
     {
-        NodeColorChange();
+        //NodeColorChange();
     }
 
     void NodeColorChange()

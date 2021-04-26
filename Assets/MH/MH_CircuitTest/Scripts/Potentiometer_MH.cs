@@ -19,6 +19,7 @@ public class Potentiometer_MH : MonoBehaviour
     Transform position_Min;
     Transform position_Max;
 
+    [SerializeField]
     float max_distance;
     public float distance;
 
@@ -68,12 +69,12 @@ public class Potentiometer_MH : MonoBehaviour
 
     void MoveLimit()
     {
-        if (controlObject.transform.localPosition.x > position_Min.localPosition.x)
+        if (controlObject.transform.localPosition.y < position_Min.localPosition.y)
         {
             controlObject.transform.localPosition = position_Min.localPosition;
             resistanceValue = 1f;
         }
-        else if (controlObject.transform.localPosition.x < position_Max.localPosition.x)
+        else if (controlObject.transform.localPosition.y > position_Max.localPosition.y)
         {
             controlObject.transform.localPosition = position_Max.localPosition;
             resistanceValue = maxResistanceValue;
