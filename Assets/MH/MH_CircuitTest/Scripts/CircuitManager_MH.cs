@@ -134,7 +134,7 @@ public class CircuitManager_MH : MonoBehaviour
             {
                 if (touch.fingerId == potentiometerId)
                 {
-                    interactionObject[potentiometerId].transform.localPosition += new Vector3(-touch.deltaPosition.y * 0.0025f, 0, 0);
+                    interactionObject[potentiometerId].transform.localPosition += new Vector3(0, touch.deltaPosition.y * 0.000025f, 0);
                 }
             }
 
