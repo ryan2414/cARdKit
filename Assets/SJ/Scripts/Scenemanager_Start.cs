@@ -8,7 +8,12 @@ public class Scenemanager_Start : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject HelpPanel;
     public Button FreeMode;
-
+    public float fillTime;
+    public CanvasGroup IMG_Fader;
+    private void Awake()
+    {
+        StartCoroutine(IEHideBoard(IMG_Fader));
+    }
     private void Start()
     {
         FreeMode.interactable = false;
@@ -46,5 +51,15 @@ public class Scenemanager_Start : MonoBehaviour
         {
             HelpPanel.SetActive(false);
         }
+    }
+    public IEnumerator IEHideBoard(CanvasGroup canvasGroup)
+    {
+        while (0 < canvasGroup.alpha)
+        {
+            canvasGroup.alpha -= Time.deltaTime / fillTime;
+            yield return new WaitForSeconds(Time.deltaTime / fillTime);
+        }
+        canvasGroup.alpha = 0;
+
     }
 }

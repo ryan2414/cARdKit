@@ -1673,6 +1673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2160182992458333421}
+  - component: {fileID: 2160182992458333422}
   m_Layer: 10
   m_Name: Controller
   m_TagString: Untagged
@@ -1695,6 +1696,19 @@ Transform:
   m_Father: {fileID: 2160182993305065103}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2160182992458333422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2160182992458333420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.465, z: 0}
 --- !u!23 &2160182992509908864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1952,19 +1966,6 @@ Transform:
   m_Father: {fileID: 2160182992458333421}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2160182992944797075
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160182992944797077}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2160182992944797077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,7 +1977,6 @@ GameObject:
   - component: {fileID: 2160182992944797074}
   - component: {fileID: 2160182992944797073}
   - component: {fileID: 2160182992944797072}
-  - component: {fileID: 2160182992944797075}
   m_Layer: 0
   m_Name: ControlNozzel
   m_TagString: Untagged
@@ -2242,15 +2242,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2160182993686435611}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.133, y: 0.029, z: 0.083}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.10000001, y: 0.1, z: 0.10000001}
   m_Children:
   - {fileID: 2160182994137487773}
   - {fileID: 2160182992509908868}
   - {fileID: 2160182994267457233}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 7713879121008634879}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &2160182993686435609
 MonoBehaviour:
@@ -4787,6 +4787,7 @@ Transform:
   - {fileID: 7713879120796360810}
   - {fileID: 7713879121787882808}
   - {fileID: 7713879119961529986}
+  - {fileID: 2160182993686435608}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

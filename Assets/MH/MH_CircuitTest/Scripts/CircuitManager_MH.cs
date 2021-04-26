@@ -21,6 +21,16 @@ public class CircuitManager_MH : MonoBehaviour
 
     RaycastHit hitinfo;
 
+    GameObject[] interactionObject;
+    int switchId;
+    int potentiometerId;
+
+    private void Start()
+    {
+        interactionObject = new GameObject[10];
+        FingerIdResetTo99(ref switchId);
+        FingerIdResetTo99(ref potentiometerId);
+    }
 
     private void Update()
     {
@@ -66,9 +76,6 @@ public class CircuitManager_MH : MonoBehaviour
 
     Potentiometer_MH potentiometerComp;
 
-    [SerializeField]
-    List<GameObject> go = new List<GameObject>();
-    GameObject go1;
     public void TouchInteraction()
     {
         // PC 터치
@@ -97,44 +104,56 @@ public class CircuitManager_MH : MonoBehaviour
         // 모바일 터치
         foreach (Touch touch in Input.touches)
         {
-            if (touch.phase != TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Began)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 bool laycast = Physics.Raycast(ray, out hitinfo);
 
                 if (laycast)
                 {
                     if (hitinfo.transform.gameObject.layer == LayerMask.NameToLayer("Switch"))
                     {
+                        switchId = touch.fingerId;
                         switchComp = hitinfo.transform.GetComponentInParent<Switch_MH>();
                         switchComp.isOn = true;
                         switchComp.isStateChange = true;
                     }
-
-                    //if (hitinfo.transform.gameObject.layer == LayerMask.NameToLayer("Potentiometer"))
-                    //{
-                    //    potentiometerComp = hitinfo.transform.GetComponentInParent<Potentiometer_MH>();
-                    //}
                 }
 
-                else if (!laycast)
+                if (laycast)
                 {
-                    switchComp.isOn = false;
-                    switchComp = null;
+                    if (hitinfo.transform.gameObject.layer == LayerMask.NameToLayer("Potentiometer"))
+                    {
+                        potentiometerId = touch.fingerId;
+                        interactionObject[potentiometerId] = hitinfo.transform.gameObject;
+                    }
                 }
+            }
 
+            if (touch.phase == TouchPhase.Moved)
+            {
+                if (touch.fingerId == potentiometerId)
+                {
+                    interactionObject[potentiometerId].transform.localPosition += new Vector3(-touch.deltaPosition.y * 0.0025f, 0, 0);
+                }
             }
 
             if (touch.phase == TouchPhase.Ended)
             {
-                if (switchComp != null)
+                if (touch.fingerId == switchId)
                 {
                     switchComp.isOn = false;
                     switchComp = null;
+                    FingerIdResetTo99(ref switchId);
+                }
+
+                if (touch.fingerId == potentiometerId)
+                {
+                    interactionObject[potentiometerId] = null;
+                    FingerIdResetTo99(ref potentiometerId);
                 }
             }
         }
-
     }
 
     public void NodeInitialize()
@@ -174,5 +193,10 @@ public class CircuitManager_MH : MonoBehaviour
             return contactOppositeNodes;
         }
         return null;
+    }
+    int FingerIdResetTo99(ref int value)
+    {
+        value = 99;
+        return value;
     }
 }
