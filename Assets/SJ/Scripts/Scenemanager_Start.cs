@@ -23,24 +23,31 @@ public class Scenemanager_Start : MonoBehaviour
     //스토리모드
     public void OnClickStory()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("2SJ_WorldMap");
     }
     //자유모드
     public void OnClickAR()
     {
 
     }
+
     //설정
     public void OnClickOption()
     {
         OptionPanel.SetActive(true);
     }
+    //게임 종료
+    public void OnClickQuit()
+    {
+        Application.Quit();
+    }
+
     //도움말
     public void OnClickHelp()
     {
         HelpPanel.SetActive(true);
     }
-
+    //설정 창 끄기
     public void OnClickX()
     {
         if(OptionPanel.activeSelf == true)
@@ -52,6 +59,8 @@ public class Scenemanager_Start : MonoBehaviour
             HelpPanel.SetActive(false);
         }
     }
+
+    //페이드인
     public IEnumerator IEHideBoard(CanvasGroup canvasGroup)
     {
         while (0 < canvasGroup.alpha)
@@ -60,6 +69,7 @@ public class Scenemanager_Start : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime / fillTime);
         }
         canvasGroup.alpha = 0;
+        canvasGroup.gameObject.SetActive(false);
 
     }
 }

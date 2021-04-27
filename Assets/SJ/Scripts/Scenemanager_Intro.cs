@@ -24,19 +24,19 @@ public class Scenemanager_Intro : MonoBehaviour
         //전구를 2초간 채워준다
         IMG_FillBulb.fillAmount = 0;
 
+        //페이더를 위한 이미지
         IMG_Fader.alpha = 0;
 
-        // Invoke("VideoStart", 2f);
     }
 
     private void Update()
     {
-        //if (!IWantToPlayOnce && videoClip.isPrepared == true)
-        //{
-        //    videoClip.Play();
-        //    IWantToPlayOnce = true;
-        //}
+        FillTheBulb();
 
+    }
+
+    public void FillTheBulb()
+    {
         IMG_FillBulb.fillAmount += Time.deltaTime / 2;
 
         if (!IWantToPlayOnce && IMG_FillBulb.fillAmount >= 1)
@@ -44,12 +44,12 @@ public class Scenemanager_Intro : MonoBehaviour
             IWantToPlayOnce = true;
             VideoStart();
         }
+
         //영상 끝났을 때 씬 넘어가는 거
         if (videoClip.isPaused == true)
         {
             StartCoroutine(IEShowBoard(IMG_Fader));
         }
-
     }
 
     public void VideoStart()
@@ -61,8 +61,7 @@ public class Scenemanager_Intro : MonoBehaviour
     public void OnClickSkip()
     {
         videoClip.Stop();
-        StartCoroutine(IEHideBoard(IMG_Fader));
-
+        StartCoroutine(IEShowBoard(IMG_Fader));
     }
 
 
