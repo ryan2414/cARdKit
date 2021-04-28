@@ -4,16 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//하단 도움말 창 삭제
+//플레이를 시작하면 화면에 대화창이 나오고
+//텍스트가 한글자씩 순서대로 실행이 된다.
+//
 public class ARSceneManager : MonoBehaviour
 {
     public GameObject UI_optionPanel;
-    public GameObject UI_helpPanel;
+    //public GameObject UI_helpPanel;
     public GameObject UI_clearPanel;
-
+    public GameObject UI_FadeIn;
+   
     //도움말 열기
-    public Button Btn_upHelp;
+    //public Button Btn_upHelp;
     //도움말 닫기
-    public Button Btn_downHelp;
+    //public Button Btn_downHelp;
 
     public Button Btn_clear;
 
@@ -25,12 +30,14 @@ public class ARSceneManager : MonoBehaviour
 
     private void Start()
     {
-        Btn_downHelp.gameObject.SetActive(false);
-        Btn_upHelp.gameObject.SetActive(true);
+        //Btn_downHelp.gameObject.SetActive(false);
+        //Btn_upHelp.gameObject.SetActive(true);
+        UI_FadeIn.SetActive(true);
         Btn_clear.gameObject.SetActive(false);
         UI_optionPanel.SetActive(false);
         UI_clearPanel.SetActive(false);
     }
+
     private void Update()
     {
         deltaSpeed = speed * Time.deltaTime;
@@ -39,47 +46,47 @@ public class ARSceneManager : MonoBehaviour
 
 
     #region 하단 UI
-    public void OnClickUP()
-    {
-        StartCoroutine("MoveUp");
-    }
+    //public void OnClickUP()
+    //{
+    //    StartCoroutine("MoveUp");
+    //}
 
-    IEnumerator MoveUp()
-    {
-        //HelpPanel이 아래에서 위로 나타나게 하고 싶다.
-        Btn_upHelp.gameObject.SetActive(false);
-        Btn_downHelp.gameObject.SetActive(true);
+    //IEnumerator MoveUp()
+    //{
+    //    //HelpPanel이 아래에서 위로 나타나게 하고 싶다.
+    //    Btn_upHelp.gameObject.SetActive(false);
+    //    Btn_downHelp.gameObject.SetActive(true);
 
-        UI_helpPanel.transform.localPosition = startPosition;
+    //    UI_helpPanel.transform.localPosition = startPosition;
 
-        Vector3 vector3Y = UI_helpPanel.transform.localPosition;
+    //    Vector3 vector3Y = UI_helpPanel.transform.localPosition;
 
-        while (vector3Y.y < 5)
-        {
-            vector3Y.y += deltaSpeed;
-            UI_helpPanel.transform.localPosition = vector3Y;
-            yield return null;
-        }
+    //    while (vector3Y.y < 5)
+    //    {
+    //        vector3Y.y += deltaSpeed;
+    //        UI_helpPanel.transform.localPosition = vector3Y;
+    //        yield return null;
+    //    }
 
-    }
+    //}
 
-    public void OnClickDOWN()
-    {
-        StartCoroutine("MoveDown");
-    }
-    IEnumerator MoveDown()
-    {
-        Vector3 vector3Y = UI_helpPanel.transform.localPosition;
-        while (vector3Y.y > -250)
-        {
-            vector3Y.y -= deltaSpeed;
-            UI_helpPanel.transform.localPosition = vector3Y;
-            yield return null;
-        }
+    //public void OnClickDOWN()
+    //{
+    //    StartCoroutine("MoveDown");
+    //}
+    //IEnumerator MoveDown()
+    //{
+    //    Vector3 vector3Y = UI_helpPanel.transform.localPosition;
+    //    while (vector3Y.y > -250)
+    //    {
+    //        vector3Y.y -= deltaSpeed;
+    //        UI_helpPanel.transform.localPosition = vector3Y;
+    //        yield return null;
+    //    }
 
-        Btn_upHelp.gameObject.SetActive(true);
-        Btn_downHelp.gameObject.SetActive(false);
-    }
+    //    Btn_upHelp.gameObject.SetActive(true);
+    //    Btn_downHelp.gameObject.SetActive(false);
+    //}
     #endregion
 
     public void OnClickOption()

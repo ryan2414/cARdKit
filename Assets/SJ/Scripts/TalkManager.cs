@@ -45,6 +45,7 @@ public class TalkManager : MonoBehaviour
         }
     }
 
+    //버튼을 누르면 다음 문장을 출력한다.
     public void OnClickNext()
     {
         //배열 초과를 막기 위한 것

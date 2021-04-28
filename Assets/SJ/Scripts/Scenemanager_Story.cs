@@ -8,24 +8,29 @@ public class Scenemanager_Story : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject NextStagePanel;
     public GameObject nextBtn;
+    public GameObject UI_FaderPanel;
 
     private void Start()
     {
         OptionPanel.SetActive(false);
         NextStagePanel.SetActive(false);
+        UI_FaderPanel.SetActive(false);
     }
 
+    //다음 씬으로 넘어가는 버튼을 활성화
     public void OnNextScene()
     {
-        //다음 씬으로 넘어가는 버튼을 활성화
         nextBtn.SetActive(false);
         NextStagePanel.SetActive(true);
-
     }
 
+    //다음 씬으로 넘어가기 위해 페이더를 활성화
+    public void FaderStart() => UI_FaderPanel.SetActive(true);
+
+    //다음 씬으로 넘어가는 액션
     public void OnClickNextScene()
     {
-        SceneManager.LoadScene("9SJ_ARScene");
+            SceneManager.LoadScene("9SJ_ARScene");
     }
     public void OnClickOption()
     {

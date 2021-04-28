@@ -9,6 +9,9 @@ public class CircuitFlag : MonoBehaviour
     public GameObject power;
     public GameObject obj_Switch;
     public GameObject UI_clearPanel;
+
+    bool isClear;
+
     private void Start()
     {
         UI_clearPanel.SetActive(false);
@@ -16,9 +19,10 @@ public class CircuitFlag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bulb.activeSelf == true && power.activeSelf == true && obj_Switch.activeSelf == true)
+        if(bulb.activeSelf == true && power.activeSelf == true && obj_Switch.activeSelf == true && !isClear)
         {
             Invoke("UIActive", 3f);
+            isClear = true;
         }
     }
     //스테이지 변수
