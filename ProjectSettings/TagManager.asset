@@ -41,9 +41,15 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Mask
   - UICharLayer
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Fader_BG
+    uniqueID: 1089100709
+    locked: 0
+  - name: Fader_Chat
+    uniqueID: 2374304085
     locked: 0

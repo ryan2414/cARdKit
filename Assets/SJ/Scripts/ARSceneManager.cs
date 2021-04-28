@@ -13,6 +13,7 @@ public class ARSceneManager : MonoBehaviour
     public GameObject UI_optionPanel;
     //public GameObject UI_helpPanel;
     public GameObject UI_clearPanel;
+    public GameObject UI_FadeIn;
    
     //도움말 열기
     //public Button Btn_upHelp;
@@ -31,6 +32,7 @@ public class ARSceneManager : MonoBehaviour
     {
         //Btn_downHelp.gameObject.SetActive(false);
         //Btn_upHelp.gameObject.SetActive(true);
+        UI_FadeIn.SetActive(true);
         Btn_clear.gameObject.SetActive(false);
         UI_optionPanel.SetActive(false);
         UI_clearPanel.SetActive(false);
