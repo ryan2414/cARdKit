@@ -1236,7 +1236,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1e4bef8f5a281ef4b915fc80365fe066, type: 3}
+    m_Font: {fileID: 12800000, guid: 6ec09ca7fae2bb7488395eac23c66285, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -2162,6 +2162,8 @@ MonoBehaviour:
   OptionPanel: {fileID: 809991006}
   HelpPanel: {fileID: 896846604}
   FreeMode: {fileID: 1786607231}
+  fillTime: 0
+  IMG_Fader: {fileID: 0}
 --- !u!1 &1744462911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,7 +2222,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1e4bef8f5a281ef4b915fc80365fe066, type: 3}
+    m_Font: {fileID: 12800000, guid: 6ec09ca7fae2bb7488395eac23c66285, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -2708,7 +2710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509f5b4701e115541835db66a3497d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearFlags: 
+  clearBool: 
+  stageCount: 0
 --- !u!4 &8313511965264955132
 Transform:
   m_ObjectHideFlags: 0
