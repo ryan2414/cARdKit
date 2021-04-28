@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 540366134}
   - component: {fileID: 540366133}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1362,7 +1362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &896846605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2351,7 +2351,7 @@ GameObject:
   - component: {fileID: 1435049256}
   - component: {fileID: 1435049255}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: Contents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2398,7 +2398,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1e4bef8f5a281ef4b915fc80365fe066, type: 3}
-    m_FontSize: 75
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -2409,7 +2409,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC774\uAC83\uC740 \uB3C4\uC6C0\uB9D0 \uC785\uB2C8\uB2E4 "
+  m_Text: "'\uC2E0\uAE30\uD55C \uACFC\uD559 CARD \uB180\uC774'\uB294 AR\uC744 \uD65C\uC6A9\uD55C
+    \uACFC\uD559 \uAD50\uAD6C \uC785\uB2C8\uB2E4.\n\nAR \uD654\uBA74\uC5D0\uC11C
+    \uD2B9\uC815 \uCE74\uB4DC\uB97C \uD654\uBA74\uC5D0 \uAC00\uC838\uB2E4 \uB193\uC73C\uBA74
+    \uD574\uB2F9 \uC544\uC774\uD15C\uC774 \uD654\uBA74\uC0C1\uC5D0 \uBCF4\uC774\uAC8C
+    \uB429\uB2C8\uB2E4.\n\uD574\uB2F9 \uBB3C\uCCB4\uB4E4\uC744 \uD2B9\uC815 \uC704\uCE58\uC5D0
+    \uAC00\uC838\uB2E4 \uB193\uC73C\uBA74 \uD68C\uB85C\uAC00 \uC644\uC131\uC774 \uB429\uB2C8\uB2E4.\n\n\uC2B9\uD615\uC774\uC640
+    \uD568\uAED8 \uC990\uAC81\uAC8C \uC774\uC57C\uAE30\uB97C \uC9C4\uD589\uD574 \uBCF4\uC138\uC694!\n"
 --- !u!222 &1435049256
 CanvasRenderer:
   m_ObjectHideFlags: 0
