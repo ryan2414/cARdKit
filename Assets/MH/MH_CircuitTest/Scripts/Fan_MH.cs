@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bulb_MH : MonoBehaviour
+public class Fan_MH : MonoBehaviour
 {
     public float resistanceValue;
     NodeManager_MH nodeManager;
@@ -11,7 +11,7 @@ public class Bulb_MH : MonoBehaviour
     Node_MH node1;
     Node_MH node2;
 
-    public GameObject bulbLight;
+    public GameObject turnningShaft;
 
     void Start()
     {
@@ -21,7 +21,6 @@ public class Bulb_MH : MonoBehaviour
         node1 = nodeManager.nodes[0];
         node2 = nodeManager.nodes[1];
 
-        bulbLight.SetActive(false);
     }
 
     void Update()
@@ -30,7 +29,7 @@ public class Bulb_MH : MonoBehaviour
         NodeInteraction();
         ContactNodeInteraction();
 
-        TurnOnLight();
+        TurnOnFan();
     }
 
     void ConnectCheck()
@@ -111,27 +110,49 @@ public class Bulb_MH : MonoBehaviour
         }
     }
 
-    void TurnOnLight()
+    // record_rotation: 0 -> current, 1 -> pre, 2 -> prepre
+    float[] record_rotation = new float[3];
+    float diff;
+    float diff_ratio;
+    float speedUp;
+    Vector3 speed;
+
+    void TurnOnFan()
     {
         if (CircuitManager_MH.instance.isCircuitActivated && nodeManager.isPartReady)
         {
-            bulbLight.SetActive(true);
             resist.SetFixedVoltage();
+            speedUp = Mathf.Lerp(speedUp, resist.FanSpeedUp(), 0.004f);
+            speed = new Vector3(0, speedUp, 0);
+            turnningShaft.transform.Rotate(speed);
 
-            //bulbLight.GetComponent<Light>().intensity = resist.LightIntensity();
-            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, resist.LightIntensity(), 0.05f);
+            #region #Rotation Check For When Stop
+            record_rotation[0] = turnningShaft.transform.localEulerAngles.y;
+            // diff가 - 350정도가 나오는 경우가 있음
+            // => 이때, 회전이 정지될 경우 빠르게 역회전을 함으로 이 값을 버려주기위해 차이값 이중체크 함
+            diff = record_rotation[0] - record_rotation[1];
+            if (diff < 0)
+            {
+                diff = record_rotation[1] - record_rotation[2];
+            }
+            record_rotation[2] = record_rotation[1];
+            record_rotation[1] = record_rotation[0];
+            diff_ratio = diff * 0.0005f;
+            #endregion
         }
         else
         {
             resist.SetFixedVoltage();
-            //bulbLight.GetComponent<Light>().intensity = 0;
-            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, 0, 0.05f);
-            if (bulbLight.GetComponent<Light>().intensity < 0.2f)
+            turnningShaft.transform.Rotate((resist.FanSpeedDown(diff * 1.5f)));
+            turnningShaft.GetComponent<Rigidbody>().angularVelocity = turnningShaft.GetComponent<Rigidbody>().angularVelocity;
+            diff -= diff_ratio;
+            if (diff <= 0)
             {
-                bulbLight.GetComponent<Light>().intensity = 0;
-                bulbLight.SetActive(false);
+                diff = 0;
             }
+            speedUp = 0;
         }
     }
+
 
 }

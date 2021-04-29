@@ -24,12 +24,14 @@ public class CircuitManager_MH : MonoBehaviour
     GameObject[] interactionObject;
     int switchId;
     int potentiometerId;
+    int RemoteControllerId;
 
     private void Start()
     {
         interactionObject = new GameObject[10];
         FingerIdResetTo99(ref switchId);
         FingerIdResetTo99(ref potentiometerId);
+        FingerIdResetTo99(ref RemoteControllerId);
     }
 
     private void Update()
@@ -71,10 +73,7 @@ public class CircuitManager_MH : MonoBehaviour
         I_Total = 0;
     }
 
-    [SerializeField]
     Switch_MH switchComp;
-
-    Potentiometer_MH potentiometerComp;
 
     public void TouchInteraction()
     {
@@ -128,6 +127,19 @@ public class CircuitManager_MH : MonoBehaviour
                         interactionObject[potentiometerId] = hitinfo.transform.gameObject;
                     }
                 }
+
+                if (laycast)
+                {
+                    if (hitinfo.transform.gameObject.layer == LayerMask.NameToLayer("RemoteController"))
+                    {
+                        RemoteControllerId = touch.fingerId;
+                        interactionObject[RemoteControllerId] = hitinfo.transform.gameObject;
+                        interactionObject[RemoteControllerId].GetComponent<RC_Button_MH>().rc.ResetButtonPositions();
+                        interactionObject[RemoteControllerId].GetComponent<RC_Button_MH>().rc.isStateChange = true;
+                        interactionObject[RemoteControllerId].GetComponent<RC_Button_MH>().isOn = true;
+                        interactionObject[RemoteControllerId].GetComponent<RC_Button_MH>().isPushing = true;
+                    }
+                }
             }
 
             if (touch.phase == TouchPhase.Moved)
@@ -151,6 +163,13 @@ public class CircuitManager_MH : MonoBehaviour
                 {
                     interactionObject[potentiometerId] = null;
                     FingerIdResetTo99(ref potentiometerId);
+                }
+
+                if (touch.fingerId == RemoteControllerId)
+                {
+                    interactionObject[RemoteControllerId].GetComponent<RC_Button_MH>().isPushing = false;
+                    interactionObject[RemoteControllerId] = null;
+                    FingerIdResetTo99(ref RemoteControllerId);
                 }
             }
         }

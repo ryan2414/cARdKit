@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Resist_MH : MonoBehaviour
 {
+    public float delta;
+    public float maxFanSpeed;
+
     public bool isParallel;
 
     public float maxIntensity;
@@ -73,5 +76,19 @@ public class Resist_MH : MonoBehaviour
         }
         return intensity;
     }
+    public float FanSpeedUp()
+    {
+        // speed  = (maxFanSpeed x V_fixed) / (maxVoltage)
+        float speed = (maxFanSpeed * V_fixed * Time.deltaTime * delta) / (5);
 
+        return speed;
+    }
+
+    public Vector3 FanSpeedDown(float diff)
+    {
+        // speed  = (maxFanSpeed x V_fixed) / (maxVoltage)
+        Vector3 speed = new Vector3(0, diff * Time.deltaTime * delta, 0);
+
+        return speed;
+    }
 }
