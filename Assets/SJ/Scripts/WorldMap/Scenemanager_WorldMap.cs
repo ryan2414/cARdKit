@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Scenemanager_WorldMap : MonoBehaviour
 {
+    public GameObject UI_Finish;
    public void OnClickNextStage()
     {
         SceneManager.LoadScene("3SJ_Story1-1");
@@ -15,4 +16,6 @@ public class Scenemanager_WorldMap : MonoBehaviour
     {
         SceneManager.LoadScene("1SJ_StartScene");
     }
+
+    public void OnClickX() => UI_Finish.SetActive(false);
 }
