@@ -64,30 +64,20 @@ public class CircuitFlag : MonoBehaviour
                 isClear = true;
             }
         }
-       
 
-
-        //if (partsON[] == true)
-        //{
-        //    Invoke("UIActive", 3f);
-        //    isClear = true;
-        //}
-
-
-
-
-        //if(bulb.activeSelf == true && power.activeSelf == true && obj_Switch.activeSelf == true && !isClear)
-        //{
-        //    Invoke("UIActive", 3f);
-        //    isClear = true;
-        //}
     }
 
 
     void UIActive()
     {
+        //클리어 UI ON
         UI_clearPanel.SetActive(true);
-        FlagManager.instance.stageCount = stageNumber - 1;
-        FlagManager.instance.clearBool[FlagManager.instance.stageCount] = true;
+
+        //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+        int _stageNum = FlagManager.instance.stageNum;
+        FlagManager.instance.clearBool[_stageNum] = true;
+
+        
+
     }
 }

@@ -3018,6 +3018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509f5b4701e115541835db66a3497d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageNum: 0
+  stageNumObject: {fileID: 8313511965264955133}
   clearBool: 
   stageCount: 0
 --- !u!4 &8313511965264955132
