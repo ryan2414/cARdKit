@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_clearPanel: {fileID: 308932025}
-  stageNumber: 1
+  stageNumber: 3
   partsList: []
   partsON: 
 --- !u!1 &434540820
