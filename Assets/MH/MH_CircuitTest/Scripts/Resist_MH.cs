@@ -67,7 +67,10 @@ public class Resist_MH : MonoBehaviour
     {
         // Intensity  = (MaxIntensity x V_fixed) / (maxVoltage)
         float intensity = (maxIntensity * V_fixed) / (5);
-
+        if (intensity >= maxIntensity)
+        {
+            intensity = maxIntensity;
+        }
         return intensity;
     }
 
