@@ -22,7 +22,7 @@ public class FlagManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         //0~7스테이지의 클리어 여부를 파악하는 flag
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < TotalStage; i++)
         {
             clearBool.Add(false);
         }

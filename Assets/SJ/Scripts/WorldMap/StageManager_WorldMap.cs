@@ -152,14 +152,14 @@ public class StageManager_WorldMap : MonoBehaviour
         //인덱스 값을 받아서
         //그 스테이지의 버튼을 활성화 해주고
         //클리어한 스테이지의 색을 변경하고 싶다.
-        //int clearStage = FlagManager.instance.stageCount;
+        int clearStage = FlagManager.instance.stageCount;
 
-        //if (FlagManager.instance.clearBool[clearStage] == true)
-        //{
-        //    btnStage[clearStage].gameObject.GetComponent<Image>().color = Color.yellow;
-        //    stage1ClearBool[clearStage] = true;
-        //    btnStage[clearStage + 1].interactable = true;
-        //}
+        if (FlagManager.instance.clearBool[clearStage] == true)
+        {
+            btnStage[clearStage].gameObject.GetComponent<Image>().color = Color.yellow;
+            stage1ClearBool[clearStage] = true;
+            btnStage[clearStage + 1].interactable = true;
+        }
 
     }
 
