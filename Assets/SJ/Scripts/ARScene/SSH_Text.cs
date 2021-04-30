@@ -11,10 +11,16 @@ public class SSH_Text : MonoBehaviour
     {
 
     }
+    bool isPlayed;
 
     public void OnClickText()
     {
-        Ani_anim.SetTrigger("isFinish");
+        if (!isPlayed)
+        {
+            Ani_anim.SetTrigger("isFinish");
+            isPlayed = true;
+
+        }
         //BTN_SSH_Text.gameObject.SetActive(false);
     }
 }

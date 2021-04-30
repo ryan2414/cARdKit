@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/SJ/Scenes/0SJ_Intro.unity
     guid: 07248f863e3df6f4191e472d3858f021
-  - enabled: 0
+  - enabled: 1
     path: Assets/SJ/Scenes/1SJ_StartScene.unity
     guid: bf936a44669c62747a3386f85ec69547
   - enabled: 1

@@ -19,6 +19,7 @@ public class Scenemanager_Intro : MonoBehaviour
     {
         videoClip.Prepare();
     }
+
     private void Start()
     {
         //전구를 2초간 채워준다
