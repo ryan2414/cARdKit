@@ -255,6 +255,8 @@ RectTransform:
   - {fileID: 308932026}
   - {fileID: 1783105}
   - {fileID: 7124450705850124439}
+  - {fileID: 1583043904}
+  - {fileID: 628657339}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1451,7 +1453,6 @@ MonoBehaviour:
   V_Total: 0
   R_Total: 0
   I_Total: 0
-  switchComp: {fileID: 0}
 --- !u!1 &448039849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +1910,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613466230}
   m_CullTransparentMesh: 1
+--- !u!1 &628657336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 628657339}
+  - component: {fileID: 628657338}
+  - component: {fileID: 628657337}
+  m_Layer: 5
+  m_Name: IMG_Bulb_Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &628657337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628657336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: af25e35cdfbabbe46b57103fe102adf0, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 1
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &628657338
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628657336}
+  m_CullTransparentMesh: 1
+--- !u!224 &628657339
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628657336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 40919618}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -30, y: 50}
+  m_SizeDelta: {x: 300, y: 300}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1 &633558836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,6 +3991,81 @@ MonoBehaviour:
   stageNumber: 1
   partsList: []
   partsON: 
+--- !u!1 &1583043903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583043904}
+  - component: {fileID: 1583043905}
+  - component: {fileID: 1583043906}
+  m_Layer: 5
+  m_Name: IMG_Bulb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1583043904
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583043903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 40919618}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -30, y: 50}
+  m_SizeDelta: {x: 300, y: 300}
+  m_Pivot: {x: 1, y: 0}
+--- !u!222 &1583043905
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583043903}
+  m_CullTransparentMesh: 1
+--- !u!114 &1583043906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583043903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: c76d2f3f6182ec8488b6b21e6d438353, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1660956387
 GameObject:
   m_ObjectHideFlags: 0
@@ -7682,6 +7833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca002e457c96b441853e05e23f58c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delta: 0
+  maxFanSpeed: 0
   isParallel: 0
   maxIntensity: 20
   R: 0
@@ -10277,6 +10430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca002e457c96b441853e05e23f58c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delta: 0
+  maxFanSpeed: 0
   isParallel: 0
   maxIntensity: 20
   R: 0
@@ -12685,7 +12840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7124450705850124439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12721,6 +12876,9 @@ MonoBehaviour:
   speed: 3000
   UIMinSize: 0
   Ani_SSH_Help: {fileID: 1415178093}
+  IMG_Bulb: {fileID: 1583043906}
+  IMG_Bulb_Fill: {fileID: 628657337}
+  _Img_Fader: {fileID: 7124450707254728933}
 --- !u!1 &7124450707254728931
 GameObject:
   m_ObjectHideFlags: 0
@@ -19563,6 +19721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca002e457c96b441853e05e23f58c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delta: 0
+  maxFanSpeed: 0
   isParallel: 0
   maxIntensity: 20
   R: 0

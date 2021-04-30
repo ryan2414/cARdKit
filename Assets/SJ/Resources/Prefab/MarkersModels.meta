@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/MH/MH_CircuitTest/Prefabs/Light/Battery.prefab.meta
+guid: e9d358da958120e4bb6a30f4a3130630
+PrefabImporter:
+=======
 guid: d524050bc1c0b4d40bd903e92874dc53
 folderAsset: yes
 DefaultImporter:
+>>>>>>> SJ:Assets/SJ/Resources/Prefab/MarkersModels.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

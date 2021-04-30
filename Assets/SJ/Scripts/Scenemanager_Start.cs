@@ -25,17 +25,13 @@ public class Scenemanager_Start : MonoBehaviour
     {
         SceneManager.LoadScene("2SJ_WorldMap");
     }
-    //자유모드
-    public void OnClickAR()
-    {
-
-    }
 
     //설정
     public void OnClickOption()
     {
         OptionPanel.SetActive(true);
     }
+
     //게임 종료
     public void OnClickQuit()
     {
@@ -47,6 +43,7 @@ public class Scenemanager_Start : MonoBehaviour
     {
         HelpPanel.SetActive(true);
     }
+
     //설정 창 끄기
     public void OnClickX()
     {

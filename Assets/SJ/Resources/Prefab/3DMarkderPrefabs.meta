@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/MH/MH_CircuitTest/Prefabs/Light.meta
+guid: 15ca5b4e4572ab54f8f1bf48fcc1d1a1
+=======
 guid: 722fea1ee91c06441904f206322f3527
+>>>>>>> SJ:Assets/SJ/Resources/Prefab/3DMarkderPrefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

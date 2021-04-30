@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/MH/MH_CircuitTest/Prefabs/Wind.meta
+guid: 59664d77ab08ec147b70b25cd82b623c
+=======
 guid: 8bdbbe63cfdb7d74798580319fe366eb
+>>>>>>> SJ:Assets/SJ/Resources/Prefab/CricuitPrefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

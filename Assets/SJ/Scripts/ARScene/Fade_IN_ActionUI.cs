@@ -13,14 +13,17 @@ public class Fade_IN_ActionUI : MonoBehaviour
     public Animator Ani_SSH_Help;
     public Image IMG_Bulb;
     public Image IMG_Bulb_Fill;
+    public Image _Img_Fader;
     bool once;
 
     // Start is called before the first frame update
     void Start()
     {
+        _Img_Fader.gameObject.SetActive(true);
+        IMG_Bulb.gameObject.SetActive(true);
+        IMG_Bulb_Fill.gameObject.SetActive(true);
         UIMinSize = 0;
         IMG_Bulb_Fill.fillAmount = 0;
-
     }
 
     // Update is called once per frame
