@@ -12,12 +12,15 @@ public class Scenemanager_Intro : MonoBehaviour
     public Image IMG_FillBulb;
     public GameObject UI_Background;
     public CanvasGroup IMG_Fader;
+    public GameObject BTN_Skip;
+
     public float fillTime;
     bool IWantToPlayOnce;
 
     private void Awake()
     {
         videoClip.Prepare();
+        BTN_Skip.SetActive(false);
     }
 
     private void Start()
@@ -27,6 +30,8 @@ public class Scenemanager_Intro : MonoBehaviour
 
         //페이더를 위한 이미지
         IMG_Fader.alpha = 0;
+
+
 
     }
 
@@ -43,6 +48,7 @@ public class Scenemanager_Intro : MonoBehaviour
         if (!IWantToPlayOnce && IMG_FillBulb.fillAmount >= 1)
         {
             IWantToPlayOnce = true;
+            BTN_Skip.SetActive(true);
             VideoStart();
         }
 
