@@ -21,15 +21,24 @@ public class Table : MonoBehaviour
     Dictionary<int, string> TableIndexNameDic;
     Dictionary<int, string> TalbeIndexScriptDic;
 
-    private void Start()
-    {
-        
-    }
+    TextAsset text;
 
     public void SetTable()
     {
+        //world맵에서 레벨 인덱스를 가지고 옴
+        int stageNum = FlagManager.instance.stageNum;
+
         //Resocurecs 폴더의 Scripts.cvs파일을 불러온다
-        TextAsset text = Resources.Load<TextAsset>("Table");
+        //선택한 레벨에 따라서 다른 스토리를 불러온다.
+        if (stageNum == 1) text = Resources.Load<TextAsset>("Table");
+        else if (stageNum == 2) text = Resources.Load < TextAsset>("Table2");
+        else if (stageNum == 3) text = Resources.Load < TextAsset>("Table3");
+        else if (stageNum == 4) text = Resources.Load < TextAsset>("Table4");
+        else if (stageNum == 5) text = Resources.Load < TextAsset>("Table5");
+        else if (stageNum == 6) text = Resources.Load < TextAsset>("Table6");
+        else if (stageNum == 7) text = Resources.Load < TextAsset>("Table7");
+        else if (stageNum == 8) text = Resources.Load < TextAsset>("Table8");
+
         string content = text.text;
 
         //줄단위로 텍스트를 자름

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/SJ/Resources/Prefab/MarkersModels/Marker.meta
 guid: 78c534f6173800d4aa93c5465db04df4
+=======
+guid: 722fea1ee91c06441904f206322f3527
+>>>>>>> SJ:Assets/SJ/Resources/Prefab/3DMarkderPrefabs.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
