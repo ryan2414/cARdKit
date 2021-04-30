@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SJ/Scenes/2SJ_WorldMap.unity
     guid: cb8dbf27f3f586443b7fb084e0385179
-  - enabled: 0
+  - enabled: 1
     path: Assets/SJ/Scenes/3SJ_Story1-1.unity
     guid: 5b9999fd8ef55b449b34889335b039c5
-  - enabled: 0
+  - enabled: 1
     path: Assets/SJ/Scenes/9SJ_ARScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:

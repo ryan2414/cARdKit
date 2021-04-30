@@ -430,7 +430,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 137052805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &137052805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +566,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1565284256}
         m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
-        m_MethodName: OnClickNextStage
+        m_MethodName: OnClickBox
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -834,7 +846,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 356198818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &356198818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,7 +1741,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573244127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &573244127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,7 +1953,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 807466464}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &807466464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2182,7 +2230,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 890730488}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &890730488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3726,7 +3786,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1739059885}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1739059885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4324,7 +4396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2051896079
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4609,7 +4681,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2071686602}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1565284256}
+        m_TargetAssemblyTypeName: Scenemanager_WorldMap, Assembly-CSharp
+        m_MethodName: OnClickBox
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2071686602
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -117,8 +117,8 @@ public class TalkManager : MonoBehaviour
     {
         StopCoroutine("IEPrintWord");
         isCanTouch = true;
-        textName.text = names[maxTextCount - 1];
-        textScript.text = scripts[maxTextCount - 1];
+        textName.text = names[maxTextCount-1];
+        textScript.text = scripts[maxTextCount-1];
         textCount = maxTextCount;
     }
 }

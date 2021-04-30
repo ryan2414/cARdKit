@@ -30,7 +30,7 @@ public class StageManager_WorldMap : MonoBehaviour
     public CanvasGroup CloudCanvasGroup;
     public float fadeSpeed;
 
-    int stageTotalNumber;
+    int stageTotalNumber = 8;
 
     bool stage1Clear;
     bool stage2Clear;
@@ -60,42 +60,26 @@ public class StageManager_WorldMap : MonoBehaviour
 
     public void FireWorks()
     {
-        if (!stage1Clear && !stage2Clear)
+        if (!stage1Clear && !stage2Clear && !stage1ClearBool.Contains(false))
         {
-            for (int i = 0; i < btnStage.Count; i++)
-            {
-                stage1ClearBool[i] = btnStage[i].interactable;
-            }
-
             //1-4단계가 끝이나면 불꽃놀이 파티클을 실행하고
             //안개가 걷히고
             //2단계 스테이지가 순서대로 열리게 하고 싶다.
-            if (!stage1ClearBool.Contains(false))
-            {
-                stage1Clear = true;
-                GameObject firework = Instantiate(FireWorksFactory);
-                firework.GetComponent<Animator>().SetTrigger("ParticleStart");
-                StartCoroutine(DisapearCloud());
-            }
+
+            stage1Clear = true;
+            GameObject firework = Instantiate(FireWorksFactory);
+            firework.GetComponent<Animator>().SetTrigger("ParticleStart");
+            StartCoroutine(DisapearCloud());
         }
 
-        if (stage1Clear && !stage2Clear)
+        if (stage1Clear && !stage2Clear && !stage2ClearBool.Contains(false))
         {
-            for (int i = 0; i < btnStage2.Count; i++)
-            {
-                stage2ClearBool[i] = btnStage2[i].interactable;
-            }
-
             //스테이지 2까지 완료가 되면 안내 팝업을 띄운다.
             //스테이지 2 클리어시 폭죽 이펙터 추가
-            if (!stage2ClearBool.Contains(false))
-            {
-                GameObject firwork = Instantiate(FireWorksWholeMapFactory);
-                firwork.GetComponent<Animator>().SetTrigger("Stage2Clear");
-                StartCoroutine(FinishStage());
-                stage2Clear = true;
-
-            }
+            GameObject firwork = Instantiate(FireWorksWholeMapFactory);
+            firwork.GetComponent<Animator>().SetTrigger("Stage2Clear");
+            StartCoroutine(FinishStage());
+            stage2Clear = true;
         }
 
 
@@ -152,15 +136,22 @@ public class StageManager_WorldMap : MonoBehaviour
         //인덱스 값을 받아서
         //그 스테이지의 버튼을 활성화 해주고
         //클리어한 스테이지의 색을 변경하고 싶다.
-        //int clearStage = FlagManager.instance.stageCount;
-
-        //if (FlagManager.instance.clearBool[clearStage] == true)
-        //{
-        //    btnStage[clearStage].gameObject.GetComponent<Image>().color = Color.yellow;
-        //    stage1ClearBool[clearStage] = true;
-        //    btnStage[clearStage + 1].interactable = true;
-        //}
-
+        for (int i = 0; i < stageTotalNumber; i++)
+        {
+            if (i < 4 && FlagManager.instance.clearBool[i] == true)
+            {
+                btnStage[i].gameObject.GetComponent<Image>().color = Color.yellow;
+                stage1ClearBool[i] = true;
+                if (i < 3) btnStage[i + 1].interactable = true;
+            }
+            else if (i >= 4 && FlagManager.instance.clearBool[i] == true)
+            {
+                int j = i - 4;
+                btnStage2[j].gameObject.GetComponent<Image>().color = Color.yellow;
+                stage2ClearBool[j] = true;
+                if (j < 3) btnStage2[j + 1].interactable = true;
+            }
+        }
     }
 
     public void TestButton()
