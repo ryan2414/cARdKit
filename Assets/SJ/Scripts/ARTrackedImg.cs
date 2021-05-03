@@ -38,7 +38,7 @@ public class ARTrackedImg : MonoBehaviour
             {
                 //TrackingState.Limited == Some tracking information is available, but it is limited or of poor quality.
                 //trackedImage의 상태가 Limited가 된다면
-                if (_trackedImg[i].trackingState == TrackingState.Limited)
+                if (_trackedImg[i].trackingState == TrackingState.Limited) 
                 {
                     //limied된 게임 오브젝트를 setactive(false)로 해준다.
                     string name = _trackedImg[i].referenceImage.name;
@@ -100,17 +100,41 @@ public class ARTrackedImg : MonoBehaviour
 
     }
 
+    //게임 오브젝트가 Circuit라면 한번만 출력을 하고 싶다.
+    //출력된 회로가 마커가 있는 위치에 나오도록 하고 싶다.
+    bool creatOnce;
+    GameObject stageCrct;
+
     void UpdateImage(ARTrackedImage trackedImage)
     {
         string name = trackedImage.referenceImage.name;
+        if (trackedImage.referenceImage.name.Contains("Stage") )
+        {
+            //게임 오브젝트가 Circuit라면 한번만 출력을 하고 싶다.
+            //출력된 회로가 마커가 있는 위치에 나오도록 하고 싶다.
+            if (!creatOnce)
+            {
+                stageCrct = Instantiate(_prefabDic[name]);
+                creatOnce = true;
+            }
 
-        //게임오브젝트의 정보를 가지고 와서
-        GameObject tObj = _prefabDic[name];
+            stageCrct.transform.position = trackedImage.transform.position;
+            stageCrct.transform.rotation = trackedImage.transform.rotation;
+            stageCrct.SetActive(true);
+        }
+        //circuit가 아닌 소자는 마커가 인식 되면
+        //그자리에 놓고 싶다. 
+        else if(!trackedImage.referenceImage.name.Contains("Stage"))
+        {
+            //게임오브젝트의 정보를 가지고 와서
+            GameObject tObj = _prefabDic[name];
 
-        //이미지 위치에 위치시키고 싶다.
-        tObj.transform.position = trackedImage.transform.position;
-        tObj.transform.rotation = trackedImage.transform.rotation;
-        tObj.SetActive(true);
+            //이미지 위치에 위치시키고 싶다.
+            tObj.transform.position = trackedImage.transform.position;
+            tObj.transform.rotation = trackedImage.transform.rotation;
+            tObj.SetActive(true);
+        }
+
     }
-    
+
 }

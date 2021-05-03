@@ -19,9 +19,9 @@ MonoBehaviour:
       m_GuidLow: 5054533824231689658
       m_GuidHigh: 15734159050798372742
     m_SerializedTextureGuid:
-      m_GuidLow: 2698986082601917371
-      m_GuidHigh: 2469002720406439146
-    m_Size: {x: 0.1, y: 0.1}
+      m_GuidLow: 3054808910876359891
+      m_GuidHigh: 17421060780000797321
+    m_Size: {x: 0.54, y: 0.34490323}
     m_SpecifySize: 1
     m_Name: Stage1-1
     m_Texture: {fileID: 0}
@@ -29,8 +29,8 @@ MonoBehaviour:
       m_GuidLow: 5327737769231449253
       m_GuidHigh: 10344973939551596165
     m_SerializedTextureGuid:
-      m_GuidLow: 17322134661441025852
-      m_GuidHigh: 6532500176493358619
+      m_GuidLow: 16412380646376947098
+      m_GuidHigh: 2314987365611937880
     m_Size: {x: 0.062, y: 0.07732584}
     m_SpecifySize: 1
     m_Name: PowerMarker
@@ -39,8 +39,8 @@ MonoBehaviour:
       m_GuidLow: 5446707369353193702
       m_GuidHigh: 1223503616024406972
     m_SerializedTextureGuid:
-      m_GuidLow: 14755183878949219554
-      m_GuidHigh: 1045929779916561339
+      m_GuidLow: 1145168624118334670
+      m_GuidHigh: 2724124223283559643
     m_Size: {x: 0.083, y: 0.0795126}
     m_SpecifySize: 1
     m_Name: BulbMarker
