@@ -23,7 +23,7 @@ MonoBehaviour:
       m_GuidHigh: 2469002720406439146
     m_Size: {x: 0.1, y: 0.1}
     m_SpecifySize: 1
-    m_Name: Stage1-3
+    m_Name: Stage1-1
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 4702969109773882291

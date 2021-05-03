@@ -17,9 +17,6 @@ public class CircuitFlag : MonoBehaviour
     //클리어 판넬
     public GameObject UI_clearPanel;
 
-    //스테이지 변수
-    public int stageNumber;
-
     //클리어에 필요한 파츠를 배열로 받아오기 위한 리스트
     public List<GameObject> partsList = new List<GameObject>();
     public List<bool> partsON = new List<bool>();
@@ -74,10 +71,7 @@ public class CircuitFlag : MonoBehaviour
         UI_clearPanel.SetActive(true);
 
         //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
-        int _stageNum = FlagManager.instance.stageNum;
+        int _stageNum = FlagManager.instance.stageNum-1;
         FlagManager.instance.clearBool[_stageNum] = true;
-
-        
-
     }
 }

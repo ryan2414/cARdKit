@@ -20,7 +20,6 @@ public class FlagManager : MonoBehaviour
     public void Call()
     {
         SceneManager.LoadScene("3SJ_Story1-1");
-        DontDestroyOnLoad(stageNumObject);
     }
 
     //0~7스테이지의 클리어 여부를 파악하는 flag
