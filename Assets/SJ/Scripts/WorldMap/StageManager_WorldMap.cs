@@ -159,6 +159,7 @@ public class StageManager_WorldMap : MonoBehaviour
         for (int i = 0; i < btnStage.Count; i++)
         {
             btnStage[i].interactable = true;
+            stage1ClearBool[i] = true;
         }
     }
 
@@ -167,6 +168,8 @@ public class StageManager_WorldMap : MonoBehaviour
         for (int i = 0; i < btnStage2.Count; i++)
         {
             btnStage2[i].interactable = true;
+            stage2ClearBool[i] = true;
+
         }
     }
 

@@ -14,7 +14,7 @@ public class Scenemanager_Intro : MonoBehaviour
     public CanvasGroup IMG_Fader;
     public GameObject BTN_Skip;
 
-    public float fillTime;
+    public float fadeTime;
     bool IWantToPlayOnce;
 
     private void Awake()
@@ -76,8 +76,8 @@ public class Scenemanager_Intro : MonoBehaviour
     {
         while (canvasGroup.alpha < 1)
         {
-            canvasGroup.alpha += Time.deltaTime / fillTime;
-            yield return new WaitForSeconds(Time.deltaTime / fillTime);
+            canvasGroup.alpha += Time.deltaTime / fadeTime;
+            yield return new WaitForSeconds(Time.deltaTime / fadeTime);
         }
         canvasGroup.alpha = 1;
 
@@ -88,8 +88,8 @@ public class Scenemanager_Intro : MonoBehaviour
     {
         while (0 < canvasGroup.alpha)
         {
-            canvasGroup.alpha -= Time.deltaTime / fillTime;
-            yield return new WaitForSeconds(Time.deltaTime / fillTime);
+            canvasGroup.alpha -= Time.deltaTime / fadeTime;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         canvasGroup.alpha = 0;
 
