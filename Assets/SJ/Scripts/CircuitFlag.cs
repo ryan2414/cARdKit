@@ -71,7 +71,7 @@ public class CircuitFlag : MonoBehaviour
         UI_clearPanel.SetActive(true);
 
         //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
-        int _stageNum = FlagManager.instance.stageNum-1;
+        int _stageNum = FlagManager.instance.stageNum - 1;
         FlagManager.instance.clearBool[_stageNum] = true;
     }
 }

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: Stage1-2
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5159744305460062017
+  m_GuidHigh: 14898577983947390860
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5054533824231689658
+      m_GuidHigh: 15734159050798372742
+    m_SerializedTextureGuid:
+      m_GuidLow: 2698986082601917371
+      m_GuidHigh: 2469002720406439146
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Stage1-2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4702969109773882291
+      m_GuidHigh: 1154988294269628095
+    m_SerializedTextureGuid:
+      m_GuidLow: 131784242792022478
+      m_GuidHigh: 2573249429066211720
+    m_Size: {x: 0.072, y: 0.072}
+    m_SpecifySize: 1
+    m_Name: SwitchMarker
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4956681474639022480
+      m_GuidHigh: 10193333581302958477
+    m_SerializedTextureGuid:
+      m_GuidLow: 14755183878949219554
+      m_GuidHigh: 1045929779916561339
+    m_Size: {x: 0.083, y: 0.0795126}
+    m_SpecifySize: 1
+    m_Name: BulbMarker
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5327737769231449253
+      m_GuidHigh: 10344973939551596165
+    m_SerializedTextureGuid:
+      m_GuidLow: 17322134661441025852
+      m_GuidHigh: 6532500176493358619
+    m_Size: {x: 0.062, y: 0.07732584}
+    m_SpecifySize: 1
+    m_Name: PowerMarker
+    m_Texture: {fileID: 0}
