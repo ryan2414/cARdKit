@@ -2470,7 +2470,7 @@ MonoBehaviour:
   OptionPanel: {fileID: 809991006}
   HelpPanel: {fileID: 896846604}
   FreeMode: {fileID: 1786607231}
-  fillTime: 2
+  faderTime: 0.3
   IMG_Fader: {fileID: 804820531}
 --- !u!1 &1744462911
 GameObject:
@@ -3021,7 +3021,6 @@ MonoBehaviour:
   stageNum: 0
   stageNumObject: {fileID: 8313511965264955133}
   clearBool: 
-  stageCount: 0
 --- !u!4 &8313511965264955132
 Transform:
   m_ObjectHideFlags: 0

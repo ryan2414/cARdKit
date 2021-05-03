@@ -822,7 +822,7 @@ MonoBehaviour:
   UI_Background: {fileID: 946603707}
   IMG_Fader: {fileID: 649897050}
   BTN_Skip: {fileID: 363988239}
-  fillTime: 0.5
+  fadeTime: 0.2
 --- !u!1 &1325888208
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,8 +912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: 1
-  m_LightEstimationMode: 0
+  m_FocusMode: -1
+  m_LightEstimationMode: -1
   m_AutoFocus: 1
   m_LightEstimation: 0
   m_FacingDirection: 1

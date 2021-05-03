@@ -77,7 +77,7 @@ public class Scenemanager_Intro : MonoBehaviour
         while (canvasGroup.alpha < 1)
         {
             canvasGroup.alpha += Time.deltaTime / fadeTime;
-            yield return new WaitForSeconds(Time.deltaTime / fadeTime);
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         canvasGroup.alpha = 1;
 

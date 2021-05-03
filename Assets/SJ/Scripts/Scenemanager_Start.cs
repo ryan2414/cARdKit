@@ -8,16 +8,18 @@ public class Scenemanager_Start : MonoBehaviour
     public GameObject OptionPanel;
     public GameObject HelpPanel;
     public Button FreeMode;
-    public float fillTime;
+    public float faderTime;
     public CanvasGroup IMG_Fader;
     private void Awake()
     {
+        IMG_Fader.gameObject.SetActive(true);
         StartCoroutine(IEHideBoard(IMG_Fader));
     }
     private void Start()
     {
         FreeMode.interactable = false;
         FreeMode.GetComponentInChildren<Text>().color = new Color(0,0,0,0.5f);
+
     }
 
     //스토리모드
@@ -62,8 +64,8 @@ public class Scenemanager_Start : MonoBehaviour
     {
         while (0 < canvasGroup.alpha)
         {
-            canvasGroup.alpha -= Time.deltaTime / fillTime;
-            yield return new WaitForSeconds(Time.deltaTime / fillTime);
+            canvasGroup.alpha -= Time.deltaTime / faderTime;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         canvasGroup.alpha = 0;
         canvasGroup.gameObject.SetActive(false);
