@@ -6840,7 +6840,7 @@ MonoBehaviour:
   _pixelateDownscale: 0
   _antialiasStrength: 5
   _antialiasDepthThreshold: 0.001
-  isDirty: 1
+  isDirty: 0
   bMat: {fileID: 0}
 --- !u!1 &980785785
 GameObject:
