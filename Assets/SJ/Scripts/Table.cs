@@ -9,16 +9,19 @@ public class Table : MonoBehaviour
     {
         instance = this;
         TableIndexNameDic = new Dictionary<int, string>();
+        TableIndexEmotionDic = new Dictionary<int, string>();
         TalbeIndexScriptDic = new Dictionary<int, string>();
         SetTable();
     }
 
     public int index { get; set; }
     public string names { get; set; }
+    public string emotion { get; set; }
     public string script { get; set; }
     public int textLength;
 
     Dictionary<int, string> TableIndexNameDic;
+    Dictionary<int, string> TableIndexEmotionDic;
     Dictionary<int, string> TalbeIndexScriptDic;
 
     TextAsset text;
@@ -31,13 +34,13 @@ public class Table : MonoBehaviour
         //Resocurecs 폴더의 Scripts.cvs파일을 불러온다
         //선택한 레벨에 따라서 다른 스토리를 불러온다.
         if (stageNum == 1) text = Resources.Load<TextAsset>("Table");
-        else if (stageNum == 2) text = Resources.Load < TextAsset>("Table2");
-        else if (stageNum == 3) text = Resources.Load < TextAsset>("Table3");
-        else if (stageNum == 4) text = Resources.Load < TextAsset>("Table4");
-        else if (stageNum == 5) text = Resources.Load < TextAsset>("Table5");
-        else if (stageNum == 6) text = Resources.Load < TextAsset>("Table6");
-        else if (stageNum == 7) text = Resources.Load < TextAsset>("Table7");
-        else if (stageNum == 8) text = Resources.Load < TextAsset>("Table8");
+        else if (stageNum == 2) text = Resources.Load<TextAsset>("Table2");
+        else if (stageNum == 3) text = Resources.Load<TextAsset>("Table3");
+        else if (stageNum == 4) text = Resources.Load<TextAsset>("Table4");
+        else if (stageNum == 5) text = Resources.Load<TextAsset>("Table5");
+        else if (stageNum == 6) text = Resources.Load<TextAsset>("Table6");
+        else if (stageNum == 7) text = Resources.Load<TextAsset>("Table7");
+        else if (stageNum == 8) text = Resources.Load<TextAsset>("Table8");
 
         string content = text.text;
 
@@ -53,11 +56,13 @@ public class Table : MonoBehaviour
             int count = 0;
             index = int.Parse(column[count++]); //column[0];
             names = column[count++];             //column[1];
-            script = column[count++];           //column[2];
+            emotion = column[count++];           //column[2];
+            script = column[count++];           //column[3];
 
             //대사 스크립트를 작성하는 사람은 숫자를 1부터 하는 것이 익숙할 것 같아서
             //1부터 시작하도록 설정
             TableIndexNameDic.Add(index - 1, names);
+            TableIndexEmotionDic.Add(index - 1, emotion);
             TalbeIndexScriptDic.Add(index - 1, script);
         }
     }
@@ -79,6 +84,18 @@ public class Table : MonoBehaviour
         if (TableIndexNameDic.ContainsKey(_index))
         {
             return TableIndexNameDic[_index];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public string GetTableEmotion(int _index)
+    {
+        if (TableIndexEmotionDic.ContainsKey(_index))
+        {
+            return TableIndexEmotionDic[_index];
         }
         else
         {
