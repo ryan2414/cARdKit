@@ -37,6 +37,7 @@ public class TalkManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //다음 씬으로 넘어가기 위해
         //텍스트 카운트랑 대화집의 길이가 같아지면 
         if (textCount >= maxTextCount)
         {

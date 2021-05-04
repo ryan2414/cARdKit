@@ -55,6 +55,8 @@ public class Table : MonoBehaviour
             names = column[count++];             //column[1];
             script = column[count++];           //column[2];
 
+            //대사 스크립트를 작성하는 사람은 숫자를 1부터 하는 것이 익숙할 것 같아서
+            //1부터 시작하도록 설정
             TableIndexNameDic.Add(index - 1, names);
             TalbeIndexScriptDic.Add(index - 1, script);
         }
