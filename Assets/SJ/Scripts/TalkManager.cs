@@ -83,7 +83,10 @@ public class TalkManager : MonoBehaviour
         int printWordCount = 0;             //글자가 다 출력이 되면 textCount를 올리기 위한 변수 
 
         textName.text = names[lineNum];//대사 주체 이름 출력
-        print(emotions[lineNum]);
+
+        #region 스토리에 따른 캐릭터 변경
+        ActEmotion(emotions[lineNum]);
+        #endregion
 
         for (int i = 0; i < scripts[lineNum].Length && !isSentenseSkip; i++)
         {
@@ -126,4 +129,25 @@ public class TalkManager : MonoBehaviour
         textScript.text = scripts[maxTextCount-1];
         lineNum = maxTextCount;
     }
+
+    #region 스토리에 따른 캐릭터 변경
+    public List<Sprite> emoImgList = new List<Sprite>();
+    public GameObject playerImg;
+
+    void ActEmotion(string emoTxt)
+    {
+        switch (emoTxt)
+        {
+            case "happy":
+                playerImg.GetComponent<Image>().sprite = emoImgList[0];
+                break;
+            case "sad":
+                playerImg.GetComponent<Image>().sprite = emoImgList[1];
+                break;
+            case "point":
+                playerImg.GetComponent<Image>().sprite = emoImgList[1];
+                break;
+        }
+    }
+    #endregion
 }
