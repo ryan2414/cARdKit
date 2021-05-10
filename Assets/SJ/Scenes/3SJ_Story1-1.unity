@@ -708,8 +708,10 @@ MonoBehaviour:
   textName: {fileID: 2039092487}
   textScript: {fileID: 2025830390}
   emoImgList:
-  - {fileID: 21300000, guid: 288ac37ec0b22204a98bafeff52787b2, type: 3}
-  - {fileID: 21300000, guid: d7b9c04b7000e144284ab80828f505f2, type: 3}
+  - {fileID: 21300000, guid: de21f777b8db6d94496da945fe875150, type: 3}
+  - {fileID: 21300000, guid: ccebba2173563f84b9fb52f4cf792ff2, type: 3}
+  - {fileID: 21300000, guid: 5bda9a5f9190dc546a06f8f657d680d6, type: 3}
+  - {fileID: 21300000, guid: 01e354874e30c7c418acea67e2cdea5f, type: 3}
   - {fileID: 21300000, guid: bf6dae217992f5944aabb66934c69e38, type: 3}
   playerImg: {fileID: 1560124637}
 --- !u!114 &335395349
@@ -2145,14 +2147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 288ac37ec0b22204a98bafeff52787b2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

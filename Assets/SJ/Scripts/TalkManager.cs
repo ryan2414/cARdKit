@@ -125,8 +125,8 @@ public class TalkManager : MonoBehaviour
     {
         StopCoroutine("IEPrintWord");
         isCanTouch = true;
-        textName.text = names[maxTextCount-1];
-        textScript.text = scripts[maxTextCount-1];
+        textName.text = names[maxTextCount - 1];
+        textScript.text = scripts[maxTextCount - 1];
         lineNum = maxTextCount;
     }
 
@@ -136,17 +136,35 @@ public class TalkManager : MonoBehaviour
 
     void ActEmotion(string emoTxt)
     {
+        if (emoTxt == "emty")
+            playerImg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+        else
+            playerImg.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+
         switch (emoTxt)
         {
-            case "happy":
+            case "emty":
+                playerImg.GetComponent<Image>().sprite = null;
+                break;
+            case "dam_SH":
                 playerImg.GetComponent<Image>().sprite = emoImgList[0];
                 break;
-            case "sad":
+            case "idle_SH":
                 playerImg.GetComponent<Image>().sprite = emoImgList[1];
                 break;
-            case "point":
-                playerImg.GetComponent<Image>().sprite = emoImgList[1];
+            case "sus_SH":
+                playerImg.GetComponent<Image>().sprite = emoImgList[2];
                 break;
+            case "wow_SH":
+                playerImg.GetComponent<Image>().sprite = emoImgList[3];
+                break;
+            case "idle_ML":
+                playerImg.GetComponent<Image>().sprite = emoImgList[4];
+                break;
+            default:
+                playerImg.GetComponent<Image>().sprite = emoImgList[4];
+                break;
+
         }
     }
     #endregion
