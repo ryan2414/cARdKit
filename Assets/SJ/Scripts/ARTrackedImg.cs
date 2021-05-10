@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -17,6 +18,17 @@ public class ARTrackedImg : MonoBehaviour
     private List<ARTrackedImage> _trackedImg = new List<ARTrackedImage>();
     private List<float> _trackedTimer = new List<float>();
 
+    #region TrackingSH_MH
+    public GameObject fader;
+    bool isFaderOut;
+
+    public Image image_SH;
+    public Image image_SH_Front;
+    [SerializeField]
+    bool isStageRecognize = false;
+    float timer_Recognize = 0f;
+    public float time_fill;
+    #endregion
 
     private void Awake()
     {
@@ -25,10 +37,18 @@ public class ARTrackedImg : MonoBehaviour
             string tName = obj.name;
             _prefabDic.Add(tName, obj);
         }
+        image_SH_Front.fillAmount = 0;
+        image_SH.gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        if (!fader.activeInHierarchy && !isFaderOut)
+        {
+            image_SH.gameObject.SetActive(true);
+            isFaderOut = true;
+        }
+
         if (_trackedImg.Count > 0)
         {
             List<ARTrackedImage> tNumList = new List<ARTrackedImage>();
@@ -38,7 +58,7 @@ public class ARTrackedImg : MonoBehaviour
             {
                 //TrackingState.Limited == Some tracking information is available, but it is limited or of poor quality.
                 //trackedImage의 상태가 Limited가 된다면
-                if (_trackedImg[i].trackingState == TrackingState.Limited) 
+                if (_trackedImg[i].trackingState == TrackingState.Limited)
                 {
                     //limied된 게임 오브젝트를 setactive(false)로 해준다.
                     string name = _trackedImg[i].referenceImage.name;
@@ -60,6 +80,15 @@ public class ARTrackedImg : MonoBehaviour
                     _trackedTimer.Remove(_trackedTimer[num]);
                 }
             }
+        }
+        if (isStageRecognize)
+        {
+            RecognizeSH_MH();
+        }
+        else
+        {
+            image_SH_Front.fillAmount = 0f;
+            timer_Recognize = 0;
         }
     }
     private void OnEnable()
@@ -96,6 +125,10 @@ public class ARTrackedImg : MonoBehaviour
             {
                 UpdateImage(trackedImage);
             }
+            else
+            {
+                isStageRecognize = false;
+            }
         }
 
     }
@@ -108,14 +141,20 @@ public class ARTrackedImg : MonoBehaviour
     void UpdateImage(ARTrackedImage trackedImage)
     {
         string name = trackedImage.referenceImage.name;
-        if (trackedImage.referenceImage.name.Contains("Stage") )
+        if (trackedImage.referenceImage.name.Contains("Stage"))
         {
+            // SH 마크가 차오르는 상태On
+            isStageRecognize = true;
             //게임 오브젝트가 Circuit라면 한번만 출력을 하고 싶다.
             //출력된 회로가 마커가 있는 위치에 나오도록 하고 싶다.
             if (!creatOnce)
             {
-                stageCrct = Instantiate(_prefabDic[name]);
-                creatOnce = true;
+                if (image_SH_Front.fillAmount == 1)
+                {
+                    image_SH.gameObject.SetActive(false);
+                    stageCrct = Instantiate(_prefabDic[name]);
+                    creatOnce = true;
+                }
             }
 
             stageCrct.transform.position = trackedImage.transform.position;
@@ -124,7 +163,7 @@ public class ARTrackedImg : MonoBehaviour
         }
         //circuit가 아닌 소자는 마커가 인식 되면
         //그자리에 놓고 싶다. 
-        else if(!trackedImage.referenceImage.name.Contains("Stage"))
+        else if (!trackedImage.referenceImage.name.Contains("Stage"))
         {
             //게임오브젝트의 정보를 가지고 와서
             GameObject tObj = _prefabDic[name];
@@ -135,6 +174,12 @@ public class ARTrackedImg : MonoBehaviour
             tObj.SetActive(true);
         }
 
+    }
+
+    void RecognizeSH_MH()
+    {
+        timer_Recognize += Time.deltaTime;
+        image_SH_Front.fillAmount = timer_Recognize / time_fill;
     }
 
 }
