@@ -94,7 +94,7 @@ public class TalkManager : MonoBehaviour
             textScript.text = printWord;
 
             printWordCount++;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
         }
 
         //만약 문장을 스킵하면 PrintWordCoutn를 올려 다음 문장으로 넘어 가게한다
