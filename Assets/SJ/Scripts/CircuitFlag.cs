@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //회로에 필요한 소자들이 켜지면 컴플리트 UI를 출력해주고 싶다
 
@@ -9,14 +10,6 @@ using UnityEngine;
 
 public class CircuitFlag : MonoBehaviour
 {
-    ////클리어에 필요한 파츠
-    //public GameObject bulb;
-    //public GameObject power;
-    //public GameObject obj_Switch;
-
-    //클리어 판넬
-    public GameObject UI_clearPanel;
-
     //클리어에 필요한 파츠를 배열로 받아오기 위한 리스트
     public List<GameObject> partsList = new List<GameObject>();
     public List<bool> partsON = new List<bool>();
@@ -26,7 +19,7 @@ public class CircuitFlag : MonoBehaviour
 
     private void Start()
     {
-        UI_clearPanel.SetActive(false);
+        //UI_Clear.SetActive(false);
 
         //클리어에 필요한 파츠를 배열로 받아오기
         int partsCount = transform.Find("Parts").gameObject.transform.childCount;
@@ -57,21 +50,39 @@ public class CircuitFlag : MonoBehaviour
 
             if (!partsON.Contains(false))
             {
-                Invoke("UIActive", 3f);
+                ClearUIActive_SJ.instance.isStageClear = true;
                 isClear = true;
+
+                //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+                int _stageNum = FlagManager.instance.stageNum - 1;
+                FlagManager.instance.clearBool[_stageNum] = true;
             }
         }
 
     }
 
+    //[Header("클리어대화")]
+    //public GameObject img_SH;
+    //public GameObject img_ML;
+    //public GameObject txt_Sh;
+    //public GameObject txt_Ml;
+    //public GameObject UI_Clear;
+    //public GameObject btn_Clear;
 
-    void UIActive()
-    {
-        //클리어 UI ON
-        UI_clearPanel.SetActive(true);
+    ////클리어 조건을 만족하면 Clear UI와 대사를 띄운다
+    //IEnumerator IEClearUIActive()
+    //{
+    //    txt_Sh.SetActive(false);
+    //    txt_Ml.SetActive(false);
+    //    UI_Clear.SetActive(true);
+    //    yield return new WaitForSeconds(3f);
 
-        //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
-        int _stageNum = FlagManager.instance.stageNum - 1;
-        FlagManager.instance.clearBool[_stageNum] = true;
-    }
+
+    //    //클리어 UI ON
+    //    btn_Clear.SetActive(true);
+
+    //    //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+    //    int _stageNum = FlagManager.instance.stageNum - 1;
+    //    FlagManager.instance.clearBool[_stageNum] = true;
+    //}
 }

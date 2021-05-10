@@ -109,7 +109,9 @@ public class ARSceneManager : MonoBehaviour
 
     public void OnClickNextStage()
     {
-        //SceneManager.LoadScene("");
+        int stageNum = FlagManager.instance.stageNum ;
+        FlagManager.instance.stageNum = stageNum + 1;
+        SceneManager.LoadScene("3SJ_Story1-1");
     }
 
     public void OnClickRestart()
@@ -119,6 +121,7 @@ public class ARSceneManager : MonoBehaviour
 
     public void OnClickClear()
     {
+        ClearUIActive_SJ.instance.UI_Clear.SetActive(false);
         UI_clearPanel.SetActive(true);
     }
 
