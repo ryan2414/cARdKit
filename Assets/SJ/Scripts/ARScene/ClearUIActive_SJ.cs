@@ -18,6 +18,8 @@ public class ClearUIActive_SJ : MonoBehaviour
     public GameObject UI_Clear;
     public GameObject img_SH;
     public GameObject img_ML;
+    public GameObject go_Sh_MoveTarget;
+    public GameObject go_Ml_MoveTarget;
     public GameObject txt_Sh;
     public GameObject txt_Ml;
     public GameObject btn_Clear;
@@ -54,7 +56,7 @@ public class ClearUIActive_SJ : MonoBehaviour
         if (isStageClear == true)
         {
             timer += Time.deltaTime;
-            float deltaDis = moveSpeed / Time.deltaTime;
+            float deltaDis = moveSpeed * Time.deltaTime;
             Vector3 moveDistance = new Vector3(deltaDis, 0, 0);
 
             if (isPlay == false && timer >= 4f)
@@ -62,31 +64,30 @@ public class ClearUIActive_SJ : MonoBehaviour
                 UI_Clear.SetActive(true);
 
                 bool isShSay = false;
+
                 //승형이가 왼쪽에서 나타난다
-                if (img_SH.transform.position.x < -47)
-                {
-                    img_SH.transform.position += moveDistance;
-                }
-                else if (img_SH.transform.position.x >= -47)
-                    isShSay = true;
+
+                img_SH.transform.position = Vector3.MoveTowards(img_SH.transform.position, go_Sh_MoveTarget.transform.position, deltaDis);
 
                 //멀린이 오른쪽에서 나타난다
-                if (img_ML.transform.position.x > 2129.0f)
+                img_ML.transform.position = Vector3.MoveTowards(img_ML.transform.position, go_Ml_MoveTarget.transform.position, deltaDis);
+
+                if(Vector3.Distance(img_SH.transform.position, go_Sh_MoveTarget.transform.position) <= 0)
                 {
-                    img_ML.transform.position -= moveDistance;
+                    isShSay = true;
                 }
 
                 //움직이는게 끝나면 승형이가 말한다
                 if (isShSay == true)
                 {
                     txt_Sh.SetActive(true);
-                    txt_Sh.GetComponent<Image>().color += new Color(0, 0, 0, dialogSpeed * Time.deltaTime);
+                    txt_Sh.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
 
                     //멀린이 말한다.
                     if (txt_Sh.GetComponent<Image>().color.a >= 1 && timer >= 5f)
                     {
                         txt_Ml.SetActive(true);
-                        txt_Ml.GetComponent<Image>().color += new Color(0, 0, 0, dialogSpeed * Time.deltaTime);
+                        txt_Ml.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
 
                         if (txt_Ml.GetComponent<Image>().color.a >= 1 && timer >= 6f)
                         {
