@@ -59,6 +59,11 @@ public class Scenemanager_Start : MonoBehaviour
         }
     }
 
+    public void OnClickDeleteSaveData()
+    {
+        PlayerPrefs.DeleteKey("ClearLevel");
+    }
+
     //페이드인
     public IEnumerator IEHideBoard(CanvasGroup canvasGroup)
     {
