@@ -72,7 +72,7 @@ public class ClearUIActive_SJ : MonoBehaviour
                 //멀린이 오른쪽에서 나타난다
                 img_ML.transform.position = Vector3.MoveTowards(img_ML.transform.position, go_Ml_MoveTarget.transform.position, deltaDis);
 
-                if(Vector3.Distance(img_SH.transform.position, go_Sh_MoveTarget.transform.position) <= 0)
+                if (Vector3.Distance(img_SH.transform.position, go_Sh_MoveTarget.transform.position) <= 0)
                 {
                     isShSay = true;
                 }
@@ -91,8 +91,12 @@ public class ClearUIActive_SJ : MonoBehaviour
 
                         if (txt_Ml.GetComponent<Image>().color.a >= 1 && timer >= 6f)
                         {
+                            //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+                            int _stageNum = FlagManager.instance.stageNum - 1;
+                            FlagManager.instance.clearBool[_stageNum] = true;
                             //클리어 버튼 활성화
                             btn_Clear.SetActive(true);
+                            //한번만 재생을 위한 
                             isPlay = true;
                         }
 
