@@ -27,7 +27,6 @@ public class Scenemanager_WorldMap : MonoBehaviour
         else if (nowButton == "Btn_Stage2-1") FlagManager.instance.stageNum = 5;
         else if (nowButton == "Btn_Stage2-2") FlagManager.instance.stageNum = 6;
         else if (nowButton == "Btn_Stage2-3") FlagManager.instance.stageNum = 7;
-        else if (nowButton == "Btn_Stage2-4") FlagManager.instance.stageNum = 8;
 
         if (FlagManager.instance.stageNum != 0) FlagManager.instance.Call();
     }

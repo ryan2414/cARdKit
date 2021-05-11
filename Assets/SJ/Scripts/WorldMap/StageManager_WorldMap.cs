@@ -9,31 +9,32 @@ using UnityEngine.UI;
 //
 public class StageManager_WorldMap : MonoBehaviour
 {
-    public static StageManager_WorldMap instance;
-    private void Awake()
-    {
-        instance = this;
-    }
     public GameObject UI_Finish;
-
-
-    public GameObject FireWorksFactory;
-    public GameObject FireWorksWholeMapFactory;
 
     //스테이지 버튼 정보를 가지고 온다
     public List<Button> btnStage = new List<Button>();
+
+    int clearLevel;
+
+    #region 안쓰는거
+
+    //불놀이 오브젝트 
+    //public GameObject FireWorksFactory;
+    //public GameObject FireWorksWholeMapFactory;
+
+    //List<bool> stageClearBool = new List<bool>();
     //public List<Button> btnStage2 = new List<Button>();
-    List<bool> stageClearBool = new List<bool>();
-    // List<bool> stage2ClearBool = new List<bool>();
+    //// List<bool> stage2ClearBool = new List<bool>();
 
-    //구름 캔버스
-    //public CanvasGroup CloudCanvasGroup;
-    //public float fadeSpeed;
+    ////구름 캔버스
+    ////public CanvasGroup CloudCanvasGroup;
+    ////public float fadeSpeed;
 
-    int stageTotalNumber = 8;
+    //int stageTotalNumber = 8;
 
-    bool stage1Clear;
-    bool stage2Clear;
+    //bool stage1Clear;
+    //bool stage2Clear;
+    #endregion
 
     private void Start()
     {
@@ -41,21 +42,31 @@ public class StageManager_WorldMap : MonoBehaviour
         for (int i = 0; i < btnStage.Count; i++)
         {
             if (i > 0) btnStage[i].interactable = false;
-
-            stageClearBool.Add(btnStage[i].interactable);
-
-            //btnStage2[i].interactable = false;
-            //stage2ClearBool.Add(btnStage2[i].interactable);
         }
 
         UI_Finish.SetActive(false);
     }
-
     private void Update()
     {
         ButtonColorChange();
-        //FireWorks();
     }
+
+    public void ButtonColorChange()
+    {
+        //인덱스 값을 받아서
+        //그 스테이지의 버튼을 활성화 해주고
+        //클리어한 스테이지의 색을 변경하고 싶다.
+        for (int i = 0; i < btnStage.Count; i++)
+        {
+            if (FlagManager.instance.clearBool[i] == true)
+            {
+                btnStage[i].gameObject.GetComponent<Image>().color = Color.yellow;
+                btnStage[i + 1].interactable = true;
+            }
+        }
+    }
+
+
 
     #region 불꽃놀이
     //public void FireWorks()
@@ -126,27 +137,13 @@ public class StageManager_WorldMap : MonoBehaviour
     //}
     #endregion
 
-    public void ButtonColorChange()
-    {
-        //인덱스 값을 받아서
-        //그 스테이지의 버튼을 활성화 해주고
-        //클리어한 스테이지의 색을 변경하고 싶다.
-        for (int i = 0; i < btnStage.Count; i++)
-        {
-            if (FlagManager.instance.clearBool[i] == true)
-            {
-                btnStage[i].gameObject.GetComponent<Image>().color = Color.yellow;
-                btnStage[i + 1].interactable = true;
-            }
-        }
-    }
+
 
     public void TestButton()
     {
         for (int i = 0; i < btnStage.Count; i++)
         {
             btnStage[i].interactable = true;
-            stageClearBool[i] = true;
         }
     }
 

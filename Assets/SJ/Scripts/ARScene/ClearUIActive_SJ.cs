@@ -47,7 +47,9 @@ public class ClearUIActive_SJ : MonoBehaviour
         txt_Ml.SetActive(false);
         btn_Clear.SetActive(false);
         txt_Sh.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        txt_Sh.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
         txt_Ml.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        txt_Ml.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0);
 
         sh_OriginPos = img_SH.transform.position;
         ml_OriginPos = img_ML.transform.position;
@@ -73,31 +75,6 @@ public class ClearUIActive_SJ : MonoBehaviour
             if (isShSay && isTalkFinish && timer >= 1f)
             {
                 StopTalk();
-            }
-        }
-    }
-
-    private void StopTalk()
-    {
-        txt_Sh.GetComponent<Image>().color -= new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
-        txt_Ml.GetComponent<Image>().color -= new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
-
-        if (txt_Ml.GetComponent<Image>().color.a <= 0)
-        {
-            img_SH.transform.position = Vector3.MoveTowards(img_SH.transform.position, sh_OriginPos, deltaDis);
-            img_ML.transform.position = Vector3.MoveTowards(img_ML.transform.position, ml_OriginPos, deltaDis);
-
-            if (Vector3.Distance(img_SH.transform.position, sh_OriginPos) <= 0)
-            {
-                //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
-                int _stageNum = FlagManager.instance.stageNum - 1;
-                FlagManager.instance.clearBool[_stageNum] = true;
-                //클리어 버튼 활성화
-                btn_Clear.SetActive(true);
-
-                UI_Clear.SetActive(false);
-                //한번만 재생을 위한 
-                isPlay = true;
             }
         }
     }
@@ -131,6 +108,7 @@ public class ClearUIActive_SJ : MonoBehaviour
                 {
                     txt_Sh.SetActive(true);
                     txt_Sh.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+                    txt_Sh.GetComponentInChildren<Text>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
                 }
 
                 //멀린이 말한다.
@@ -138,6 +116,7 @@ public class ClearUIActive_SJ : MonoBehaviour
                 {
                     txt_Ml.SetActive(true);
                     txt_Ml.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+                    txt_Ml.GetComponentInChildren<Text>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
 
                     if (txt_Ml.GetComponent<Image>().color.a >= 1)
                     {
@@ -147,5 +126,48 @@ public class ClearUIActive_SJ : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void StopTalk()
+    {
+        txt_Sh.GetComponent<Image>().color -= new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+        txt_Sh.GetComponentInChildren<Text>().color -= new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+        txt_Ml.GetComponent<Image>().color -= new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+        txt_Ml.GetComponentInChildren<Text>().color -= new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+
+        if (txt_Ml.GetComponent<Image>().color.a <= 0)
+        {
+            img_SH.transform.position = Vector3.MoveTowards(img_SH.transform.position, sh_OriginPos, deltaDis);
+            img_ML.transform.position = Vector3.MoveTowards(img_ML.transform.position, ml_OriginPos, deltaDis);
+
+            if (Vector3.Distance(img_SH.transform.position, sh_OriginPos) <= 0)
+            {
+                ClearStage();
+
+            }
+        }
+    }
+
+    private void ClearStage()
+    {
+        //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+        int _stageNum = FlagManager.instance.stageNum - 1;
+        FlagManager.instance.clearBool[_stageNum] = true;
+
+        int bestStage = PlayerPrefs.GetInt("ClearLevel");
+
+        //만약 스코어가 이전 스코어 보다 높으면 점수를 저장
+        if (_stageNum >= bestStage)
+        {
+            bestStage = _stageNum;
+            PlayerPrefs.SetInt("ClearLevel", bestStage+1);
+        }
+
+        //클리어 버튼 활성화
+        btn_Clear.SetActive(true);
+
+        UI_Clear.SetActive(false);
+        //한번만 재생을 위한 
+        isPlay = true;
     }
 }

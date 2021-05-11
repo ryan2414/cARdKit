@@ -3784,8 +3784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Finish: {fileID: 2051896078}
-  FireWorksFactory: {fileID: 6807712200747639444, guid: 1d23692e1ea7fce4eb8eff7fcee3c956, type: 3}
-  FireWorksWholeMapFactory: {fileID: 708431216081394283, guid: ba349fbd285c85642afcc24ba70e45ba, type: 3}
   btnStage:
   - {fileID: 197960370}
   - {fileID: 807466463}
@@ -3794,7 +3792,6 @@ MonoBehaviour:
   - {fileID: 573244126}
   - {fileID: 1739059884}
   - {fileID: 890730487}
-  - {fileID: 0}
 --- !u!114 &1565284258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3808,9 +3805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Btn_LeftSide: {fileID: 1439196521}
-  Btn_Stage1: {fileID: 2045635001}
+  Btn_Stage1: {fileID: 610428801}
   Btn_RightSide: {fileID: 529527146}
-  Btn_Stage2: {fileID: 1978755117}
+  Btn_Stage2: {fileID: 1233982640}
   maxChapter: 2
 --- !u!1 &1571695222
 GameObject:

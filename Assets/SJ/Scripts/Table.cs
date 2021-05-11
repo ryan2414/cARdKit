@@ -40,7 +40,6 @@ public class Table : MonoBehaviour
         else if (stageNum == 5) text = Resources.Load<TextAsset>("Table5");
         else if (stageNum == 6) text = Resources.Load<TextAsset>("Table6");
         else if (stageNum == 7) text = Resources.Load<TextAsset>("Table7");
-        else if (stageNum == 8) text = Resources.Load<TextAsset>("Table8");
 
         string content = text.text;
 
