@@ -21,7 +21,7 @@ MonoBehaviour:
     m_SerializedTextureGuid:
       m_GuidLow: 18299335450489707774
       m_GuidHigh: 7581517627699431800
-    m_Size: {x: 0.21, y: 0.103541665}
+    m_Size: {x: 0.096, y: 0.047333334}
     m_SpecifySize: 1
     m_Name: Stage1-3
     m_Texture: {fileID: 0}
@@ -59,9 +59,9 @@ MonoBehaviour:
       m_GuidLow: 5231267345737615565
       m_GuidHigh: 4546713556159595668
     m_SerializedTextureGuid:
-      m_GuidLow: 1653992349363102793
-      m_GuidHigh: 15330677707709909242
-    m_Size: {x: 76.348, y: 68.95948}
+      m_GuidLow: 11111625611751886460
+      m_GuidHigh: 15193012741170871128
+    m_Size: {x: 0.07634, y: 0.068952255}
     m_SpecifySize: 1
     m_Name: PotentiometerMarker
     m_Texture: {fileID: 0}
