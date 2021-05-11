@@ -127,6 +127,7 @@ public class TalkManager : MonoBehaviour
         isCanTouch = true;
         textName.text = names[maxTextCount - 1];
         textScript.text = scripts[maxTextCount - 1];
+        ActEmotion(emotions[maxTextCount-1]);
         lineNum = maxTextCount;
     }
 
