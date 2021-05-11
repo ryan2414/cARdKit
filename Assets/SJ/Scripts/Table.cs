@@ -37,9 +37,9 @@ public class Table : MonoBehaviour
         else if (stageNum == 2) text = Resources.Load<TextAsset>("Table2");
         else if (stageNum == 3) text = Resources.Load<TextAsset>("Table3");
         else if (stageNum == 4) text = Resources.Load<TextAsset>("Table4");
-        else if (stageNum == 5) text = Resources.Load<TextAsset>("Table5");
-        else if (stageNum == 6) text = Resources.Load<TextAsset>("Table6");
-        else if (stageNum == 7) text = Resources.Load<TextAsset>("Table7");
+        else if (stageNum == 5) text = Resources.Load<TextAsset>("Table4");
+        else if (stageNum == 6) text = Resources.Load<TextAsset>("Table5");
+        else if (stageNum == 7) text = Resources.Load<TextAsset>("Table5");
 
         string content = text.text;
 
