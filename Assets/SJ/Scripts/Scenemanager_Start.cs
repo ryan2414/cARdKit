@@ -62,6 +62,14 @@ public class Scenemanager_Start : MonoBehaviour
     public void OnClickDeleteSaveData()
     {
         PlayerPrefs.DeleteKey("ClearLevel");
+        PlayerPrefs.DeleteKey("GoodStamp1-1");
+        PlayerPrefs.DeleteKey("GoodStamp1-2");
+        PlayerPrefs.DeleteKey("GoodStamp1-3");
+        PlayerPrefs.DeleteKey("GoodStamp1-4");
+        PlayerPrefs.DeleteKey("GoodStamp2-1");
+        PlayerPrefs.DeleteKey("GoodStamp2-2");
+        PlayerPrefs.DeleteKey("GoodStamp2-3");
+        print("데이터 삭제!!");
     }
 
     //페이드인

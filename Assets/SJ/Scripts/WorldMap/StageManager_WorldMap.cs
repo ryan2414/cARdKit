@@ -13,6 +13,8 @@ public class StageManager_WorldMap : MonoBehaviour
 
     //스테이지 버튼 정보를 가지고 온다
     public List<Button> btnStage = new List<Button>();
+    public List<GameObject> clearStamp = new List<GameObject>();
+
 
     #region 안쓰는거
 
@@ -34,6 +36,7 @@ public class StageManager_WorldMap : MonoBehaviour
     //bool stage2Clear;
     #endregion
 
+
     private void Start()
     {
         //1-1을 제외한 나머지 스테이지 버튼을 끈다
@@ -41,9 +44,9 @@ public class StageManager_WorldMap : MonoBehaviour
         {
             if (i > 0) btnStage[i].interactable = false;
         }
-
         UI_Finish.SetActive(false);
     }
+
     private void Update()
     {
         ButtonColorChange();
@@ -58,11 +61,14 @@ public class StageManager_WorldMap : MonoBehaviour
         {
             if (FlagManager.instance.clearBool[i] == true)
             {
-                btnStage[i].gameObject.GetComponent<Image>().color = Color.yellow;
+                //애니메이션은 데이터 남아있는 동안 한번만 실행하고 싶은데
+                clearStamp[i].GetComponentInChildren<KururingPang>().isStartAnim = true;
+
                 btnStage[i + 1].interactable = true;
             }
         }
     }
+
 
 
 
@@ -145,6 +151,6 @@ public class StageManager_WorldMap : MonoBehaviour
         }
     }
 
-  
+
 
 }

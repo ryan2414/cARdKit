@@ -31,8 +31,28 @@ public class KururingPang : MonoBehaviour
 
     bool isAnimationEnd = true;
     bool isPangOn;
+
+    //승재 추가
+    public bool isStartAnim;
+    public GameObject markerInBox;
+    string didPlay;
+    //
+
     void Start()
     {
+        //승재추가
+        didPlay = PlayerPrefs.GetString(transform.parent.gameObject.name);
+        print(didPlay);
+        if (didPlay == "DidAnim")
+        {
+            markerInBox.SetActive(true);
+        }
+        else
+        {
+            markerInBox.SetActive(false);
+        }
+        //
+
         isSizeUpping = true;
 
         Pang.SetActive(false);
@@ -49,55 +69,63 @@ public class KururingPang : MonoBehaviour
 
     void Update()
     {
-        rectTransform.position = Vector3.MoveTowards(rectTransform.position, endPosition.position, moveSpeed * Time.deltaTime);
-
-        if (!isAnimationEnd)
+        //승재 추가
+        if (isStartAnim && didPlay != "DidAnim")
+        //
         {
-            // 회전
-            currentRotation += targetRotation * Time.deltaTime / resizeDownSpeed;
-            rectTransform.localEulerAngles = currentRotation;
-        }
-        else
-        {
-            rectTransform.localEulerAngles = Vector3.zero;
-        }
+            rectTransform.position = Vector3.MoveTowards(rectTransform.position, endPosition.position, moveSpeed * Time.deltaTime);
 
-
-        // 크기 조정
-        // 커진다
-        if (isSizeUpping)
-        {
-            currnetSize += targetSizeUp * Time.deltaTime / resizeUpSpeed;
-            float resize = smallSize + currnetSize;
-            rectTransform.sizeDelta = new Vector2(resize, resize);
-            if (resize >= largeSize)
+            if (!isAnimationEnd)
             {
-                rectTransform.sizeDelta = new Vector2(largeSize, largeSize);
-                currnetSize = largeSize;
-
-                isAnimationEnd = false;
-                isSizeUpping = false;
+                // 회전
+                currentRotation += targetRotation * Time.deltaTime / resizeDownSpeed;
+                rectTransform.localEulerAngles = currentRotation;
             }
-        }
-        // 작아진다
-        else
-        {
-
-            currnetSize -= targetSizeDown * Time.deltaTime / resizeDownSpeed;
-            float resize = currnetSize;
-            rectTransform.sizeDelta = new Vector2(resize, resize);
-            if (resize <= smallSize)
+            else
             {
-                rectTransform.sizeDelta = new Vector2(smallSize, smallSize);
-                if (!isPangOn)
+                rectTransform.localEulerAngles = Vector3.zero;
+            }
+
+
+            // 크기 조정
+            // 커진다
+            if (isSizeUpping)
+            {
+                currnetSize += targetSizeUp * Time.deltaTime / resizeUpSpeed;
+                float resize = smallSize + currnetSize;
+                rectTransform.sizeDelta = new Vector2(resize, resize);
+                if (resize >= largeSize)
                 {
-                    Pang.SetActive(true);
-                    isPangOn = true;
-                    isAnimationEnd = true;
+                    rectTransform.sizeDelta = new Vector2(largeSize, largeSize);
+                    currnetSize = largeSize;
+
+                    isAnimationEnd = false;
+                    isSizeUpping = false;
+                }
+            }
+            // 작아진다
+            else
+            {
+
+                currnetSize -= targetSizeDown * Time.deltaTime / resizeDownSpeed;
+                float resize = currnetSize;
+                rectTransform.sizeDelta = new Vector2(resize, resize);
+                if (resize <= smallSize)
+                {
+                    rectTransform.sizeDelta = new Vector2(smallSize, smallSize);
+                    if (!isPangOn)
+                    {
+                        Pang.SetActive(true);
+                        isPangOn = true;
+                        isAnimationEnd = true;
+
+                        //승재 추가
+                        PlayerPrefs.SetString(transform.parent.gameObject.name, "DidAnim");
+                        //
+                    }
                 }
             }
         }
-
 
     }
 }
