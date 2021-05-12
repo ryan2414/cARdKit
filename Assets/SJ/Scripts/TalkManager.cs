@@ -7,6 +7,7 @@ public class TalkManager : MonoBehaviour
 {
     public Text textName;
     public Text textScript;
+    public Animator anim;
 
     List<string> names = new List<string>();
     List<string> emotions = new List<string>();
@@ -161,6 +162,12 @@ public class TalkManager : MonoBehaviour
                 break;
             case "idle_ML":
                 playerImg.GetComponent<Image>().sprite = emoImgList[4];
+                break;
+            case "wind":
+                anim.SetTrigger("isWind");
+                break;
+            case "strongWind":
+                anim.SetTrigger("isStrongWind");
                 break;
             default:
                 playerImg.GetComponent<Image>().sprite = emoImgList[4];

@@ -50,6 +50,13 @@ public class FlagManager : MonoBehaviour
 
     public void Call()
     {
-        SceneManager.LoadScene("3SJ_Story1-1");
+        if(stageNum == 4)
+        {
+            SceneManager.LoadScene("4SJ_StudyScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("3SJ_Story1-1");
+        }
     }
 }

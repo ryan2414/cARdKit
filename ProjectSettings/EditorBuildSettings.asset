@@ -19,6 +19,9 @@ EditorBuildSettings:
     guid: cb8dbf27f3f586443b7fb084e0385179
   - enabled: 1
     path: Assets/SJ/Scenes/3SJ_Story1-1.unity
+    guid: c39181815f473044481d1fbb9f46a19e
+  - enabled: 1
+    path: Assets/SJ/Scenes/4SJ_StudyScene.unity
     guid: 5b9999fd8ef55b449b34889335b039c5
   - enabled: 1
     path: Assets/SJ/Scenes/9SJ_ARScene.unity
