@@ -1,0 +1,103 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class KururingPang : MonoBehaviour
+{
+    public RectTransform startPosition;
+    public RectTransform endPosition;
+
+    public GameObject Pang;
+
+    public float smallSize;
+    float currnetSize;
+    public float largeSize;
+    float targetSizeUp;
+    float targetSizeDown;
+
+    public int turnCount;
+    public float resizeUpSpeed;
+    public float resizeDownSpeed;
+    public float moveSpeed;
+
+    Vector3 targetRotation;
+    Vector3 currentRotation;
+
+    RectTransform rectTransform;
+
+    bool isSizeUpping;
+
+    bool isAnimationEnd = true;
+    bool isPangOn;
+    void Start()
+    {
+        isSizeUpping = true;
+
+        Pang.SetActive(false);
+        targetRotation = new Vector3(0, 0, turnCount * -360);
+        currentRotation = new Vector3(0, 0, 0);
+
+        rectTransform = gameObject.GetComponent<RectTransform>();
+        rectTransform.position = startPosition.position;
+        rectTransform.sizeDelta = new Vector2(smallSize, smallSize);
+
+        targetSizeUp = Mathf.Abs(largeSize - smallSize);
+        targetSizeDown = Mathf.Abs(smallSize - largeSize);
+    }
+
+    void Update()
+    {
+        rectTransform.position = Vector3.MoveTowards(rectTransform.position, endPosition.position, moveSpeed * Time.deltaTime);
+
+        if (!isAnimationEnd)
+        {
+            // 회전
+            currentRotation += targetRotation * Time.deltaTime / resizeDownSpeed;
+            rectTransform.localEulerAngles = currentRotation;
+        }
+        else
+        {
+            rectTransform.localEulerAngles = Vector3.zero;
+        }
+
+
+        // 크기 조정
+        // 커진다
+        if (isSizeUpping)
+        {
+            currnetSize += targetSizeUp * Time.deltaTime / resizeUpSpeed;
+            float resize = smallSize + currnetSize;
+            rectTransform.sizeDelta = new Vector2(resize, resize);
+            if (resize >= largeSize)
+            {
+                rectTransform.sizeDelta = new Vector2(largeSize, largeSize);
+                currnetSize = largeSize;
+
+                isAnimationEnd = false;
+                isSizeUpping = false;
+            }
+        }
+        // 작아진다
+        else
+        {
+
+            currnetSize -= targetSizeDown * Time.deltaTime / resizeDownSpeed;
+            float resize = currnetSize;
+            rectTransform.sizeDelta = new Vector2(resize, resize);
+            if (resize <= smallSize)
+            {
+                rectTransform.sizeDelta = new Vector2(smallSize, smallSize);
+                if (!isPangOn)
+                {
+                    Pang.SetActive(true);
+                    isPangOn = true;
+                    isAnimationEnd = true;
+                }
+            }
+        }
+
+
+    }
+}
