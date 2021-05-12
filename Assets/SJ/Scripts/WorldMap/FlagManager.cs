@@ -12,6 +12,8 @@ public class FlagManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+      
+       
     }
 
     //현제 스테이지
@@ -27,7 +29,9 @@ public class FlagManager : MonoBehaviour
   
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
+
+
         //0~7스테이지의 클리어 여부를 파악하는 flag
         for (int i = 0; i < TotalStage; i++)
         {
@@ -37,7 +41,7 @@ public class FlagManager : MonoBehaviour
 
     private void Update()
     {
-        //베스트스코어만큼 스테이지를 켜준다
+        //베스트 스테이지만큼 스테이지를 켜준다
         for (int i = 0; i < PlayerPrefs.GetInt("ClearLevel"); i++)
         {
             clearBool[i] = true;

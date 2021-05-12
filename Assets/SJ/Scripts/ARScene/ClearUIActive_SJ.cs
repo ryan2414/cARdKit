@@ -147,21 +147,26 @@ public class ClearUIActive_SJ : MonoBehaviour
             }
         }
     }
-
+    bool isOnce;
     private void ClearStage()
     {
-        //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
-        int _stageNum = FlagManager.instance.stageNum - 1;
-        FlagManager.instance.clearBool[_stageNum] = true;
-
-        int bestStage = PlayerPrefs.GetInt("ClearLevel");
-
-        //만약 스코어가 이전 스코어 보다 높으면 점수를 저장
-        if (_stageNum >= bestStage)
+        if (!isOnce)
         {
-            bestStage = _stageNum;
-            PlayerPrefs.SetInt("ClearLevel", bestStage+1);
+            //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+            int _stageNum = FlagManager.instance.stageNum;
+            FlagManager.instance.clearBool[_stageNum - 1] = true;
+
+            int bestStage = PlayerPrefs.GetInt("ClearLevel");
+
+            //만약 스코어가 이전 스코어 보다 높으면 점수를 저장
+            if (_stageNum > bestStage)
+            {
+                bestStage = _stageNum;
+                PlayerPrefs.SetInt("ClearLevel", bestStage);
+                isOnce = true;
+            }
         }
+        
 
         //클리어 버튼 활성화
         btn_Clear.SetActive(true);

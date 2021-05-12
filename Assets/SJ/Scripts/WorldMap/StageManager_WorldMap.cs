@@ -14,8 +14,6 @@ public class StageManager_WorldMap : MonoBehaviour
     //스테이지 버튼 정보를 가지고 온다
     public List<Button> btnStage = new List<Button>();
 
-    int clearLevel;
-
     #region 안쓰는거
 
     //불놀이 오브젝트 
@@ -147,14 +145,6 @@ public class StageManager_WorldMap : MonoBehaviour
         }
     }
 
-    //public void Test2Button()
-    //{
-    //    for (int i = 0; i < btnStage2.Count; i++)
-    //    {
-    //        btnStage2[i].interactable = true;
-    //        stage2ClearBool[i] = true;
-
-    //    }
-    //}
+  
 
 }
