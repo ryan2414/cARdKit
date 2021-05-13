@@ -845,7 +845,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ccebba2173563f84b9fb52f4cf792ff2, type: 3}
   - {fileID: 21300000, guid: 5bda9a5f9190dc546a06f8f657d680d6, type: 3}
   - {fileID: 21300000, guid: 01e354874e30c7c418acea67e2cdea5f, type: 3}
-  - {fileID: 21300000, guid: bf6dae217992f5944aabb66934c69e38, type: 3}
+  - {fileID: 21300000, guid: eeaafb3a5639e4b41bbf1e56ed66ce38, type: 3}
+  - {fileID: 21300000, guid: edf0923ae8380b64798e20f50334be0a, type: 3}
   playerImg: {fileID: 1560124637}
 --- !u!114 &335395349
 MonoBehaviour:

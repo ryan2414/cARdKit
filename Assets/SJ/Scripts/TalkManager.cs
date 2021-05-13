@@ -163,6 +163,9 @@ public class TalkManager : MonoBehaviour
             case "idle_ML":
                 playerImg.GetComponent<Image>().sprite = emoImgList[4];
                 break;
+            case "ohh_ML":
+                playerImg.GetComponent<Image>().sprite = emoImgList[5];
+                break;
             case "wind":
                 anim.SetTrigger("isWind");
                 break;
