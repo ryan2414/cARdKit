@@ -69,6 +69,8 @@ public class Scenemanager_Start : MonoBehaviour
         PlayerPrefs.DeleteKey("GoodStamp2-1");
         PlayerPrefs.DeleteKey("GoodStamp2-2");
         PlayerPrefs.DeleteKey("GoodStamp2-3");
+        PlayerPrefs.DeleteKey("ChapterClear");
+
         print("데이터 삭제!!");
     }
 
