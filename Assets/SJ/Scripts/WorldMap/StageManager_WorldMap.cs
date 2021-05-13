@@ -64,8 +64,11 @@ public class StageManager_WorldMap : MonoBehaviour
             {
                 //애니메이션은 데이터 남아있는 동안 한번만 실행하고 싶은데
                 clearStamp[i].GetComponentInChildren<KururingPang>().isStartAnim = true;
-                btnStage[i + 1].interactable = true;
-                if(FlagManager.instance.clearBool[3] == true && PlayerPrefs.GetInt("ChapterClear") < 1)
+                if(i < btnStage.Count - 1)
+                {
+                    btnStage[i + 1].interactable = true;
+                }
+                if (FlagManager.instance.clearBool[3] == true && PlayerPrefs.GetInt("ChapterClear") < 1)
                 {
                     anim.SetTrigger("isStageClear");
                     PlayerPrefs.SetInt("ChapterClear", 1);

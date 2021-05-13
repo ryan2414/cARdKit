@@ -63,6 +63,10 @@ public class FlagManager : MonoBehaviour
         {
             SceneManager.LoadScene("4SJ_StudyScene");
         }
+        else if(stageNum == 7)
+        {
+            SceneManager.LoadScene("5SJ_StudyScene2");
+        }
         else
         {
             SceneManager.LoadScene("3SJ_Story1-1");
