@@ -42,9 +42,18 @@ public class FlagManager : MonoBehaviour
     private void Update()
     {
         //베스트 스테이지만큼 스테이지를 켜준다
-        for (int i = 0; i < PlayerPrefs.GetInt("ClearLevel"); i++)
+        for (int i = 0; i < TotalStage; i++)
         {
-            clearBool[i] = true;
+            if(i < PlayerPrefs.GetInt("ClearLevel"))
+            {
+                clearBool[i] = true;
+
+            }
+            else
+            {
+                clearBool[i] = false;
+
+            }
         }
     }
 
