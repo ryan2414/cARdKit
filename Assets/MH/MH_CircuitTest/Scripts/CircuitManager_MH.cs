@@ -77,29 +77,6 @@ public class CircuitManager_MH : MonoBehaviour
 
     public void TouchInteraction()
     {
-        // PC 터치
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //int layer = 1 << LayerMask.NameToLayer("Switch");
-        //bool laycast = Physics.Raycast(ray, out hitinfo, float.MaxValue, layer);
-
-        //if (laycast)
-        //{
-        //    switchComp = hitinfo.transform.GetComponentInParent<Switch_MH>();
-        //}
-        //if (!laycast || Input.GetMouseButtonUp(0))
-        //{
-        //    if (switchComp != null)
-        //    {
-        //        switchComp.isOn = false;
-        //        switchComp = null;
-        //    }
-        //}
-        //if (Input.GetMouseButton(0) && switchComp != null)
-        //{
-        //    switchComp.isOn = true;
-        //    switchComp.isStateChange = true;
-        //}
-
         // 모바일 터치
         foreach (Touch touch in Input.touches)
         {
@@ -110,13 +87,25 @@ public class CircuitManager_MH : MonoBehaviour
 
                 if (laycast)
                 {
+                    #region Toggle식 스위치
+                    //if (hitinfo.transform.gameObject.layer == LayerMask.NameToLayer("Switch"))
+                    //{
+                    //    switchId = touch.fingerId;
+                    //    switchComp = hitinfo.transform.GetComponentInParent<Switch_MH>();
+                    //    switchComp.isOn = true;
+                    //    switchComp.isStateChange = true;
+                    //}
+                    #endregion
+
+                    #region On/Off식 스위치
                     if (hitinfo.transform.gameObject.layer == LayerMask.NameToLayer("Switch"))
                     {
                         switchId = touch.fingerId;
                         switchComp = hitinfo.transform.GetComponentInParent<Switch_MH>();
-                        switchComp.isOn = true;
+                        switchComp.isOn = !switchComp.isOn;
                         switchComp.isStateChange = true;
                     }
+                    #endregion
                 }
 
                 if (laycast)
@@ -154,9 +143,16 @@ public class CircuitManager_MH : MonoBehaviour
             {
                 if (touch.fingerId == switchId)
                 {
-                    switchComp.isOn = false;
+                    #region Toggle식 스위치
+                    //switchComp.isOn = false;
+                    //switchComp = null;
+                    //FingerIdResetTo99(ref switchId);
+                    #endregion
+
+                    #region On/Off식 스위치
                     switchComp = null;
                     FingerIdResetTo99(ref switchId);
+                    #endregion
                 }
 
                 if (touch.fingerId == potentiometerId)
