@@ -8,14 +8,15 @@ using UnityEngine.UI;
 public class FaderActionUI : MonoBehaviour
 {
     public float speed;
-    public float UIMaxSize;
+    public GameObject BlackPaper;
 
-    // Start is called before the first frame update
-    void Start()
+    float UIMaxSize;
+
+    private void Start()
     {
+        BlackPaper.SetActive(false);
         UIMaxSize = 3000;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,11 +33,15 @@ public class FaderActionUI : MonoBehaviour
             rectHight.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, UIMaxSize);
             RectTransform rectWidth = gameObject.GetComponent<RectTransform>();
             rectWidth.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, UIMaxSize);
-           
+
         }
 
         //게임 메니져의 다음 씬을 불러오는 함수를 호출한다.
-        if (UIMaxSize < 0)
+        else if (UIMaxSize < 0)
+        {
+            BlackPaper.SetActive(true);
             GameObject.Find("GameManager").GetComponent<Scenemanager_Story>().OnClickNextScene();
+        }
+            
     }
 }
