@@ -12,6 +12,8 @@ public class Bulb_MH : MonoBehaviour
     Node_MH node2;
 
     public GameObject bulbLight;
+    public ParticleSystem bulbLightParticle;
+    ParticleSystem.MinMaxCurve particleStartSize;
 
     void Start()
     {
@@ -118,14 +120,20 @@ public class Bulb_MH : MonoBehaviour
             bulbLight.SetActive(true);
             resist.SetFixedVoltage();
 
-            //bulbLight.GetComponent<Light>().intensity = resist.LightIntensity();
-            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, resist.LightIntensity(), 0.05f);
+            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, resist.LightIntensity(), 0.01f);
+
+            ParticleSystem.MainModule main = bulbLightParticle.main;
+            particleStartSize = resist.ParticleStartSize();
+            main.startSize = particleStartSize;
         }
         else
         {
             resist.SetFixedVoltage();
-            //bulbLight.GetComponent<Light>().intensity = 0;
-            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, 0, 0.05f);
+            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, 0, 0.007f);
+
+            ParticleSystem.MainModule main = bulbLightParticle.main;
+            main.startSize = 0;
+
             if (bulbLight.GetComponent<Light>().intensity < 0.2f)
             {
                 bulbLight.GetComponent<Light>().intensity = 0;
