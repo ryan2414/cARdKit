@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8800444379937629715}
   - component: {fileID: 8817216045479167107}
   m_Layer: 1
-  m_Name: FX_GlowSpot_01
+  m_Name: FX_GlowSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8690506305149833369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.25, y: 0.26, z: 18.52}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

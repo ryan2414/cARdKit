@@ -42,7 +42,7 @@ public class KururingPang : MonoBehaviour
     {
         //½ÂÀçÃß°¡
         didPlay = PlayerPrefs.GetString(transform.parent.gameObject.name);
-        print(didPlay);
+        print($"{transform.parent.gameObject.name}, {didPlay}");
         if (didPlay == "DidAnim")
         {
             markerInBox.SetActive(true);

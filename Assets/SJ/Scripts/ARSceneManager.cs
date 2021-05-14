@@ -111,7 +111,21 @@ public class ARSceneManager : MonoBehaviour
     {
         int stageNum = FlagManager.instance.stageNum ;
         FlagManager.instance.stageNum = stageNum + 1;
-        SceneManager.LoadScene("3SJ_Story1-1");
+        //현재 스테이지가 3이면 1챕터 공부하기로
+        if (stageNum == 3)
+        {
+            SceneManager.LoadScene("4SJ_StudyScene");
+        }
+        //현재 스테이지가 6이면 2챕터 공부하기로
+        else if (stageNum == 6)
+        {
+            SceneManager.LoadScene("5SJ_StudyScene2");
+        }
+        else
+        {
+            SceneManager.LoadScene("3SJ_Story1-1");
+
+        }
     }
 
     public void OnClickRestart()

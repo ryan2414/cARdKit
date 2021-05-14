@@ -10,6 +10,9 @@ public class Scenemanager_Start : MonoBehaviour
     public Button FreeMode;
     public float faderTime;
     public CanvasGroup IMG_Fader;
+
+    bool isMenuOn;
+
     private void Awake()
     {
         IMG_Fader.gameObject.SetActive(true);
@@ -18,7 +21,7 @@ public class Scenemanager_Start : MonoBehaviour
     private void Start()
     {
         FreeMode.interactable = false;
-        FreeMode.GetComponentInChildren<Text>().color = new Color(0,0,0,0.5f);
+        FreeMode.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0.5f);
 
     }
 
@@ -31,7 +34,12 @@ public class Scenemanager_Start : MonoBehaviour
     //설정
     public void OnClickOption()
     {
-        OptionPanel.SetActive(true);
+        if (!isMenuOn)
+        {
+            isMenuOn = true;
+            OptionPanel.SetActive(true);
+            OptionPanel.GetComponent<ScaleUp>().enabled = true;
+        }
     }
 
     //게임 종료
@@ -43,19 +51,26 @@ public class Scenemanager_Start : MonoBehaviour
     //도움말
     public void OnClickHelp()
     {
-        HelpPanel.SetActive(true);
+        if (!isMenuOn)
+        {
+            isMenuOn = true;
+            HelpPanel.SetActive(true);
+            HelpPanel.GetComponent<ScaleUp>().enabled = true;
+        }
     }
 
     //설정 창 끄기
     public void OnClickX()
     {
-        if(OptionPanel.activeSelf == true)
+        if (OptionPanel.activeSelf == true)
         {
-            OptionPanel.SetActive(false);
+            isMenuOn = false;
+            OptionPanel.GetComponent<ScaleDown>().enabled = true;
         }
         else
         {
-            HelpPanel.SetActive(false);
+            isMenuOn = false;
+            HelpPanel.GetComponent<ScaleDown>().enabled = true;
         }
     }
 

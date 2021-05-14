@@ -7,9 +7,13 @@ public class SceneChanger_StudyScene : MonoBehaviour
 {
     public void OnClickWorldBtn()
     {
-        //버튼을 누르면 스테이지 4 클리어 후 월드맵으로 이동
+        //버튼을 누르면 스테이지 4 & 7 클리어 후 월드맵으로 이동
         int _stageNum = FlagManager.instance.stageNum;
-        FlagManager.instance.clearBool[_stageNum - 1] = true;
+        if (_stageNum < 8)
+        {
+            FlagManager.instance.clearBool[_stageNum - 1] = true;
+
+        }
 
         int bestStage = PlayerPrefs.GetInt("ClearLevel");
 

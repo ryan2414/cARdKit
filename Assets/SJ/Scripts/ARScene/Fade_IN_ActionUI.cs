@@ -8,6 +8,7 @@ using UnityEngine.UI;
 //페이더의 크기가 커지게 하고 싶다.
 public class Fade_IN_ActionUI : MonoBehaviour
 {
+   
     public float speed;
     public float UIMinSize;
     public Animator Ani_SSH_Help;
@@ -15,13 +16,15 @@ public class Fade_IN_ActionUI : MonoBehaviour
     public Image IMG_Bulb_Fill;
     public Image _Img_Fader;
     bool once;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _Img_Fader.gameObject.SetActive(true);
         IMG_Bulb.gameObject.SetActive(true);
         IMG_Bulb_Fill.gameObject.SetActive(true);
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         UIMinSize = 0;
         IMG_Bulb_Fill.fillAmount = 0;
     }

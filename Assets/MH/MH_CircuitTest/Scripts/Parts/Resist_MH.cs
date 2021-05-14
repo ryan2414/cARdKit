@@ -11,6 +11,7 @@ public class Resist_MH : MonoBehaviour
     public bool isParallel;
 
     public float maxIntensity;
+    public float maxLightSize;
     public float R;
     public float fixedResistance;
 
@@ -76,6 +77,18 @@ public class Resist_MH : MonoBehaviour
         }
         return intensity;
     }
+
+    public float ParticleStartSize()
+    {
+        // Intensity  = (maxLightSize x V_fixed) / (maxVoltage)
+        float lightSize = (maxLightSize * V_fixed) / (5);
+        if (lightSize >= maxLightSize)
+        {
+            lightSize = maxLightSize;
+        }
+        return lightSize;
+    }
+
     public float FanSpeedUp()
     {
         // speed  = (maxFanSpeed x V_fixed) / (maxVoltage)
