@@ -8,6 +8,7 @@ public class TalkManager : MonoBehaviour
     public Text textName;
     public Text textScript;
     public Animator anim;
+    public float invokeTimer;
 
     List<string> names = new List<string>();
     List<string> emotions = new List<string>();
@@ -45,10 +46,14 @@ public class TalkManager : MonoBehaviour
         if (lineNum >= maxTextCount)
         {
             //씬매니져의 OnNextScene 함수를 실행한다.
-            gameObject.GetComponent<Scenemanager_Story>().OnNextScene();
+            Invoke("NextScene", invokeTimer);
         }
     }
+    void NextScene()
+    {
+        gameObject.GetComponent<Scenemanager_Story>().OnNextScene();
 
+    }
     //버튼을 누르면 다음 문장을 출력한다.
     public void OnClickNext()
     {
