@@ -120,7 +120,7 @@ public class Bulb_MH : MonoBehaviour
             bulbLight.SetActive(true);
             resist.SetFixedVoltage();
 
-            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, resist.LightIntensity(), 0.01f);
+            bulbLight.GetComponent<Light>().intensity = Mathf.Lerp(bulbLight.GetComponent<Light>().intensity, resist.LightIntensity(), 0.007f);
 
             ParticleSystem.MainModule main = bulbLightParticle.main;
             particleStartSize = resist.ParticleStartSize();
