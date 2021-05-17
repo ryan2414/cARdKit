@@ -27,6 +27,14 @@ public class ImgLibraryChange : MonoBehaviour
         {
             manager.referenceLibrary = Resources.Load("ImageLibrary/Stage1-3") as XRReferenceImageLibrary;
         }
+        else if (stgNUm == 5)
+        {
+            manager.referenceLibrary = Resources.Load("ImageLibrary/Stage2-1") as XRReferenceImageLibrary;
+        }
+        else if (stgNUm == 6)
+        {
+            manager.referenceLibrary = Resources.Load("ImageLibrary/Stage2-2") as XRReferenceImageLibrary;
+        }
 
     }
 }
