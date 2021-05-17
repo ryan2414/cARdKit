@@ -29,6 +29,8 @@ public class ClearUIActive_SJ : MonoBehaviour
     [Header("캐릭터 대사창 속도")]
     public float dialogSpeed;
 
+    public GameObject clearAnim;
+
     bool isPlay;
     bool isMoveFinish;
     bool isShSay;
@@ -42,6 +44,7 @@ public class ClearUIActive_SJ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        clearAnim.SetActive(false);
         UI_Clear.SetActive(false);
         txt_Sh.SetActive(false);
         txt_Ml.SetActive(false);
@@ -70,6 +73,9 @@ public class ClearUIActive_SJ : MonoBehaviour
             timer += Time.deltaTime;
             deltaDis = moveSpeed * Time.deltaTime;
             Vector3 moveDistance = new Vector3(deltaDis, 0, 0);
+            //클리어 애니메이션
+            clearAnim.SetActive(true);
+            //대화 애니메이션 시작
             StartTalk();
 
             if (isShSay && isTalkFinish && timer >= 1f)
