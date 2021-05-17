@@ -18,6 +18,8 @@ public class ARTrackedImg : MonoBehaviour
     private List<ARTrackedImage> _trackedImg = new List<ARTrackedImage>();
     private List<float> _trackedTimer = new List<float>();
 
+    float timer;
+
     #region TrackingSH_MH
     public GameObject fader;
     bool isFaderOut;
@@ -81,6 +83,7 @@ public class ARTrackedImg : MonoBehaviour
                 }
             }
         }
+
         if (isStageRecognize)
         {
             RecognizeSH_MH();
@@ -138,6 +141,9 @@ public class ARTrackedImg : MonoBehaviour
     bool creatOnce;
     GameObject stageCrct;
 
+    Vector3 stageCrctPos;
+    Quaternion stageCrctRot;
+
     void UpdateImage(ARTrackedImage trackedImage)
     {
         string name = trackedImage.referenceImage.name;
@@ -147,19 +153,28 @@ public class ARTrackedImg : MonoBehaviour
             isStageRecognize = true;
             //게임 오브젝트가 Circuit라면 한번만 출력을 하고 싶다.
             //출력된 회로가 마커가 있는 위치에 나오도록 하고 싶다.
-            if (!creatOnce)
+
+            if (image_SH_Front.fillAmount == 1 && isFaderOut && !creatOnce)
             {
-                if (image_SH_Front.fillAmount == 1)
-                {
-                    image_SH.gameObject.SetActive(false);
-                    stageCrct = Instantiate(_prefabDic[name]);
-                    creatOnce = true;
-                }
+                image_SH.gameObject.SetActive(false);
+
+                stageCrct = Instantiate(_prefabDic[name]);
+                stageCrct.transform.position = trackedImage.transform.position;
+                stageCrct.transform.rotation = trackedImage.transform.rotation;
+                stageCrct.SetActive(true);
+                creatOnce = true;
             }
 
-            stageCrct.transform.position = trackedImage.transform.position;
-            stageCrct.transform.rotation = trackedImage.transform.rotation;
-            stageCrct.SetActive(true);
+            stageCrctPos = trackedImage.transform.position;
+            stageCrctRot = trackedImage.transform.rotation;
+
+            //회로의 위치와 마커의 위치가 차이가 발생하면 위치를 조정한다.
+            if (Vector3.Distance(stageCrct.transform.position, stageCrctPos) >= 10)
+            {
+                stageCrct.transform.position = stageCrctPos;
+                stageCrct.transform.rotation = stageCrctRot;
+            }
+
         }
         //circuit가 아닌 소자는 마커가 인식 되면
         //그자리에 놓고 싶다. 
