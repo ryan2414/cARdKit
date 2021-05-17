@@ -10,6 +10,7 @@ public class TalkManager : MonoBehaviour
     public Animator anim;
     public float invokeTimer;
     public GameObject fog;
+    public GameObject ML_LumosAnim;
 
     List<string> names = new List<string>();
     List<string> emotions = new List<string>();
@@ -38,6 +39,7 @@ public class TalkManager : MonoBehaviour
         }
         maxTextCount = Table.instance.textLength;
         fog.SetActive(false);
+        ML_LumosAnim.SetActive(false);
         OnClickNext();
     }
     // Update is called once per frame
@@ -145,10 +147,15 @@ public class TalkManager : MonoBehaviour
 
     void ActEmotion(string emoTxt)
     {
-        if (emoTxt == "emty")
+        if (emoTxt == "emty" || emoTxt == "lumos")
             playerImg.GetComponent<Image>().color = new Color(0, 0, 0, 0);
         else
+        {
             playerImg.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            ML_LumosAnim.SetActive(false);
+        }
+            
+
 
         switch (emoTxt)
         {
@@ -174,6 +181,7 @@ public class TalkManager : MonoBehaviour
             case "idle_ML":
                 fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[4];
+
                 break;
             case "ohh_ML":
                 fog.SetActive(true);
@@ -186,6 +194,10 @@ public class TalkManager : MonoBehaviour
             case "strongWind":
                 fog.SetActive(true);
                 anim.SetTrigger("isStrongWind");
+                break;
+            case "lumos":
+                playerImg.GetComponent<Image>().sprite = null;
+                ML_LumosAnim.SetActive(true);
                 break;
             default:
                 fog.SetActive(true);
