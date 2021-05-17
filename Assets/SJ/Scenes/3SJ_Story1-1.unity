@@ -842,6 +842,7 @@ MonoBehaviour:
   textScript: {fileID: 2025830390}
   anim: {fileID: 146321785}
   invokeTimer: 0.8
+  fog: {fileID: 756222544}
   emoImgList:
   - {fileID: 21300000, guid: de21f777b8db6d94496da945fe875150, type: 3}
   - {fileID: 21300000, guid: ccebba2173563f84b9fb52f4cf792ff2, type: 3}

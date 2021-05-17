@@ -9,6 +9,7 @@ public class TalkManager : MonoBehaviour
     public Text textScript;
     public Animator anim;
     public float invokeTimer;
+    public GameObject fog;
 
     List<string> names = new List<string>();
     List<string> emotions = new List<string>();
@@ -36,6 +37,7 @@ public class TalkManager : MonoBehaviour
             emotions.Add(Table.instance.GetTableEmotion(i));
         }
         maxTextCount = Table.instance.textLength;
+        fog.SetActive(false);
         OnClickNext();
     }
     // Update is called once per frame
@@ -154,30 +156,39 @@ public class TalkManager : MonoBehaviour
                 playerImg.GetComponent<Image>().sprite = null;
                 break;
             case "dam_SH":
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[0];
                 break;
             case "idle_SH":
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[1];
                 break;
             case "sus_SH":
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[2];
                 break;
             case "wow_SH":
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[3];
                 break;
             case "idle_ML":
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[4];
                 break;
             case "ohh_ML":
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[5];
                 break;
             case "wind":
+                fog.SetActive(true);
                 anim.SetTrigger("isWind");
                 break;
             case "strongWind":
+                fog.SetActive(true);
                 anim.SetTrigger("isStrongWind");
                 break;
             default:
+                fog.SetActive(true);
                 playerImg.GetComponent<Image>().sprite = emoImgList[4];
                 break;
 
