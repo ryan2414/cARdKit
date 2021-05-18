@@ -20,11 +20,14 @@ public class SideButtnWork_SJ : MonoBehaviour
     public int maxChapter;
     int nowChapter = 1;
 
+    AudioSource sound_change;
+
     //현재 플레이어가 있는 Chapter를 기억하고
     //World 맵으로 돌아왔을 때
     //그 Chapter가 바로 보이게 하고 싶다.
     private void Start()
     {
+        sound_change = GameObject.Find("ChChangeSound").GetComponent<AudioSource>();
         if (PlayerPrefs.GetInt("playingChpater") == 1)
         {
             OnClickLeftButton();
@@ -43,15 +46,14 @@ public class SideButtnWork_SJ : MonoBehaviour
             Btn_LeftSide.GetComponentInChildren<Button>().interactable = false;
         }
     }
-    private void Update()
-    {
-        print(nowChapter);
-    }
 
     public void OnClickRightButton()
     {
         if (nowChapter < maxChapter)
+        {
             nowChapter++;
+            sound_change.Play();
+        }
 
         //버튼을 누르면 챕터 2를 활성화 한다
         Btn_Stage1.SetActive(false);
@@ -74,8 +76,13 @@ public class SideButtnWork_SJ : MonoBehaviour
 
     public void OnClickLeftButton()
     {
+
         if (nowChapter > 1)
+        {
             nowChapter--;
+            sound_change.Play();
+        }
+
 
         //버튼을 누르면 챕터 1으로 돌아간다.
         Btn_Stage2.SetActive(false);

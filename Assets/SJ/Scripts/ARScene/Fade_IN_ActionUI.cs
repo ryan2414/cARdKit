@@ -8,7 +8,7 @@ using UnityEngine.UI;
 //페이더의 크기가 커지게 하고 싶다.
 public class Fade_IN_ActionUI : MonoBehaviour
 {
-   
+
     public float speed;
     public float UIMinSize;
     public Animator Ani_SSH_Help;
@@ -39,6 +39,16 @@ public class Fade_IN_ActionUI : MonoBehaviour
             IMG_Bulb.gameObject.SetActive(false);
             IMG_Bulb_Fill.gameObject.SetActive(false);
             FadeINStart();
+            FadeINSound();
+        }
+    }
+    bool oneSound;
+    private void FadeINSound()
+    {
+        if (!oneSound)
+        {
+            GameObject.Find("FaderInSound").GetComponent<AudioSource>().Play();
+            oneSound = true;
         }
     }
 
@@ -51,7 +61,7 @@ public class Fade_IN_ActionUI : MonoBehaviour
     {
         if (UIMinSize < 3000)
         {
-            UIMinSize +=  Time.deltaTime * speed;
+            UIMinSize += Time.deltaTime * speed;
 
             RectTransform rectHight = gameObject.GetComponent<RectTransform>();
             rectHight.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, UIMinSize);
