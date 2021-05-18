@@ -61,6 +61,9 @@ public class TalkManager : MonoBehaviour
     //버튼을 누르면 다음 문장을 출력한다.
     public void OnClickNext()
     {
+        if (lineNum > 0 && !isPrinting)
+            GameObject.Find("TxtClickSound").GetComponent<AudioSource>().Play();
+
         //배열 초과를 막기 위한 것
         if (lineNum >= Table.instance.textLength)
         {
@@ -127,6 +130,7 @@ public class TalkManager : MonoBehaviour
 
         isPrinting = false;
         isSentenseSkip = false;
+
     }
 
     //스킵버튼을 누르면 대화 스크립트가 맨 끝으로 이동한다.
@@ -137,7 +141,7 @@ public class TalkManager : MonoBehaviour
         isCanTouch = true;
         textName.text = names[maxTextCount - 1];
         textScript.text = scripts[maxTextCount - 1];
-        ActEmotion(emotions[maxTextCount-1]);
+        ActEmotion(emotions[maxTextCount - 1]);
         lineNum = maxTextCount;
     }
 
@@ -154,7 +158,7 @@ public class TalkManager : MonoBehaviour
             playerImg.GetComponent<Image>().color = new Color(1, 1, 1, 1);
             ML_LumosAnim.SetActive(false);
         }
-            
+
 
 
         switch (emoTxt)

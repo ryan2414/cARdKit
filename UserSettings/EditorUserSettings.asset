@@ -6,6 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
       value: 224247031146467124413f21152d5a0359241b2f222d35707c664e00c8df072cedf52fb8aa6b7129370bfb25
@@ -73,6 +74,15 @@ EditorUserSettings:
 =======
       value: 224247031146466827413f21152d5a0359472b00130128243f265326ece92021
 >>>>>>> Soung작업
+=======
+      value: 224247031146466827413f21152d5a03594e2b00130914032e2c1336acf53a31f6fe
+      flags: 0
+    RecentlyUsedScenePath-1:
+      value: 224247031146466827413f21152d5a0359442b00131b323f3f304c7eb3ae2136ebf32f
+      flags: 0
+    RecentlyUsedScenePath-2:
+      value: 224247031146466827413f21152d5a0359472b00130128243f265326ece92021
+>>>>>>> Stashed changes
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
