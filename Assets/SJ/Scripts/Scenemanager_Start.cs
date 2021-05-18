@@ -22,6 +22,8 @@ public class Scenemanager_Start : MonoBehaviour
     {
         FreeMode.interactable = false;
         FreeMode.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0.5f);
+        OptionPanel.SetActive(false);
+        HelpPanel.SetActive(false);
 
     }
 
@@ -38,7 +40,7 @@ public class Scenemanager_Start : MonoBehaviour
         {
             isMenuOn = true;
             OptionPanel.SetActive(true);
-            OptionPanel.GetComponent<ScaleUp>().enabled = true;
+            //OptionPanel.GetComponent<ScaleUp>().enabled = true;
         }
     }
 
@@ -55,7 +57,7 @@ public class Scenemanager_Start : MonoBehaviour
         {
             isMenuOn = true;
             HelpPanel.SetActive(true);
-            HelpPanel.GetComponent<ScaleUp>().enabled = true;
+            //HelpPanel.GetComponent<ScaleUp>().enabled = true;
         }
     }
 
@@ -65,12 +67,12 @@ public class Scenemanager_Start : MonoBehaviour
         if (OptionPanel.activeSelf == true)
         {
             isMenuOn = false;
-            OptionPanel.GetComponent<ScaleDown>().enabled = true;
+            //OptionPanel.GetComponent<ScaleDown>().enabled = true;
         }
         else
         {
             isMenuOn = false;
-            HelpPanel.GetComponent<ScaleDown>().enabled = true;
+            //HelpPanel.GetComponent<ScaleDown>().enabled = true;
         }
     }
 
