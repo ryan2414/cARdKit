@@ -10,6 +10,7 @@ public class Scenemanager_Start : MonoBehaviour
     public Button FreeMode;
     public float faderTime;
     public CanvasGroup IMG_Fader;
+    public AudioSource soundClick;
 
     bool isMenuOn;
 
@@ -20,6 +21,7 @@ public class Scenemanager_Start : MonoBehaviour
     }
     private void Start()
     {
+        soundClick = GameObject.Find("ClickSound").GetComponent<AudioSource>();
         FreeMode.interactable = false;
         FreeMode.GetComponentInChildren<Text>().color = new Color(0, 0, 0, 0.5f);
         OptionPanel.SetActive(false);
@@ -30,6 +32,7 @@ public class Scenemanager_Start : MonoBehaviour
     //스토리모드
     public void OnClickStory()
     {
+        soundClick.Play();
         SceneManager.LoadScene("2SJ_WorldMap");
     }
 
@@ -38,6 +41,7 @@ public class Scenemanager_Start : MonoBehaviour
     {
         if (!isMenuOn)
         {
+            soundClick.Play();
             isMenuOn = true;
             OptionPanel.SetActive(true);
             //OptionPanel.GetComponent<ScaleUp>().enabled = true;
@@ -47,6 +51,7 @@ public class Scenemanager_Start : MonoBehaviour
     //게임 종료
     public void OnClickQuit()
     {
+        soundClick.Play();
         Application.Quit();
     }
 
@@ -55,6 +60,7 @@ public class Scenemanager_Start : MonoBehaviour
     {
         if (!isMenuOn)
         {
+            soundClick.Play();
             isMenuOn = true;
             HelpPanel.SetActive(true);
             //HelpPanel.GetComponent<ScaleUp>().enabled = true;
@@ -66,11 +72,13 @@ public class Scenemanager_Start : MonoBehaviour
     {
         if (OptionPanel.activeSelf == true)
         {
+            soundClick.Play();
             isMenuOn = false;
             //OptionPanel.GetComponent<ScaleDown>().enabled = true;
         }
         else
         {
+            soundClick.Play();
             isMenuOn = false;
             //HelpPanel.GetComponent<ScaleDown>().enabled = true;
         }
@@ -88,8 +96,9 @@ public class Scenemanager_Start : MonoBehaviour
         PlayerPrefs.DeleteKey("GoodStamp2-3");
         PlayerPrefs.DeleteKey("ChapterClear");
         PlayerPrefs.DeleteKey("playingChpater");
-        
 
+
+        soundClick.Play();
         print("데이터 삭제!!");
     }
 

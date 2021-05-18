@@ -10,8 +10,10 @@ public class Scenemanager_Story : MonoBehaviour
     public GameObject nextBtn;
     public GameObject UI_FaderPanel;
 
+    AudioSource soundClick;
     private void Start()
     {
+        soundClick = GameObject.Find("ClickSound").GetComponent<AudioSource>();
         OptionPanel.SetActive(false);
         NextStagePanel.SetActive(false);
         UI_FaderPanel.SetActive(false);
@@ -34,19 +36,26 @@ public class Scenemanager_Story : MonoBehaviour
     }
     public void OnClickOption()
     {
+        soundClick.Play();
         OptionPanel.SetActive(true);
     }
     public void OnClickX()
     {
+        soundClick.Play();
+
         OptionPanel.SetActive(false);
     }
     public void OnClickToWorld()
     {
+        soundClick.Play();
+
         SceneManager.LoadScene("2SJ_WorldMap");
     }
 
     public void OnClickQuit()
     {
+        soundClick.Play();
+
         Application.Quit();
     }
 }

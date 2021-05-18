@@ -15,6 +15,7 @@ public class FaderActionUI : MonoBehaviour
     private void Start()
     {
         BlackPaper.SetActive(false);
+        GameObject.Find("FaderSound").GetComponent<AudioSource>().Play();
         UIMaxSize = 3000;
     }
     // Update is called once per frame

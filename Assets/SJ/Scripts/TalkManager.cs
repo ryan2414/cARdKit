@@ -198,6 +198,7 @@ public class TalkManager : MonoBehaviour
             case "lumos":
                 playerImg.GetComponent<Image>().sprite = null;
                 ML_LumosAnim.SetActive(true);
+                GameObject.Find("MagicSound").GetComponent<AudioSource>().Play();
                 break;
             default:
                 fog.SetActive(true);
