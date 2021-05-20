@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SoundManager : MonoBehaviour
 {
@@ -16,8 +18,11 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
+      
 
+        
+    }
+   
     public void DestorySoundManager()
     {
         Destroy(gameObject);
