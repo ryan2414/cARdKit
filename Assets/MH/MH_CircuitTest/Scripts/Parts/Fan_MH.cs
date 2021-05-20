@@ -32,6 +32,11 @@ public class Fan_MH : MonoBehaviour
         TurnOnFan();
     }
 
+    private void OnDisable()
+    {
+        CircuitManager_MH.instance.NodeInitialize();
+    }
+
     void ConnectCheck()
     {
         if (node1.CompareTag("PlusNode") && node2.CompareTag("MinusNode"))
@@ -122,7 +127,17 @@ public class Fan_MH : MonoBehaviour
         if (CircuitManager_MH.instance.isCircuitActivated && nodeManager.isPartReady)
         {
             resist.SetFixedVoltage();
-            speedUp = Mathf.Lerp(speedUp, resist.FanSpeedUp(), 0.004f);
+
+            float spd = resist.FanSpeedUp();
+
+            // 갑자기 무한대로 튀는 현상을 방지 하기위한 코드
+            if (resist.FanSpeedUp() > 1000000)
+            {
+                spd = 1;
+            }
+
+            speedUp = Mathf.Lerp(speedUp, spd, 0.004f);
+
             speed = new Vector3(0, speedUp, 0);
             turnningShaft.transform.Rotate(speed);
 
@@ -137,13 +152,13 @@ public class Fan_MH : MonoBehaviour
             }
             record_rotation[2] = record_rotation[1];
             record_rotation[1] = record_rotation[0];
-            diff_ratio = diff * 0.0005f;
+            diff_ratio = diff * 0.0007f;
             #endregion
         }
         else
         {
             resist.SetFixedVoltage();
-            turnningShaft.transform.Rotate((resist.FanSpeedDown(diff * 1.5f)));
+            turnningShaft.transform.Rotate((resist.FanSpeedDown(diff * 1.6f)));
             turnningShaft.GetComponent<Rigidbody>().angularVelocity = turnningShaft.GetComponent<Rigidbody>().angularVelocity;
             diff -= diff_ratio;
             if (diff <= 0)

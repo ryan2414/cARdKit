@@ -29,6 +29,10 @@ public class ElectronMove : MonoBehaviour
     {
         if (departments != null)
         {
+            if (!CircuitManager_MH.instance.isCircuitActivated)
+            {
+                Invoke("DestroySelf", 1);
+            }
 
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, departments[index_Department].position, moveSpeed * Time.deltaTime);
             gameObject.transform.LookAt(departments[index_Department].position);
@@ -43,5 +47,8 @@ public class ElectronMove : MonoBehaviour
             }
         }
     }
-
+    void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
 }

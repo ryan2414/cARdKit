@@ -15,21 +15,24 @@ public class ElectronCreate : MonoBehaviour
 
     void Start()
     {
-
+        currentTime = timer / 3;
     }
 
     void Update()
     {
-        currentTime += Time.deltaTime;
-        if (currentTime > timer)
+        if (CircuitManager_MH.instance.isCircuitActivated)
         {
-            GameObject tempGo = Instantiate(electronPrefab);
-            tempGo.transform.position = movePoints[0].position;
-            tempGo.transform.parent = gameObject.transform;
-            tempGo?.GetComponent<ElectronMove>().GetDepart(movePoints);
+            currentTime += Time.deltaTime;
+            if (currentTime > timer)
+            {
+                GameObject tempGo = Instantiate(electronPrefab);
+                tempGo.transform.position = movePoints[0].position;
+                tempGo.transform.parent = gameObject.transform;
+                tempGo?.GetComponent<ElectronMove>().GetDepart(movePoints);
 
-            //electrons.Add(tempGo);
-            currentTime = 0;
+                //electrons.Add(tempGo);
+                currentTime = 0;
+            }
         }
     }
 }

@@ -54,6 +54,11 @@ public class Potentiometer_MH : MonoBehaviour
         NodeCheck();
     }
 
+    private void OnDisable()
+    {
+        CircuitManager_MH.instance.NodeInitialize();
+    }
+
     public void NodeCheck()
     {
         if (node1.isConnected && node1.isGrounded && node1.isPowerSupplied

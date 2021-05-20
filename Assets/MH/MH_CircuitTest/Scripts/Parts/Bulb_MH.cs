@@ -35,6 +35,11 @@ public class Bulb_MH : MonoBehaviour
         TurnOnLight();
     }
 
+    private void OnDisable()
+    {
+        CircuitManager_MH.instance.NodeInitialize();
+        bulbLight.GetComponent<Light>().intensity = 0;
+    }
     void ConnectCheck()
     {
         if (node1.CompareTag("PlusNode") && node2.CompareTag("MinusNode"))

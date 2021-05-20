@@ -85,4 +85,10 @@ public class Power_MH : MonoBehaviour
         }
         #endregion
     }
+
+    private void OnDisable()
+    {
+        CircuitManager_MH.instance.NodeInitialize();
+        CircuitManager_MH.instance.isCircuitActivated = false;
+    }
 }

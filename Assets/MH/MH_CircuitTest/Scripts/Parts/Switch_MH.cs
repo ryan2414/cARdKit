@@ -23,6 +23,11 @@ public class Switch_MH : MonoBehaviour
         isStateChange = true;
     }
 
+    private void OnDisable()
+    {
+        CircuitManager_MH.instance.NodeInitialize();
+    }
+
     private void Start()
     {
         nodeManager = GetComponent<NodeManager_MH>();

@@ -70,7 +70,12 @@ public class Resist_MH : MonoBehaviour
     public float LightIntensity()
     {
         // Intensity  = (MaxIntensity x V_fixed) / (maxVoltage)
-        float intensity = (maxIntensity * V_fixed) / (5);
+        if(CircuitManager_MH.instance.V_Total <= 0)
+        {
+            CircuitManager_MH.instance.V_Total = 1;
+        }
+
+        float intensity = (maxIntensity * V_fixed) / (CircuitManager_MH.instance.V_Total);
         if (intensity >= maxIntensity)
         {
             intensity = maxIntensity;
@@ -80,8 +85,13 @@ public class Resist_MH : MonoBehaviour
 
     public float ParticleStartSize()
     {
+        if (CircuitManager_MH.instance.V_Total <= 0)
+        {
+            CircuitManager_MH.instance.V_Total = 1;
+        }
+
         // Intensity  = (maxLightSize x V_fixed) / (maxVoltage)
-        float lightSize = (maxLightSize * V_fixed) / (5);
+        float lightSize = (maxLightSize * V_fixed) / (CircuitManager_MH.instance.V_Total);
         if (lightSize >= maxLightSize)
         {
             lightSize = maxLightSize;
@@ -91,8 +101,12 @@ public class Resist_MH : MonoBehaviour
 
     public float FanSpeedUp()
     {
+        if (CircuitManager_MH.instance.V_Total <= 0)
+        {
+            CircuitManager_MH.instance.V_Total = 1;
+        }
         // speed  = (maxFanSpeed x V_fixed) / (maxVoltage)
-        float speed = (maxFanSpeed * V_fixed * Time.deltaTime * delta) / (5);
+        float speed = (maxFanSpeed * V_fixed) / (CircuitManager_MH.instance.V_Total);
 
         return speed;
     }
