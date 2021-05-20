@@ -2026,7 +2026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853131835}
   m_Layer: 0
-  m_Name: StorySceneSoundManager
+  m_Name: SoundManager_Story
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2129,7 +2129,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8bf00f38563871d4cbb1d1f187cd12e1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
