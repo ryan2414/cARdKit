@@ -14,11 +14,8 @@ public class ARTrackedImg : MonoBehaviour
     public List<GameObject> _objectList = new List<GameObject>();
     public Dictionary<string, GameObject> _prefabDic = new Dictionary<string, GameObject>();
 
-    //시간이 되면 사라지게 하기 위한 변수 선언
     private List<ARTrackedImage> _trackedImg = new List<ARTrackedImage>();
     //private List<float> _trackedTimer = new List<float>();
-
-    float timer;
 
     #region TrackingSH_MH
     public GameObject fader;
@@ -66,22 +63,25 @@ public class ARTrackedImg : MonoBehaviour
                     string name = _trackedImg[i].referenceImage.name;
                     _prefabDic[name].SetActive(false);
 
+                    int num = _trackedImg.IndexOf(tNumList[i]);
+                    _trackedImg.Remove(_trackedImg[num]);
+
                     //setactive(false)된 게임오브젝트를 _trackedImg, _trackedTimer리스트에서 제거하기 위한 리스트에 저장
-                    tNumList.Add(_trackedImg[i]);
+                    //tNumList.Add(_trackedImg[i]);
                 }
             }
 
-            //_trackedImg, _trackedTimer리스트에서 오브젝트 제거하기
-            if (tNumList.Count > 0)
-            {
-                for (var i = 0; i < tNumList.Count; i++)
-                {
-                    //리스트에서 선택된 리스트 값을 삭제
-                    int num = _trackedImg.IndexOf(tNumList[i]);
-                    _trackedImg.Remove(_trackedImg[num]);
-                    // _trackedTimer.Remove(_trackedTimer[num]);
-                }
-            }
+            ////_trackedImg, _trackedTimer리스트에서 오브젝트 제거하기
+            //if (tNumList.Count > 0)
+            //{
+            //    for (var i = 0; i < tNumList.Count; i++)
+            //    {
+            //        //리스트에서 선택된 리스트 값을 삭제
+            //       // int num = _trackedImg.IndexOf(tNumList[i]);
+            //       // _trackedImg.Remove(_trackedImg[num]);
+            //        // _trackedTimer.Remove(_trackedTimer[num]);
+            //    }
+            //}
         }
 
         if (isStageRecognize)
@@ -128,8 +128,6 @@ public class ARTrackedImg : MonoBehaviour
             if (trackedImage.trackingState == TrackingState.Tracking)
             {
                 UpdateImage(trackedImage);
-                if (trackedImage.trackingState == TrackingState.Limited)
-                    _prefabDic[trackedImage.referenceImage.name].SetActive(false);
             }
             else
             {
