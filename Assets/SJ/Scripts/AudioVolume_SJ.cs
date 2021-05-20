@@ -10,8 +10,15 @@ public class AudioVolume_SJ : MonoBehaviour
     public Slider volumeSlider;
     private void Start()
     {
+        if (PlayerPrefs.GetInt("VolumeInitial") == 0)
+        {
+            PlayerPrefs.SetFloat("SoundVolume", 1);
+            PlayerPrefs.SetInt("VolumeInitial", 1);
+        }
+
         //소리 크기를 동기화
         volumeSlider.value = PlayerPrefs.GetFloat("SoundVolume");
+        
     }
 
 
