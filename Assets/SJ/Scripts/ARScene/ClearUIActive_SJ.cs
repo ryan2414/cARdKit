@@ -31,6 +31,10 @@ public class ClearUIActive_SJ : MonoBehaviour
 
     public GameObject clearAnim;
 
+    public AudioSource sound_ML;
+    public AudioSource sound_SH;
+
+
     bool isPlay;
     bool isMoveFinish;
     bool isShSay;
@@ -84,7 +88,8 @@ public class ClearUIActive_SJ : MonoBehaviour
             }
         }
     }
-
+    bool isSHspeak;
+    bool isMLspeak;
     private void StartTalk()
     {
         if (isPlay == false && timer >= 4f)
@@ -98,6 +103,7 @@ public class ClearUIActive_SJ : MonoBehaviour
 
                 //멀린이 오른쪽에서 나타난다
                 img_ML.transform.position = Vector3.MoveTowards(img_ML.transform.position, go_Ml_MoveTarget.transform.position, deltaDis);
+
             }
 
             //목표 위치로 이동하면 대사를 시작한다.
@@ -115,14 +121,28 @@ public class ClearUIActive_SJ : MonoBehaviour
                     txt_Sh.SetActive(true);
                     txt_Sh.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
                     txt_Sh.GetComponentInChildren<Text>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
-                }
+                    //승형이 효과음
+                    if (!isSHspeak)
+                    {
+                        sound_SH.Play();
+                        isSHspeak = true;
+                    }
 
+                }
+               
                 //멀린이 말한다.
                 if (txt_Sh.GetComponent<Image>().color.a >= 1 && timer >= 5f)
                 {
                     txt_Ml.SetActive(true);
                     txt_Ml.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
                     txt_Ml.GetComponentInChildren<Text>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);
+
+                    //멀린 효과음
+                    if (!isMLspeak)
+                    {
+                        sound_ML.Play();
+                        isMLspeak = true;
+                    }
 
                     if (txt_Ml.GetComponent<Image>().color.a >= 1)
                     {
@@ -163,16 +183,17 @@ public class ClearUIActive_SJ : MonoBehaviour
             FlagManager.instance.clearBool[_stageNum - 1] = true;
 
             int bestStage = PlayerPrefs.GetInt("ClearLevel");
+            print(_stageNum);
 
             //만약 스코어가 이전 스코어 보다 높으면 점수를 저장
             if (_stageNum > bestStage)
             {
                 bestStage = _stageNum;
                 PlayerPrefs.SetInt("ClearLevel", bestStage);
-                isOnce = true;
             }
+            isOnce = true;
         }
-        
+
 
         //클리어 버튼 활성화
         btn_Clear.SetActive(true);
