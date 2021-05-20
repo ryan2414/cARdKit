@@ -5648,6 +5648,7 @@ MonoBehaviour:
   image_SH_Front: {fileID: 1787006823}
   isStageRecognize: 0
   time_fill: 2
+  disLostMarker: 10
 --- !u!114 &498755124
 MonoBehaviour:
   m_ObjectHideFlags: 0

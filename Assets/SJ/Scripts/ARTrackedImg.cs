@@ -143,7 +143,7 @@ public class ARTrackedImg : MonoBehaviour
 
     Vector3 stageCrctPos;
     Quaternion stageCrctRot;
-
+    public float disLostMarker;
     void UpdateImage(ARTrackedImage trackedImage)
     {
         string name = trackedImage.referenceImage.name;
@@ -169,7 +169,7 @@ public class ARTrackedImg : MonoBehaviour
             stageCrctRot = trackedImage.transform.rotation;
 
             //회로의 위치와 마커의 위치가 차이가 발생하면 위치를 조정한다.
-            if (Vector3.Distance(stageCrct.transform.position, stageCrctPos) >= 10)
+            if (Vector3.Distance(stageCrct.transform.position, stageCrctPos) >= disLostMarker)
             {
                 stageCrct.transform.position = stageCrctPos;
                 stageCrct.transform.rotation = stageCrctRot;
