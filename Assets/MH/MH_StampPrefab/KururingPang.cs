@@ -115,6 +115,7 @@ public class KururingPang : MonoBehaviour
                     rectTransform.sizeDelta = new Vector2(smallSize, smallSize);
                     if (!isPangOn)
                     {
+                        Pang.transform.position = transform.position;
                         Pang.SetActive(true);
                         isPangOn = true;
                         isAnimationEnd = true;

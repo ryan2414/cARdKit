@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 //특정 포인트를 기준으로 그 안에 특정 오브젝트가 들어면
 //트루를 표시한다.
@@ -52,51 +55,19 @@ public class DetectArea : MonoBehaviour
             electricObj.SetActive(true);//회로 위의 소자 활성화
             interactionGameObject.SetActive(false);//종이 마커 위의 소자 끄기
             transform.GetComponentInChildren<MeshRenderer>().enabled = false;//회로 마커 비 활성화
-            objectActive = true;
-            //StopCoroutine(FalsePrefab());
-            //StartCoroutine(ActivePrefab());
+            //objectActive = true;
+
         }
         else
         {
-            if (objectActive)
+            //if (objectActive)
             {
                 //isIn이 false면  오브젝트가 사라진다.
-
                 electricObj.SetActive(false);//회로 위의 소자 비활성화
                 interactionGameObject.SetActive(true);//종이 마커 위의 소자 켜기
                 transform.GetComponentInChildren<MeshRenderer>().enabled = true;//회로 마커 활성화
             }
-            
-            //StopCoroutine(ActivePrefab());
-            //StartCoroutine(FalsePrefab());
-        }
-    }
 
-    //3초 동안 오브젝트가 위치에 있으면 오브젝트를 활성화 한다.
-    IEnumerator ActivePrefab()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            if (i >= 2)
-            {
-                electricObj.SetActive(true);//회로 위의 소자 활성화
-                interactionGameObject.SetActive(false);//종이 마커 위의 소자 끄기
-                transform.GetComponentInChildren<MeshRenderer>().enabled = false;//회로 마커 비 활성화
-            }
-            yield return new WaitForSeconds(1f);
-        }
-    }
-    IEnumerator FalsePrefab()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            if (i >= 2)
-            {
-                electricObj.SetActive(false);//회로 위의 소자 비활성화
-                interactionGameObject.SetActive(true);//종이 마커 위의 소자 켜기
-                transform.GetComponentInChildren<MeshRenderer>().enabled = true;//회로 마커 활성화
-            }
-            yield return new WaitForSeconds(1f);
         }
     }
 }
