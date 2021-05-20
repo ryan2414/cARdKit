@@ -6,11 +6,7 @@ using UnityEngine.UI;
 public class SSH_Text : MonoBehaviour
 {
     public Animator Ani_anim;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    public AudioSource soundWhip;
     bool isPlayed;
 
     public void OnClickText()
@@ -21,6 +17,10 @@ public class SSH_Text : MonoBehaviour
             isPlayed = true;
 
         }
-        //BTN_SSH_Text.gameObject.SetActive(false);
+    }
+
+    public void WhipSound()
+    {
+        soundWhip.Play();
     }
 }

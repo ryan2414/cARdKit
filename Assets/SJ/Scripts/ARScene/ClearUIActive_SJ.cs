@@ -163,16 +163,17 @@ public class ClearUIActive_SJ : MonoBehaviour
             FlagManager.instance.clearBool[_stageNum - 1] = true;
 
             int bestStage = PlayerPrefs.GetInt("ClearLevel");
+            print(_stageNum);
 
             //만약 스코어가 이전 스코어 보다 높으면 점수를 저장
             if (_stageNum > bestStage)
             {
                 bestStage = _stageNum;
                 PlayerPrefs.SetInt("ClearLevel", bestStage);
-                isOnce = true;
             }
+            isOnce = true;
         }
-        
+
 
         //클리어 버튼 활성화
         btn_Clear.SetActive(true);

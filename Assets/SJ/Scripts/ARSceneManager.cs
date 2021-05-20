@@ -14,7 +14,6 @@ public class ARSceneManager : MonoBehaviour
     //public GameObject UI_helpPanel;
     public GameObject UI_clearPanel;
     public GameObject UI_FadeIn;
-   
     //도움말 열기
     //public Button Btn_upHelp;
     //도움말 닫기
@@ -28,6 +27,8 @@ public class ARSceneManager : MonoBehaviour
     public float speed;
     float deltaSpeed;
 
+    AudioSource clickSound;
+
     private void Start()
     {
         //Btn_downHelp.gameObject.SetActive(false);
@@ -36,6 +37,8 @@ public class ARSceneManager : MonoBehaviour
         Btn_clear.gameObject.SetActive(false);
         UI_optionPanel.SetActive(false);
         UI_clearPanel.SetActive(false);
+
+        clickSound = GameObject.Find("ClickSound").GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -91,26 +94,33 @@ public class ARSceneManager : MonoBehaviour
 
     public void OnClickOption()
     {
+        clickSound.Play();
         UI_optionPanel.SetActive(true);
     }
     public void OnClickX()
     {
-        UI_optionPanel.SetActive(false);
+        clickSound.Play();
+        //에셋에 함수가 포함되어 있음
+        //UI_optionPanel.SetActive(false);
     }
     public void OnClickToWorld()
     {
+        clickSound.Play();
         SceneManager.LoadScene("2SJ_WorldMap");
     }
 
     public void OnClickQuit()
     {
+        clickSound.Play();
         Application.Quit();
     }
 
     public void OnClickNextStage()
     {
+        clickSound.Play();
         int stageNum = FlagManager.instance.stageNum ;
         FlagManager.instance.stageNum = stageNum + 1;
+
         //현재 스테이지가 3이면 1챕터 공부하기로
         if (stageNum == 3)
         {
@@ -130,17 +140,20 @@ public class ARSceneManager : MonoBehaviour
 
     public void OnClickRestart()
     {
+        clickSound.Play();
         SceneManager.LoadScene("9SJ_ARScene");
     }
 
     public void OnClickClear()
     {
+        clickSound.Play();
         ClearUIActive_SJ.instance.UI_Clear.SetActive(false);
         UI_clearPanel.SetActive(true);
     }
 
     public void OnClickToGame()
     {
+        clickSound.Play();
         UI_clearPanel.SetActive(false);
     }
 }

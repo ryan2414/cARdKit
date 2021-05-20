@@ -15,6 +15,7 @@ public class Fade_IN_ActionUI : MonoBehaviour
     public Image IMG_Bulb;
     public Image IMG_Bulb_Fill;
     public Image _Img_Fader;
+
     bool once;
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class Fade_IN_ActionUI : MonoBehaviour
         if (!oneSound)
         {
             GameObject.Find("FaderInSound").GetComponent<AudioSource>().Play();
+
             oneSound = true;
         }
     }
@@ -73,6 +75,10 @@ public class Fade_IN_ActionUI : MonoBehaviour
         {
             gameObject.SetActive(false);
             Ani_SSH_Help.SetTrigger("isStart");
+
+            GameObject.Find("BGM_AR").GetComponent<AudioSource>().Play();
+
+
             once = true;
         }
     }
