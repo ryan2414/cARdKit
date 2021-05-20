@@ -55,14 +55,16 @@ public class DetectArea : MonoBehaviour
             electricObj.SetActive(true);//회로 위의 소자 활성화
             interactionGameObject.SetActive(false);//종이 마커 위의 소자 끄기
             transform.GetComponentInChildren<MeshRenderer>().enabled = false;//회로 마커 비 활성화
-
+            objectActive = true;
         }
         else
         {
-            //isIn이 false면  오브젝트가 사라진다.
-            electricObj.SetActive(false);//회로 위의 소자 비활성화
-            interactionGameObject.SetActive(true);//종이 마커 위의 소자 켜기
-            transform.GetComponentInChildren<MeshRenderer>().enabled = true;//회로 마커 활성화
+            if (objectActive)
+            {
+                //isIn이 false면  오브젝트가 사라진다.
+                electricObj.SetActive(false);//회로 위의 소자 비활성화
+                transform.GetComponentInChildren<MeshRenderer>().enabled = true;//회로 마커 활성화
+            }
         }
     }
 }
