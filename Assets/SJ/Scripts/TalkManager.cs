@@ -156,7 +156,6 @@ public class TalkManager : MonoBehaviour
         else
         {
             playerImg.GetComponent<Image>().color = new Color(1, 1, 1, 1);
-            ML_LumosAnim.SetActive(false);
         }
 
 
@@ -200,9 +199,9 @@ public class TalkManager : MonoBehaviour
                 anim.SetTrigger("isStrongWind");
                 break;
             case "lumos":
-                playerImg.GetComponent<Image>().sprite = emoImgList[4];
                 ML_LumosAnim.SetActive(true);
                 GameObject.Find("MagicSound").GetComponent<AudioSource>().Play();
+                playerImg.GetComponent<Image>().sprite = emoImgList[4];
                 break;
             default:
                 fog.SetActive(true);
