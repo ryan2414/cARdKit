@@ -107,7 +107,7 @@ public class ClearUIActive_SJ : MonoBehaviour
             }
 
             //목표 위치로 이동하면 대사를 시작한다.
-            if (Vector3.Distance(img_SH.transform.position, go_Sh_MoveTarget.transform.position) <= 0)
+            if (Vector3.Distance(img_ML.transform.position, go_Ml_MoveTarget.transform.position) <= 0)
             {
                 isShSay = true;
                 isMoveFinish = true;
