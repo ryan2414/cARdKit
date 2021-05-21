@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StudySceneManager : MonoBehaviour
@@ -12,10 +13,19 @@ public class StudySceneManager : MonoBehaviour
     public Button rightArrow;
     public Button leftArrow;
 
+    public GameObject UI_optionPanel;
+    AudioSource clickSound;
+    AudioSource sound_change;
+
     // Start is called before the first frame update
     void Start()
     {
         index = 0;
+        clickSound = GameObject.Find("ClickSound").GetComponent<AudioSource>();
+        sound_change = GameObject.Find("ChChangeSound").GetComponent<AudioSource>();
+
+        UI_optionPanel.SetActive(false);
+
         PageChange();
     }
 
@@ -43,7 +53,7 @@ public class StudySceneManager : MonoBehaviour
         {
             leftArrow.interactable = false;
         }
-        if(index >= Pages.Length - 1)
+        if (index >= Pages.Length - 1)
         {
             rightArrow.interactable = false;
         }
@@ -64,6 +74,7 @@ public class StudySceneManager : MonoBehaviour
         {
             index = 0;
         }
+        sound_change.Play();
         PageChange();
         print(index + "Page");
     }
@@ -75,8 +86,33 @@ public class StudySceneManager : MonoBehaviour
         {
             index = Pages.Length - 1;
         }
+        sound_change.Play();
         PageChange();
         print(index + "Page");
     }
 
+    public void OnClickOption()
+    {
+        clickSound.Play();
+        UI_optionPanel.SetActive(true);
+    }
+
+    public void OnClickX()
+    {
+        clickSound.Play();
+        //에셋에 함수가 포함되어 있음
+        //UI_optionPanel.SetActive(false);
+    }
+
+    public void OnClickToWorld()
+    {
+        clickSound.Play();
+        SceneManager.LoadScene("2SJ_WorldMap");
+    }
+
+    public void OnClickQuit()
+    {
+        clickSound.Play();
+        Application.Quit();
+    }
 }
