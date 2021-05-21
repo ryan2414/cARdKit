@@ -1,0 +1,4 @@
+aa86cdba4fbb4625869755264bf65ada|Assets/Resources/IMG/Marker/CircuitImage.png|0.096
+e9b513b34d7c4144bfeeacf7bb570710|Assets/JI/Images/Marker_Switch.png|0.07
+209e4990ab8a44c98d899fb6e2fe758d|Assets/JI/Images/Marker_Bulb.png|0.078
+0778fca5ed4649ef856ea5edfcba908f|Assets/JI/Images/Marker_Power.png|0.06

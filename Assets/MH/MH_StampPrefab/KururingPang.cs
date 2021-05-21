@@ -38,6 +38,10 @@ public class KururingPang : MonoBehaviour
     string didPlay;
     //
 
+    // 배경 이미지 추가
+    public GameObject backgroundImg;
+    //
+
     void Start()
     {
         //승재추가
@@ -46,10 +50,12 @@ public class KururingPang : MonoBehaviour
         if (didPlay == "DidAnim")
         {
             markerInBox.SetActive(true);
+            backgroundImg.SetActive(true);
         }
         else
         {
             markerInBox.SetActive(false);
+            backgroundImg.SetActive(false);
         }
         //
 
@@ -122,6 +128,7 @@ public class KururingPang : MonoBehaviour
 
                         //승재 추가
                         PlayerPrefs.SetString(transform.parent.gameObject.name, "DidAnim");
+                        backgroundImg.SetActive(true);
                         //
                     }
                 }
