@@ -34,6 +34,8 @@ public class ClearUIActive_SJ : MonoBehaviour
     public AudioSource sound_ML;
     public AudioSource sound_SH;
 
+    //클리어 애니메이션 시작 시간 변수
+    public float animStartTime;
 
     bool isPlay;
     bool isMoveFinish;
@@ -77,10 +79,16 @@ public class ClearUIActive_SJ : MonoBehaviour
             timer += Time.deltaTime;
             deltaDis = moveSpeed * Time.deltaTime;
             Vector3 moveDistance = new Vector3(deltaDis, 0, 0);
-            //클리어 애니메이션
-            clearAnim.SetActive(true);
-            //대화 애니메이션 시작
-            StartTalk();
+            if(timer >= animStartTime)
+            {
+                //클리어 애니메이션
+                clearAnim.SetActive(true);
+                
+                //대화 애니메이션 시작
+                StartTalk();
+            }
+           
+            
 
             if (isShSay && isTalkFinish && timer >= 1f)
             {
@@ -92,7 +100,7 @@ public class ClearUIActive_SJ : MonoBehaviour
     bool isMLspeak;
     private void StartTalk()
     {
-        if (isPlay == false && timer >= 4f)
+        if (isPlay == false && timer >= animStartTime + 4f)
         {
             UI_Clear.SetActive(true);
 
@@ -131,7 +139,7 @@ public class ClearUIActive_SJ : MonoBehaviour
                 }
                
                 //멀린이 말한다.
-                if (txt_Sh.GetComponent<Image>().color.a >= 1 && timer >= 5f)
+                if (txt_Sh.GetComponent<Image>().color.a >= 1 && timer >= animStartTime + 5f)
                 {
                     txt_Ml.SetActive(true);
                     txt_Ml.GetComponent<Image>().color += new Color(0, 0, 0, Time.deltaTime / dialogSpeed);

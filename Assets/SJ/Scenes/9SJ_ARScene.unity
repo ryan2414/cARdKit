@@ -4492,6 +4492,7 @@ MonoBehaviour:
   clearAnim: {fileID: 245138895}
   sound_ML: {fileID: 1954319384}
   sound_SH: {fileID: 1425579068}
+  animStartTime: 3
 --- !u!114 &434540825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31533,7 +31534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &170677907680299205
 GameObject:
   m_ObjectHideFlags: 0
