@@ -42,11 +42,23 @@ public class ARTrackedImg : MonoBehaviour
 
     private void Update()
     {
+        //승형이 인식 마커 관련 함수//
         if (!fader.activeInHierarchy && !isFaderOut)
         {
             image_SH.gameObject.SetActive(true);
             isFaderOut = true;
         }
+
+        if (isStageRecognize)
+        {
+            RecognizeSH_MH();
+        }
+        else
+        {
+            image_SH_Front.fillAmount = 0f;
+            timer_Recognize = 0;
+        }
+        // //
 
         if (_trackedImg.Count > 0)
         {
@@ -63,8 +75,8 @@ public class ARTrackedImg : MonoBehaviour
                     string name = _trackedImg[i].referenceImage.name;
                     _prefabDic[name].SetActive(false);
 
-                    int num = _trackedImg.IndexOf(tNumList[i]);
-                    _trackedImg.Remove(_trackedImg[num]);
+                    
+                    _trackedImg.Remove(_trackedImg[i]);
 
                     //setactive(false)된 게임오브젝트를 _trackedImg, _trackedTimer리스트에서 제거하기 위한 리스트에 저장
                     //tNumList.Add(_trackedImg[i]);
@@ -84,15 +96,7 @@ public class ARTrackedImg : MonoBehaviour
             //}
         }
 
-        if (isStageRecognize)
-        {
-            RecognizeSH_MH();
-        }
-        else
-        {
-            image_SH_Front.fillAmount = 0f;
-            timer_Recognize = 0;
-        }
+        
     }
     private void OnEnable()
     {
@@ -153,7 +157,7 @@ public class ARTrackedImg : MonoBehaviour
             isStageRecognize = true;
             //게임 오브젝트가 Circuit라면 한번만 출력을 하고 싶다.
             //출력된 회로가 마커가 있는 위치에 나오도록 하고 싶다.
-            if (!creatOnce)
+            if (!creatOnce && isFaderOut)
             {
                 if (image_SH_Front.fillAmount == 1)
                 {
