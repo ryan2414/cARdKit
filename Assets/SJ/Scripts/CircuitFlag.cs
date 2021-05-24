@@ -35,6 +35,14 @@ public class CircuitFlag : MonoBehaviour
     {
         if (!isClear)
         {
+            // 회로가 작동되면 게임 클리어 되기
+            if (CircuitManager_MH.instance.isCircuitActivated)
+            {
+                ClearUIActive_SJ.instance.isStageClear = true;
+                isClear = true;
+            }
+
+            /*
             //모든 파츠가 켜져있다면 게임 클리어 되기
             for (int i = 0; i < partsList.Count; i++)
             {
@@ -52,35 +60,33 @@ public class CircuitFlag : MonoBehaviour
             {
                 ClearUIActive_SJ.instance.isStageClear = true;
                 isClear = true;
-
-                
             }
+            */
         }
 
+        //[Header("클리어대화")]
+        //public GameObject img_SH;
+        //public GameObject img_ML;
+        //public GameObject txt_Sh;
+        //public GameObject txt_Ml;
+        //public GameObject UI_Clear;
+        //public GameObject btn_Clear;
+
+        ////클리어 조건을 만족하면 Clear UI와 대사를 띄운다
+        //IEnumerator IEClearUIActive()
+        //{
+        //    txt_Sh.SetActive(false);
+        //    txt_Ml.SetActive(false);
+        //    UI_Clear.SetActive(true);
+        //    yield return new WaitForSeconds(3f);
+
+
+        //    //클리어 UI ON
+        //    btn_Clear.SetActive(true);
+
+        //    //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
+        //    int _stageNum = FlagManager.instance.stageNum - 1;
+        //    FlagManager.instance.clearBool[_stageNum] = true;
+        //}
     }
-
-    //[Header("클리어대화")]
-    //public GameObject img_SH;
-    //public GameObject img_ML;
-    //public GameObject txt_Sh;
-    //public GameObject txt_Ml;
-    //public GameObject UI_Clear;
-    //public GameObject btn_Clear;
-
-    ////클리어 조건을 만족하면 Clear UI와 대사를 띄운다
-    //IEnumerator IEClearUIActive()
-    //{
-    //    txt_Sh.SetActive(false);
-    //    txt_Ml.SetActive(false);
-    //    UI_Clear.SetActive(true);
-    //    yield return new WaitForSeconds(3f);
-
-
-    //    //클리어 UI ON
-    //    btn_Clear.SetActive(true);
-
-    //    //스테이지가 클리어가 되면 그 스테이지가 클리어 됬다는 정보를 보내주고 싶다.
-    //    int _stageNum = FlagManager.instance.stageNum - 1;
-    //    FlagManager.instance.clearBool[_stageNum] = true;
-    //}
 }
