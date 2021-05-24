@@ -3979,7 +3979,7 @@ GameObject:
   - component: {fileID: 397968154}
   m_Layer: 0
   m_Name: MotorPotentiometerMarker
-  m_TagString: Resistance
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14592,7 +14592,7 @@ GameObject:
   - component: {fileID: 912881196}
   m_Layer: 0
   m_Name: PotentiometerMarker
-  m_TagString: Resistance
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27402,7 +27402,7 @@ GameObject:
   - component: {fileID: 1721229485}
   m_Layer: 0
   m_Name: MotorMarker
-  m_TagString: Resistance
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
