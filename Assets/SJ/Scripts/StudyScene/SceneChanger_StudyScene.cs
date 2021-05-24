@@ -9,7 +9,7 @@ public class SceneChanger_StudyScene : MonoBehaviour
     {
         //버튼을 누르면 스테이지 4 & 7 클리어 후 월드맵으로 이동
         int _stageNum = FlagManager.instance.stageNum;
-        if (_stageNum < 8)
+        if (_stageNum < 7)
         {
             FlagManager.instance.clearBool[_stageNum - 1] = true;
 

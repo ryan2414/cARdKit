@@ -2344,9 +2344,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 335395348}
-        m_TargetAssemblyTypeName: StudySceneManager, Assembly-CSharp
-        m_MethodName: OnClickToWorld
+      - m_Target: {fileID: 335395347}
+        m_TargetAssemblyTypeName: SceneChanger_StudyScene, Assembly-CSharp
+        m_MethodName: OnClickWorldBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
