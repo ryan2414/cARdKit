@@ -1066,6 +1066,8 @@ MonoBehaviour:
   - {fileID: 50475997}
   rightArrow: {fileID: 73549553}
   leftArrow: {fileID: 843136985}
+  image_R: {fileID: 290431353}
+  image_L: {fileID: 2045864435}
   UI_optionPanel: {fileID: 6530229336658863834}
 --- !u!114 &335395349
 MonoBehaviour:

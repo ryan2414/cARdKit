@@ -13,6 +13,9 @@ public class StudySceneManager : MonoBehaviour
     public Button rightArrow;
     public Button leftArrow;
 
+    public Image image_R;
+    public Image image_L;
+
     public GameObject UI_optionPanel;
     AudioSource clickSound;
     AudioSource sound_change;
@@ -48,14 +51,18 @@ public class StudySceneManager : MonoBehaviour
 
         leftArrow.interactable = true;
         rightArrow.interactable = true;
+        image_L.color = new Color(0.5660378f, 0.5660378f, 0.5660378f, 1);
+        image_R.color = new Color(0.5660378f, 0.5660378f, 0.5660378f, 1);
 
         if (index <= 0)
         {
             leftArrow.interactable = false;
+            image_L.color = new Color(0.5660378f, 0.5660378f, 0.5660378f, 0.5f);
         }
         if (index >= Pages.Length - 1)
         {
             rightArrow.interactable = false;
+            image_R.color = new Color(0.5660378f, 0.5660378f, 0.5660378f, 0.5f);
         }
     }
 
