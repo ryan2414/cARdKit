@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Billboard_SJ : MonoBehaviour
 {
-    Transform trn_cam;
-    Vector3 targetPos;
+    public GameObject Target;
+    public float speed;
+    float deltaSpeed;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        trn_cam = Camera.main.transform;
-    }
-
-    // Update is called once per frame
+    //Y축이 들리지 않고 회전만 하기를 원함
     void Update()
     {
-        //Y축이 들리지 않고 회전만 하기를 원함
-        //targetPos = new Vector3(trn_cam.transform.position.x, transform.position.y, trn_cam.transform.position.z);
-        //transform.LookAt(targetPos);
+        deltaSpeed += speed * Time.deltaTime;
 
-        transform.eulerAngles = new Vector3(0, Camera.main.transform.eulerAngles.y, 0);
+        transform.localPosition = Target.transform.localPosition + new Vector3 (0,- 50,-0.003f);
+
+        transform.localEulerAngles = new Vector3(0, deltaSpeed, 0);
+
     }
 }

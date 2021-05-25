@@ -13,13 +13,18 @@ public class CircuitFlag : MonoBehaviour
     //클리어에 필요한 파츠를 배열로 받아오기 위한 리스트
     public List<GameObject> partsList = new List<GameObject>();
     public List<bool> partsON = new List<bool>();
-
     //한 번만 조건을 만족하면 계속 클리어 창을 띄워 놓기 위한 플래그
     bool isClear;
+
+    public GameObject ClearArrow;
 
     private void Start()
     {
         //UI_Clear.SetActive(false);
+        if(ClearArrow != null)
+        {
+            ClearArrow.SetActive(false);
+        }
 
         //클리어에 필요한 파츠를 배열로 받아오기
         int partsCount = transform.Find("Parts").gameObject.transform.childCount;
@@ -42,7 +47,7 @@ public class CircuitFlag : MonoBehaviour
                 isClear = true;
             }
 
-            /*
+
             //모든 파츠가 켜져있다면 게임 클리어 되기
             for (int i = 0; i < partsList.Count; i++)
             {
@@ -56,12 +61,11 @@ public class CircuitFlag : MonoBehaviour
                 }
             }
 
-            if (!partsON.Contains(false))
+            if (!partsON.Contains(false) && ClearArrow != null)
             {
-                ClearUIActive_SJ.instance.isStageClear = true;
-                isClear = true;
+                ClearArrow.SetActive(true);
             }
-            */
+
         }
 
         //[Header("클리어대화")]
