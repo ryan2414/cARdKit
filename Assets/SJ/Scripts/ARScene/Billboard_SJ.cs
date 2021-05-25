@@ -17,7 +17,9 @@ public class Billboard_SJ : MonoBehaviour
     void Update()
     {
         //Y축이 들리지 않고 회전만 하기를 원함
-        targetPos = new Vector3(trn_cam.transform.position.x, transform.position.y, trn_cam.transform.position.z);
-        transform.LookAt(targetPos);
+        //targetPos = new Vector3(trn_cam.transform.position.x, transform.position.y, trn_cam.transform.position.z);
+        //transform.LookAt(targetPos);
+
+        transform.eulerAngles = new Vector3(0, Camera.main.transform.eulerAngles.y, 0);
     }
 }
