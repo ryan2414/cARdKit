@@ -35,6 +35,11 @@ public class Bulb_MH : MonoBehaviour
         TurnOnLight();
     }
 
+    private void OnEnable()
+    {
+        bulbLight.GetComponent<Light>().intensity = 0;
+    }
+
     private void OnDisable()
     {
         CircuitManager_MH.instance.NodeInitialize();
@@ -130,6 +135,14 @@ public class Bulb_MH : MonoBehaviour
             ParticleSystem.MainModule main = bulbLightParticle.main;
             particleStartSize = resist.ParticleStartSize();
             main.startSize = particleStartSize;
+            if (bulbLight.GetComponent<Light>().intensity > 1.6f)
+            {
+                CircuitManager_MH.instance.isStageClearSatisfied = true;
+            }
+            else
+            {
+                CircuitManager_MH.instance.isStageClearSatisfied = false;
+            }
         }
         else
         {

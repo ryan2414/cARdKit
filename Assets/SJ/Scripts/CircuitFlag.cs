@@ -36,7 +36,7 @@ public class CircuitFlag : MonoBehaviour
         if (!isClear)
         {
             // 회로가 작동되면 게임 클리어 되기
-            if (CircuitManager_MH.instance.isCircuitActivated)
+            if (CircuitManager_MH.instance.isCircuitActivated && CircuitManager_MH.instance.isStageClearSatisfied)
             {
                 ClearUIActive_SJ.instance.isStageClear = true;
                 isClear = true;

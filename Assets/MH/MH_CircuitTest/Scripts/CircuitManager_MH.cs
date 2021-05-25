@@ -14,6 +14,7 @@ public class CircuitManager_MH : MonoBehaviour
     #endregion
 
     public bool isCircuitActivated;
+    public bool isStageClearSatisfied;
 
     public float V_Total;
     public float R_Total;
@@ -28,6 +29,7 @@ public class CircuitManager_MH : MonoBehaviour
 
     private void Start()
     {
+        isStageClearSatisfied = false;
         interactionObject = new GameObject[10];
         FingerIdResetTo99(ref switchId);
         FingerIdResetTo99(ref potentiometerId);
