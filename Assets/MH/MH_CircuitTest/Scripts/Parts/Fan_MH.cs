@@ -35,6 +35,8 @@ public class Fan_MH : MonoBehaviour
     private void OnDisable()
     {
         CircuitManager_MH.instance.NodeInitialize();
+        diff = 0;
+        speedUp = 0;
     }
 
     void ConnectCheck()
@@ -136,7 +138,7 @@ public class Fan_MH : MonoBehaviour
                 spd = 1;
             }
 
-            speedUp = Mathf.Lerp(speedUp, spd, 0.004f);
+            speedUp = Mathf.Lerp(speedUp, spd, 0.006f);
 
             speed = new Vector3(0, speedUp, 0);
             turnningShaft.transform.Rotate(speed);
