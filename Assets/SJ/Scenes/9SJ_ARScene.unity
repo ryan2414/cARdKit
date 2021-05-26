@@ -5930,6 +5930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PotentionClearArrow
       objectReference: {fileID: 0}
+    - target: {fileID: 7887707064156166403, guid: b39c01f852c0ee940b329cde1c3560a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7887707064156166405, guid: b39c01f852c0ee940b329cde1c3560a6, type: 3}
       propertyPath: switch_MH
       value: 
@@ -32369,7 +32373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &237553267635268634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41581,7 +41585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1809656493612609352
 Transform:
   m_ObjectHideFlags: 0
@@ -50468,7 +50472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!23 &4178571905768746210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -50578,7 +50582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &4287185514808929969
 MonoBehaviour:
   m_ObjectHideFlags: 0

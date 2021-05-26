@@ -80,6 +80,7 @@ public class StageManager_WorldMap : MonoBehaviour
                 {
                     anim.SetTrigger("isStageClear");
                     PlayerPrefs.SetInt("ChapterClear", 2);
+                    isAllChapterClear = true;
                 }
 
             }
@@ -174,15 +175,18 @@ public class StageManager_WorldMap : MonoBehaviour
     public GameObject announcePanel;
     public AudioSource soundClick;
     bool isMenuOn;
-
+    bool isAllChapterClear;
     public void AnnounceThankyou()
     {
         if (!isMenuOn)
         {
-            soundClick.Play();
-            isMenuOn = true;
-            announcePanel.SetActive(true);
-            //OptionPanel.GetComponent<ScaleUp>().enabled = true;
+            if (isAllChapterClear)
+            {
+                soundClick.Play();
+                isMenuOn = true;
+                announcePanel.SetActive(true);
+                //OptionPanel.GetComponent<ScaleUp>().enabled = true;
+            }
         }
     }
 
