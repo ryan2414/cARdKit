@@ -141,6 +141,15 @@ public class Fan_MH : MonoBehaviour
             speed = new Vector3(0, speedUp, 0);
             turnningShaft.transform.Rotate(speed);
 
+            if (resist.V_fixed > 4.8f)
+            {
+                CircuitManager_MH.instance.isStageClearSatisfied = true;
+            }
+            else
+            {
+                CircuitManager_MH.instance.isStageClearSatisfied = false;
+            }
+
             #region #Rotation Check For When Stop
             record_rotation[0] = turnningShaft.transform.localEulerAngles.y;
             // diff가 - 350정도가 나오는 경우가 있음
@@ -152,7 +161,7 @@ public class Fan_MH : MonoBehaviour
             }
             record_rotation[2] = record_rotation[1];
             record_rotation[1] = record_rotation[0];
-            diff_ratio = diff * 0.0007f;
+            diff_ratio = diff * 0.0008f;
             #endregion
         }
         else

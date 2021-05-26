@@ -32633,7 +32633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b373346d810587941855b2b7e50573c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resistanceValue: 220
+  resistanceValue: 50
   turnningShaft: {fileID: 805840955692981539}
 --- !u!114 &805840954052124961
 MonoBehaviour:
@@ -32648,7 +32648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delta: 50
-  maxFanSpeed: 10
+  maxFanSpeed: 1700
   isParallel: 0
   maxIntensity: 0
   maxLightSize: 0
@@ -34768,7 +34768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b373346d810587941855b2b7e50573c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resistanceValue: 220
+  resistanceValue: 50
   turnningShaft: {fileID: 7571776407238121599}
 --- !u!114 &1094518128498881456
 MonoBehaviour:
@@ -34797,7 +34797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delta: 50
-  maxFanSpeed: 10
+  maxFanSpeed: 1700
   isParallel: 0
   maxIntensity: 0
   maxLightSize: 0
@@ -36638,7 +36638,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1199698825730124703
 MonoBehaviour:
   m_ObjectHideFlags: 0

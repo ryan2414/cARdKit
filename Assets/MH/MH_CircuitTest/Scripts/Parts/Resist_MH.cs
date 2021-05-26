@@ -70,7 +70,7 @@ public class Resist_MH : MonoBehaviour
     public float LightIntensity()
     {
         // Intensity  = (MaxIntensity x V_fixed) / (maxVoltage)
-        if(CircuitManager_MH.instance.V_Total <= 0)
+        if (CircuitManager_MH.instance.V_Total <= 0)
         {
             CircuitManager_MH.instance.V_Total = 1;
         }
@@ -106,7 +106,7 @@ public class Resist_MH : MonoBehaviour
             CircuitManager_MH.instance.V_Total = 1;
         }
         // speed  = (maxFanSpeed x V_fixed) / (maxVoltage)
-        float speed = (maxFanSpeed * V_fixed) / (CircuitManager_MH.instance.V_Total);
+        float speed = ((maxFanSpeed * Time.deltaTime) * V_fixed) / (CircuitManager_MH.instance.V_Total);
 
         return speed;
     }
