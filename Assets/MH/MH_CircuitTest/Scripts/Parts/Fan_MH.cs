@@ -13,6 +13,13 @@ public class Fan_MH : MonoBehaviour
 
     public GameObject turnningShaft;
 
+    // record_rotation: 0 -> current, 1 -> pre, 2 -> prepre
+    float[] record_rotation = new float[3];
+    float diff;
+    float diff_ratio;
+    float speedUp;
+    Vector3 speed;
+
     void Start()
     {
         nodeManager = GetComponent<NodeManager_MH>();
@@ -117,12 +124,7 @@ public class Fan_MH : MonoBehaviour
         }
     }
 
-    // record_rotation: 0 -> current, 1 -> pre, 2 -> prepre
-    float[] record_rotation = new float[3];
-    float diff;
-    float diff_ratio;
-    float speedUp;
-    Vector3 speed;
+
 
     void TurnOnFan()
     {
@@ -169,13 +171,14 @@ public class Fan_MH : MonoBehaviour
         else
         {
             resist.SetFixedVoltage();
-            turnningShaft.transform.Rotate((resist.FanSpeedDown(diff * 1.6f)));
+            //turnningShaft.transform.Rotate((resist.FanSpeedDown(diff * 1.6f)));
+            turnningShaft.transform.Rotate(Vector3.zero);
             turnningShaft.GetComponent<Rigidbody>().angularVelocity = turnningShaft.GetComponent<Rigidbody>().angularVelocity;
-            diff -= diff_ratio;
-            if (diff <= 0)
-            {
-                diff = 0;
-            }
+            //diff -= diff_ratio;
+            //if (diff <= 0)
+            //{
+            //    diff = 0;
+            //}
             speedUp = 0;
         }
     }
