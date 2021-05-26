@@ -46,6 +46,9 @@ public class StageManager_WorldMap : MonoBehaviour
             if (i > 0) btnStage[i].interactable = false;
         }
         UI_Finish.SetActive(false);
+
+        soundClick = GameObject.Find("ClickSound").GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -64,7 +67,7 @@ public class StageManager_WorldMap : MonoBehaviour
             {
                 //애니메이션은 데이터 남아있는 동안 한번만 실행하고 싶은데
                 clearStamp[i].GetComponentInChildren<KururingPang>().isStartAnim = true;
-                if(i < btnStage.Count - 1)
+                if (i < btnStage.Count - 1)
                 {
                     btnStage[i + 1].interactable = true;
                 }
@@ -73,11 +76,12 @@ public class StageManager_WorldMap : MonoBehaviour
                     anim.SetTrigger("isStageClear");
                     PlayerPrefs.SetInt("ChapterClear", 1);
                 }
-                if(FlagManager.instance.clearBool[6] == true && PlayerPrefs.GetInt("ChapterClear") == 1)
+                if (FlagManager.instance.clearBool[6] == true && PlayerPrefs.GetInt("ChapterClear") == 1)
                 {
                     anim.SetTrigger("isStageClear");
                     PlayerPrefs.SetInt("ChapterClear", 2);
                 }
+
             }
         }
     }
@@ -165,5 +169,37 @@ public class StageManager_WorldMap : MonoBehaviour
     }
 
 
+    // MH추가
+
+    public GameObject announcePanel;
+    public AudioSource soundClick;
+    bool isMenuOn;
+
+    public void AnnounceThankyou()
+    {
+        if (!isMenuOn)
+        {
+            soundClick.Play();
+            isMenuOn = true;
+            announcePanel.SetActive(true);
+            //OptionPanel.GetComponent<ScaleUp>().enabled = true;
+        }
+    }
+
+    public void OnClickX()
+    {
+        if (announcePanel.activeSelf == true)
+        {
+            soundClick.Play();
+            isMenuOn = false;
+            //OptionPanel.GetComponent<ScaleDown>().enabled = true;
+        }
+        else
+        {
+            soundClick.Play();
+            isMenuOn = false;
+            //HelpPanel.GetComponent<ScaleDown>().enabled = true;
+        }
+    }
 
 }
